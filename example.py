@@ -288,10 +288,11 @@ class App(ttk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("")
-
+    import os
+    print(os.path.exists("./themes/azure.tcl"))
     # Simply set the theme
-    root.tk.call("source", "azure.tcl")
-    root.tk.call("set_theme", "dark")
+    root.tk.call("source", "./themes/azure.tcl")
+    root.tk.call("set_theme", "light")
 
     app = App(root)
     app.pack(fill="both", expand=True)
