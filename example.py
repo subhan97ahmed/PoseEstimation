@@ -1,11 +1,3 @@
-"""
-Example script for testing the Azure ttk theme
-Author: rdbende
-License: MIT license
-Source: https://github.com/rdbende/ttk-widget-factory
-"""
-
-
 import tkinter as tk
 from tkinter import ttk
 
