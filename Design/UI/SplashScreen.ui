@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1194</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>-30</x>
+      <y>-3</y>
+      <width>1261</width>
+      <height>791</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/SS/PoseEstimation/Design/Images/splash screen.png);
+background-image-color:rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoginBtn">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>590</y>
+      <width>251</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#LoginBtn{
+border-radius: 5px;
+box-shadow: 0px 3px 6px #000000;
+border: 2px solid #000000;
+opacity: 1;
+font-family: Montserrat;
+font-size: 21px;
+font-weight: 800;
+color: #000000;
+background-color: #1EA3DC;
+}
+
+QPushButton#LoginBtn:hover{
+color: #000000 ;
+background-color: #13E1DE;
+}</string>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CreateAnAccount">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>650</y>
+      <width>134</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#CreateAnAccount{
+color: var(--unnamed-color-3cb44a);
+font: normal normal bold 14px Montserrat;
+color: #000000;
+opacity: 1;
+background-color: Transparent;
+ background-repeat: no-repeat;
+ border: none;
+ cursor: pointer;
+ overflow: hidden;
+ outline: none;
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Create an account</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>650</y>
+      <width>18</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">filter: opacity(0.4) drop-shadow(0 0 0 red); </string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>350</y>
+      <width>541</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1194</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="../../../psl/PSLToUrdu/Design/source.qrc"/>
+  <include location="../../../psl/PSLToUrdu/Design/CreateAnAccountIcon.qrc"/>
+  <include location="../../../psl/PSLToUrdu/Design/Source.qrc"/>
+ </resources>
+ <connections/>
+</ui>
