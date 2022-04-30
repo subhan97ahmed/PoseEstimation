@@ -6,9 +6,11 @@ import pyttsx3
 import threading
 import queue
 
+
 def sigmoid(x):
     sig = 1 / (1 + math.exp(-x))
     return sig
+
 
 # To play audio text-to-speech during execution
 class TTSThread(threading.Thread):
@@ -63,7 +65,7 @@ def startExercise(exerciseName):
 
         cap = cv2.VideoCapture(0)
         wrist_angle_wrist_curl = 130
-        ## Setup mediapipe instance
+        # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
             while cap.isOpened():
                 ret, frame = cap.read()
@@ -187,7 +189,7 @@ def startExercise(exerciseName):
                 #                                   mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                 #                                   )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -202,8 +204,8 @@ def startExercise(exerciseName):
         # hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
-        angle_thumb_flex = 135
-        ## Setup mediapipe instance
+        angle_thumb_flex = 125
+        # Setup mediapipe instance
         with mp_pose.Holistic(min_tracking_confidence=0.5, min_detection_confidence=0.5) as pose:
             while cap.isOpened():
                 ret, frame = cap.read()
@@ -318,7 +320,7 @@ def startExercise(exerciseName):
                 #                                   mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                 #                                   )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -437,7 +439,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -527,13 +529,16 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
 
-                cv2.imshow("Mediapipe Feed", image)
+                cv2.imshow("Exercise Feed", image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
             cap.release()
             cv2.destroyAllWindows()
             print("best angle was " + str(best_angle))
     elif exerciseName == "jumping jacks":
+        q.put("start doing jumping jacks")
+        # target angle for this exercise
+        target_angle = 0
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
@@ -566,9 +571,9 @@ def startExercise(exerciseName):
                                landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
 
                     r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,
-                               landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+                                  landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
                     l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
-                               landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+                                  landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
 
                     r_hip = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,
                              landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
@@ -580,9 +585,9 @@ def startExercise(exerciseName):
                     angleAtLShoulder = calculate_angle(l_hip, l_elbow, l_shoulder)
 
                     # Visualize angle
-                    if (angleAtRShoulder > 60):
-                        q.put("now back")
-                        cv2.putText(image, str("now back"),
+                    if angleAtRShoulder > 60:
+                        # q.put("do jumping jacks")
+                        cv2.putText(image, str("do jumping jacks"),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
                                     )
@@ -595,12 +600,11 @@ def startExercise(exerciseName):
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                                     )
 
-                    if (angleAtLShoulder > 60):
-                        q.put("now back")
-                        cv2.putText(image, str("now back"),
+                    if angleAtLShoulder > 60:
+                        # q.put("do jumping jacks")
+                        cv2.putText(image, str("do jumping jacks"),
                                     tuple(np.multiply(l_shoulder, [640, 480]).astype(int)),
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
-                                    )
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
                     else:
                         # clear queue of the text
                         with q.mutex:
@@ -615,18 +619,17 @@ def startExercise(exerciseName):
                     #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                     #                 )
                     # scoring to if the there is no diff between wrist_angle_wrist_curl(ex_angle) then score is 100%
-                    score = (1 / ((abs(abs(round(angleAtRShoulder, 2)) + 60)) + 1)) * 100
+                    score = (1 / ((abs(abs(round(angleAtRShoulder, 2)) - target_angle)) + 1)) * 100
                     if score > 100:
                         score = 100
-                    cv2.putText(image, "score: " + str(score),
+                    cv2.putText(image, "score: " + str(round(score, 2)),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                                 )
                     print(score)
-                    # print(landmarks)
                     # print(averageDis)
                     print("angleAtRwrist " + str(angleAtRShoulder))
-                    print("angleAtLwrist " + str(angleAtLShoulder))
+                    # print("angleAtLwrist " + str(angleAtLShoulder))
 
                 except:
                     pass
@@ -637,7 +640,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -680,7 +683,7 @@ def startExercise(exerciseName):
                     l_knee = [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x,
                               landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y]
 
-                    if (r_knee[1] > r_hip[1] and l_knee[1] > l_hip[1] ):
+                    if r_knee[1] > r_hip[1] and l_knee[1] > l_hip[1]:
                         q.put("Raise either right or left leg")
                         cv2.putText(image, str("Raise either right or left leg"),
                                     tuple(np.multiply(r_hip, [640, 480]).astype(int)),
@@ -690,7 +693,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    if (r_knee[1] < r_hip[1] or l_knee[1] < l_hip[1] ):
+                    if r_knee[1] < r_hip[1] or l_knee[1] < l_hip[1]:
                         q.put("Good job!")
                         cv2.putText(image, str("Good job!"),
                                     tuple(np.multiply(r_hip, [640, 480]).astype(int)),
@@ -705,9 +708,9 @@ def startExercise(exerciseName):
 
                     score = 0
                     if r_knee[1] < r_hip[1]:
-                        score = (r_hip[1] - r_knee[1])/0.001
+                        score = (r_hip[1] - r_knee[1]) / 0.001
                     if l_knee[1] < l_hip[1]:
-                        score = (l_hip[1] - l_knee[1])/0.001
+                        score = (l_hip[1] - l_knee[1]) / 0.001
                     if score > 100:
                         score = 100
                     cv2.putText(image, "score: " + str(score), (160, 50),
@@ -724,7 +727,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -757,15 +760,14 @@ def startExercise(exerciseName):
                     landmarks = results.pose_landmarks.landmark
                     # Get coordinates
                     nose = [landmarks[mp_pose.PoseLandmark.NOSE.value].x,
-                                  landmarks[mp_pose.PoseLandmark.NOSE.value].y]
+                            landmarks[mp_pose.PoseLandmark.NOSE.value].y]
                     print("Nose:", landmarks[mp_pose.PoseLandmark.NOSE.value].z)
                     r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,
-                             landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
+                                  landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
                     l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,
-                             landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
+                                  landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
 
                     angle = calculate_angle(r_shoulder, nose, l_shoulder)
-
 
                     if (angle < 13.6):
                         q.put("Raise both shoulders")
@@ -804,7 +806,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -843,9 +845,9 @@ def startExercise(exerciseName):
                                landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
 
                     r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,
-                               landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+                                  landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
                     l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
-                               landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
+                                  landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
 
                     r_hip = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,
                              landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
@@ -857,7 +859,7 @@ def startExercise(exerciseName):
                     angleAtLShoulder = calculate_angle(l_hip, l_elbow, l_shoulder)
 
                     # Visualize angle
-                    if (angleAtRShoulder > 80 or angleAtLShoulder > 80 ):
+                    if (angleAtRShoulder > 80 or angleAtLShoulder > 80):
                         q.put("Raise both arms to the shoulders")
                         cv2.putText(image, str("Raise both arms to the shoulders"),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -868,7 +870,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    if (angleAtRShoulder <= 80 and angleAtLShoulder <= 80 ):
+                    if (angleAtRShoulder <= 80 and angleAtLShoulder <= 80):
                         q.put("Good job! Now bring both arms down.")
                         cv2.putText(image, str("Good job! Now bring both arms down."),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -879,7 +881,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    score = 8000/((angleAtLShoulder+angleAtRShoulder)/2)
+                    score = 8000 / ((angleAtLShoulder + angleAtRShoulder) / 2)
                     if score > 100:
                         score = 100
                     cv2.putText(image, "score: " + str(score),
@@ -898,7 +900,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -944,11 +946,12 @@ def startExercise(exerciseName):
                     l_ankle = [landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].x,
                                landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].y]
 
-                    print("Right: " + str(sum([r_wrist[0]-r_ankle[0], r_wrist[1]-r_ankle[1]])))
-                    print("Left: " + str(sum([l_wrist[0]-l_ankle[0], l_wrist[1]-l_ankle[1]])))
+                    print("Right: " + str(sum([r_wrist[0] - r_ankle[0], r_wrist[1] - r_ankle[1]])))
+                    print("Left: " + str(sum([l_wrist[0] - l_ankle[0], l_wrist[1] - l_ankle[1]])))
 
                     # Visualize angle
-                    if (abs(sum([r_wrist[0]-r_ankle[0], r_wrist[1]-r_ankle[1]])) < 0.2 or abs(sum([l_wrist[0]-l_ankle[0], l_wrist[1]-l_ankle[1]])) < 0.2):
+                    if (abs(sum([r_wrist[0] - r_ankle[0], r_wrist[1] - r_ankle[1]])) < 0.2 or abs(
+                            sum([l_wrist[0] - l_ankle[0], l_wrist[1] - l_ankle[1]])) < 0.2):
                         q.put("Hold it right there, you have perfect form")
                         cv2.putText(image, str("Hold it right there, you have perfect form"),
                                     tuple(np.multiply(r_wrist, [640, 480]).astype(int)),
@@ -959,7 +962,8 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    if (abs(sum([r_wrist[0]-r_ankle[0], r_wrist[1]-r_ankle[1]])) > 0.2 and abs(sum([l_wrist[0]-l_ankle[0], l_wrist[1]-l_ankle[1]])) > 0.2):
+                    if (abs(sum([r_wrist[0] - r_ankle[0], r_wrist[1] - r_ankle[1]])) > 0.2 and abs(
+                            sum([l_wrist[0] - l_ankle[0], l_wrist[1] - l_ankle[1]])) > 0.2):
                         q.put("Bring your ankle to your wrist")
                         cv2.putText(image, str("Bring your ankle to your wrist"),
                                     tuple(np.multiply(r_wrist, [640, 480]).astype(int)),
@@ -970,8 +974,8 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-
-                    score = round(10/abs(sum([r_wrist[0]-r_ankle[0], r_wrist[1]-r_ankle[1]])) + 10/abs(sum([l_wrist[0]-l_ankle[0], l_wrist[1]-l_ankle[1]])), 1)
+                    score = round(10 / abs(sum([r_wrist[0] - r_ankle[0], r_wrist[1] - r_ankle[1]])) + 10 / abs(
+                        sum([l_wrist[0] - l_ankle[0], l_wrist[1] - l_ankle[1]])), 1)
                     if score > 100:
                         score = 100
                     cv2.putText(image, "score: " + str(score),
@@ -989,7 +993,7 @@ def startExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
 
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -1172,7 +1176,7 @@ def sessionExercise(exerciseName):
                                           mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
-                cv2.imshow('Mediapipe Feed', image)
+                cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     break
 
@@ -1186,7 +1190,8 @@ def sessionExercise(exerciseName):
             print(distance_between_r_thumb_r_pinky)
 
 
-exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug", "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[8]))
+exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
+                 "lateral raises", "quad stretch"]
+name = startExercise(str(exerciseNames[5]))
 print(name)
 # sessionExercise("thumb touch")
