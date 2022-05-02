@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="imagePath">
+    <file>register.png</file>
+    <file>splash-poses.png</file>
+  </qresource>
+</RCC>

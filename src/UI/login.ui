@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Anas</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Montserrat Medium</family>
+    <pointsize>10</pointsize>
+    <weight>7</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Posefect - login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*  {
+	background-color: rgb(255, 243, 224);
+	font: 57 10pt &quot;Montserrat Medium&quot;;
+}
+QGroupBox {
+	font-size: 16px;
+}
+QLineEdit, #mail_label, #pass_label {
+	padding: 10px 5px; 
+}
+QLineEdit {
+	border-bottom: 2px solid #c17900;
+	border-radius: 0;
+}
+QPushButton {
+	margin-top: 15px;
+	background-color: rgb(249, 168, 37);
+	padding: 12px;
+	border-radius: 20px;
+}
+QCommandLinkButton {
+	background-color: transparent;
+	text-align: center;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="inputMethodHints">
+    <set>Qt::ImhLowercaseOnly|Qt::ImhPreferUppercase</set>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>20</y>
+      <width>751</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Montserrat ExtraBold</family>
+         <pointsize>28</pointsize>
+         <weight>10</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 81 28pt &quot;Montserrat ExtraBold&quot;;</string>
+       </property>
+       <property name="text">
+        <string>POSEFECT</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>751</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/imagePath/splash-poses.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Login</string>
+       </property>
+       <widget class="QLabel" name="login_heading_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>351</width>
+          <height>44</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat ExtraBold</family>
+          <pointsize>24</pointsize>
+          <weight>10</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 81 24pt &quot;Montserrat ExtraBold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Welcome Back!</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="passwordEdit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>216</y>
+          <width>271</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="maxLength">
+         <number>1000</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="cursorPosition">
+         <number>0</number>
+        </property>
+        <property name="placeholderText">
+         <string>Enter your password</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="CreateAnAcc_3">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>370</y>
+          <width>161</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="toolTipDuration">
+         <number>300</number>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhTime</set>
+        </property>
+        <property name="text">
+         <string>Create an Account</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/icons.qrc">
+          <normaloff>:/iconPrefix/add-user.png</normaloff>:/iconPrefix/add-user.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="mail_label_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>170</y>
+          <width>56</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>203</x>
+          <y>300</y>
+          <width>161</width>
+          <height>57</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="toolTipDuration">
+         <number>300</number>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Login</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../icons/icons.qrc">
+          <normaloff>:/iconPrefix/move-right.png</normaloff>:/iconPrefix/move-right.png</iconset>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoRepeat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="emailEdit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>174</y>
+          <width>271</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="maxLength">
+         <number>1000</number>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="cursorPosition">
+         <number>0</number>
+        </property>
+        <property name="placeholderText">
+         <string>e.g. somemail@example.com</string>
+        </property>
+        <property name="cursorMoveStyle">
+         <enum>Qt::VisualMoveStyle</enum>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pass_label_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>210</y>
+          <width>82</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Password</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="8" margin="10"/>
+ <layoutfunction spacing="8" margin="8"/>
+ <resources>
+  <include location="../font/fonts.qrc"/>
+  <include location="../icons/icons.qrc"/>
+  <include location="../Images/images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

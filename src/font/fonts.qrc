@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="fontPath">
+    <file>Montserrat-VariableFont.ttf</file>
+  </qresource>
+</RCC>

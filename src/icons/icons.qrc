@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="iconPrefix">
+    <file>add-user.png</file>
+    <file>move-right.png</file>
+  </qresource>
+</RCC>
