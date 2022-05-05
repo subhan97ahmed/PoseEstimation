@@ -30,7 +30,7 @@
    <font>
     <family>Montserrat Medium</family>
     <pointsize>10</pointsize>
-    <weight>7</weight>
+    <weight>50</weight>
     <italic>false</italic>
     <bold>false</bold>
    </font>
@@ -39,30 +39,7 @@
    <string>Posefect - login</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*  {
-	background-color: rgb(255, 243, 224);
-	font: 57 10pt &quot;Montserrat Medium&quot;;
-}
-QGroupBox {
-	font-size: 16px;
-}
-QLineEdit, #mail_label, #pass_label {
-	padding: 10px 5px; 
-}
-QLineEdit {
-	border-bottom: 2px solid #c17900;
-	border-radius: 0;
-}
-QPushButton {
-	margin-top: 15px;
-	background-color: rgb(249, 168, 37);
-	padding: 12px;
-	border-radius: 20px;
-}
-QCommandLinkButton {
-	background-color: transparent;
-	text-align: center;
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="inputMethodHints">

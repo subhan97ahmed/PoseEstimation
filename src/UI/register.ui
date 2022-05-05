@@ -33,7 +33,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: rgb(255, 243, 224);
+	background-color: #e1f5fe;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {
@@ -387,7 +387,7 @@ QCommandLinkButton {
         <number>-1</number>
        </property>
        <property name="maxVisibleItems">
-        <number>3</number>F
+        <number>3</number>
        </property>
        <property name="minimumContentsLength">
         <number>2</number>
