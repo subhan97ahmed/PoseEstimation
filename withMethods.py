@@ -54,6 +54,13 @@ def calculate_angle(a, b, c):
     return angle
 
 
+def calculate_score(current_angle, target_angle):
+    score = (1 / ((abs(abs(round(current_angle, 2)) - target_angle)) + 1)) * 100
+    if score > 100:
+        score = 100
+    return score
+
+
 def startExercise(exerciseName):
     if exerciseName == "wrist curl":
         # for pose
@@ -156,9 +163,7 @@ def startExercise(exerciseName):
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                                     )
                     # scoring to if the there is no diff between wrist_angle_wrist_curl(ex_angle) then score is 100%
-                    score = (1 / ((abs(abs(round(angleAtRwrist, 2)) - wrist_angle_wrist_curl)) + 1)) * 100
-                    if score > 100:
-                        score = 100
+                    score = calculate_score(angleAtRwrist, wrist_angle_wrist_curl)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
@@ -286,9 +291,7 @@ def startExercise(exerciseName):
                     #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                     #                 )
                     # scoring to if the there is no diff between (ex_angle) and performed ex then score is 100%
-                    score = (1 / ((abs(abs(round(angleAtRthumbMCP, 2)) - angle_thumb_flex)) + 1)) * 100
-                    if score > 100:
-                        score = 100
+                    score = calculate_score(angleAtRthumbMCP, angle_thumb_flex)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
@@ -417,9 +420,7 @@ def startExercise(exerciseName):
                     #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                     #                 )
                     # scoring to if the there is no diff between wrist_angle_wrist_curl(ex_angle) then score is 100%
-                    score = (1 / ((abs(abs(round(angleAtRknee, 2)) - knee_angle_squat)) + 1)) * 100
-                    if score > 100:
-                        score = 100
+                    score = calculate_score(angleAtRknee, knee_angle_squat)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
@@ -538,7 +539,7 @@ def startExercise(exerciseName):
     elif exerciseName == "jumping jacks":
         q.put("start doing jumping jacks")
         # target angle for this exercise
-        target_angle = 0
+        jumping_jacks_target_angle = 0
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
@@ -619,9 +620,7 @@ def startExercise(exerciseName):
                     #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
                     #                 )
                     # scoring to if the there is no diff between wrist_angle_wrist_curl(ex_angle) then score is 100%
-                    score = (1 / ((abs(abs(round(angleAtRShoulder, 2)) - target_angle)) + 1)) * 100
-                    if score > 100:
-                        score = 100
+                    score = calculate_score(angleAtRShoulder, jumping_jacks_target_angle)
                     cv2.putText(image, "score: " + str(round(score, 2)),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
@@ -817,7 +816,7 @@ def startExercise(exerciseName):
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
-
+        lateral_raises_target_angle = 80
         cap = cv2.VideoCapture(0)
         # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
@@ -882,9 +881,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
                     # todo change this scoring method it does not work after testing
-                    score = 8000 / ((angleAtLShoulder + angleAtRShoulder) / 2)
-                    if score > 100:
-                        score = 100
+                    score = calculate_score(angleAtRShoulder,lateral_raises_target_angle)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
@@ -1193,6 +1190,6 @@ def sessionExercise(exerciseName):
 
 exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
                  "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[5]))
+name = startExercise(str(exerciseNames[0]))
 print(name)
 # sessionExercise("thumb touch")
