@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(-30, -3, 1261, 791))
-        self.label.setPixmap(QPixmap("../Design/Images/splash screen.png"))
+        self.label.setPixmap(QPixmap("../src/Images/splash screen.png"))
         self.label.setText("")
         self.label.setScaledContents(True)
         self.label.setObjectName("label")

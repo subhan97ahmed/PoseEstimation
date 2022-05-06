@@ -759,6 +759,7 @@ def startExercise(exerciseName):
                 try:
                     landmarks = results.pose_landmarks.landmark
                     # Get coordinates
+                    # todo wrong landmarks
                     nose = [landmarks[mp_pose.PoseLandmark.NOSE.value].x,
                             landmarks[mp_pose.PoseLandmark.NOSE.value].y]
                     print("Nose:", landmarks[mp_pose.PoseLandmark.NOSE.value].z)
@@ -769,7 +770,7 @@ def startExercise(exerciseName):
 
                     angle = calculate_angle(r_shoulder, nose, l_shoulder)
 
-                    if (angle < 13.6):
+                    if angle < 13.6:
                         q.put("Raise both shoulders")
                         cv2.putText(image, str("Raise both shoulders"),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -779,7 +780,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    if (angle >= 13.6):
+                    if angle >= 13.6:
                         q.put("Good job! Now bring them back down.")
                         cv2.putText(image, str("Good job! Now bring them back down."),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -859,7 +860,7 @@ def startExercise(exerciseName):
                     angleAtLShoulder = calculate_angle(l_hip, l_elbow, l_shoulder)
 
                     # Visualize angle
-                    if (angleAtRShoulder > 80 or angleAtLShoulder > 80):
+                    if angleAtRShoulder > 80 or angleAtLShoulder > 80:
                         q.put("Raise both arms to the shoulders")
                         cv2.putText(image, str("Raise both arms to the shoulders"),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -870,7 +871,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
 
-                    if (angleAtRShoulder <= 80 and angleAtLShoulder <= 80):
+                    if angleAtRShoulder <= 80 and angleAtLShoulder <= 80:
                         q.put("Good job! Now bring both arms down.")
                         cv2.putText(image, str("Good job! Now bring both arms down."),
                                     tuple(np.multiply(r_shoulder, [640, 480]).astype(int)),
@@ -880,7 +881,7 @@ def startExercise(exerciseName):
                         # clear queue of the text
                         with q.mutex:
                             q.queue.clear()
-
+                    # todo change this scoring method it does not work after testing
                     score = 8000 / ((angleAtLShoulder + angleAtRShoulder) / 2)
                     if score > 100:
                         score = 100
