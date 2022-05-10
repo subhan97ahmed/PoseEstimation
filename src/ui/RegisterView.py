@@ -5,9 +5,9 @@ class Ui_Register(object):
     def setupUi(self, Register):
         Register.setObjectName("Register")
         # set icons folder path here
-        QtCore.QDir.addSearchPath('icons', '../../icons/')
+        QtCore.QDir.addSearchPath('icons', '../../assets/icons/')
         # set images folder path here
-        QtCore.QDir.addSearchPath('images', '../../Images/')
+        QtCore.QDir.addSearchPath('images', '../../assets/Images/')
         Register.resize(800, 700)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
