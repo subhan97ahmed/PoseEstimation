@@ -1,13 +1,14 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+from src.utils.util import some_func
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        some_func()
         MainWindow.setObjectName("MainWindow")
         # set icons folder path here
-        QtCore.QDir.addSearchPath('icons', '../src/icons/')
+        QtCore.QDir.addSearchPath('icons', '../../icons/')
         # set images folder path here
-        QtCore.QDir.addSearchPath('images', '../src/Images/')
+        QtCore.QDir.addSearchPath('images', '../../Images/')
         MainWindow.setEnabled(True)
         MainWindow.resize(800, 600)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
