@@ -33,7 +33,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: rgb(255, 243, 224);
+	background-color: #e2f6ff;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {

@@ -2,7 +2,7 @@
 <ui version="4.0">
  <author>Anas</author>
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <widget class="QMainWindow" name="Login">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -40,7 +40,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: rgb(255, 243, 224);
+	background-color: #e2f6ff;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {

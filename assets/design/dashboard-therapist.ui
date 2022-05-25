@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dashboard</class>
+ <widget class="QWidget" name="Dashboard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1087</width>
+    <height>682</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Montserrat Medium</family>
+    <pointsize>10</pointsize>
+    <weight>7</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Posefect - Physiotherapist Dashboard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*  {
+	background-color: #e2f6ff;
+	font: 57 10pt &quot;Montserrat Medium&quot;;
+}
+QGroupBox {
+	font-size: 16px;
+}
+QLineEdit, #mail_label, #pass_label {
+	padding: 10px 5px;
+}
+QLineEdit {
+	border-bottom: 2px solid #c17900;
+	border-radius: 0;
+}
+QPushButton {
+	margin-top: 15px;
+	background-color: rgb(249, 168, 37);
+	padding: 12px;
+	border-radius: 20px;
+}
+QCommandLinkButton {
+	background-color: transparent;
+	text-align: center;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1081</width>
+     <height>765</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="DashboarLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>100</y>
+      <width>191</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat Medium</family>
+      <pointsize>-1</pointsize>
+      <weight>7</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 26px;</string>
+    </property>
+    <property name="text">
+     <string>DASHBOARD</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-30</x>
+      <y>0</y>
+      <width>161</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #fb8c00;
+border-radius: 15px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="Logolabel">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>62</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat ExtraBold</family>
+       <pointsize>-1</pointsize>
+       <weight>7</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-family: &quot;Montserrat ExtraBold&quot;;
+font-size: 22px;</string>
+     </property>
+     <property name="text">
+      <string notr="true">P F</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="indent">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QCommandLinkButton" name="commandLinkButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>260</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Home</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons/icons.qrc">
+       <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
+     </property>
+    </widget>
+    <widget class="QCommandLinkButton" name="commandLinkButton_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>310</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Treatments</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons/icons.qrc">
+       <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
+     </property>
+    </widget>
+    <widget class="QCommandLinkButton" name="commandLinkButton_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>360</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reports</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons/icons.qrc">
+       <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>-1</y>
+      <width>951</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="ProfilepushButton">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>23</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+margin: 0;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons/icons.qrc">
+       <normaloff>:/iconPrefix/user-profile.png</normaloff>:/iconPrefix/user-profile.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="UsernameLabel">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>40</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>USERNAME</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>DashboarLabel</zorder>
+   <zorder>frame_2</zorder>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+  <include location="../font/fonts.qrc"/>
+  <include location="../Images/images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

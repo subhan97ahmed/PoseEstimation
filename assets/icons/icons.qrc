@@ -1,6 +1,16 @@
 <RCC>
   <qresource prefix="iconPrefix">
+    <file>edit-profile.png</file>
+    <file>exercise.png</file>
+    <file>home.png</file>
+    <file>notification.png</file>
     <file>add-user.png</file>
+    <file>report.png</file>
+    <file>search.png</file>
+    <file>therapist.png</file>
+    <file>treatment.png</file>
+    <file>user.png</file>
+    <file>user-profile.png</file>
     <file>move-right.png</file>
   </qresource>
 </RCC>
