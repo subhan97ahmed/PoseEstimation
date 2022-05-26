@@ -762,10 +762,10 @@ def startExercise(exerciseName):
                     nose = [landmarks[mp_pose.PoseLandmark.NOSE.value].x,
                             landmarks[mp_pose.PoseLandmark.NOSE.value].y]
                     print("Nose:", landmarks[mp_pose.PoseLandmark.NOSE.value].z)
-                    r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,
-                                  landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
-                    l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,
-                                  landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y]
+                    r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,
+                                  landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+                    l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
+                                  landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
 
                     angle = calculate_angle(r_shoulder, nose, l_shoulder)
 
@@ -1190,6 +1190,6 @@ def sessionExercise(exerciseName):
 
 exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
                  "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[0]))
+name = startExercise(str(exerciseNames[6]))
 print(name)
 # sessionExercise("thumb touch")
