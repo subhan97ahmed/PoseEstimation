@@ -38,7 +38,6 @@ QLineEdit {
 	border-radius: 0;
 }
 QPushButton {
-	margin-top: 15px;
 	background-color: rgb(249, 168, 37);
 	padding: 12px;
 	border-radius: 20px;
