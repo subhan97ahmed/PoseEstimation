@@ -37,19 +37,6 @@ QPushButton {
 QCommandLinkButton {
 	background-color: transparent;
 	text-align: center;
-}
-
-#tr_1 {
-	border-radius: 10px;
-	background-color: #f0f4c3;
-}
-#tt_1 {
-	font-size: 18px;
-	background-color: transparent;
-}
-#td_1 {
-	font-size: 20px;
-	background-color: transparent;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget" native="true">
@@ -66,7 +53,7 @@ QCommandLinkButton {
      <rect>
       <x>180</x>
       <y>100</y>
-      <width>291</width>
+      <width>411</width>
       <height>61</height>
      </rect>
     </property>
@@ -257,7 +244,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tr_1" native="true">
+   <widget class="QWidget" name="patientCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -265,6 +252,11 @@ margin: 0;</string>
       <width>311</width>
       <height>201</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+background-color: #f0f4c3;
+</string>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -322,7 +314,7 @@ font-size: 14px;</string>
       <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="disease_1">
+    <widget class="QLabel" name="disease">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -343,7 +335,7 @@ font-size: 12px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="treatmentBtn">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -356,7 +348,9 @@ font-size: 12px;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">margin: 0;</string>
+      <string notr="true">margin: 0;
+background-color: #fb8c00;
+border-radius: 20px;</string>
      </property>
      <property name="text">
       <string>Treatment</string>
@@ -383,6 +377,31 @@ font-size: 12px;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QCommandLinkButton" name="addPatientBtn">
+    <property name="geometry">
+     <rect>
+      <x>894</x>
+      <y>110</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Add Patient</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../icons/icons.qrc">
+      <normaloff>:/iconPrefix/add-user.png</normaloff>:/iconPrefix/add-user.png</iconset>
+    </property>
+   </widget>
+   <zorder>TreatmentLabel</zorder>
+   <zorder>frame_4</zorder>
+   <zorder>patientCard</zorder>
+   <zorder>addPatientBtn</zorder>
+   <zorder>frame_3</zorder>
   </widget>
  </widget>
  <resources>
