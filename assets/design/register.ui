@@ -49,7 +49,6 @@ QLineEdit, QDateEdit, QComboBox {
 	cursor: pointer;
 }
 QPushButton {
-	margin-top: 15px;
 	background-color: rgb(249, 168, 37);
 	padding: 12px;
 	border-radius: 20px;
@@ -566,9 +565,9 @@ QCommandLinkButton {
         <property name="geometry">
          <rect>
           <x>190</x>
-          <y>396</y>
+          <y>416</y>
           <width>161</width>
-          <height>61</height>
+          <height>41</height>
          </rect>
         </property>
         <property name="cursor">

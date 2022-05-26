@@ -38,7 +38,6 @@ QLineEdit {
 	border-radius: 0;
 }
 QPushButton {
-	margin-top: 15px;
 	background-color: rgb(249, 168, 37);
 	padding: 12px;
 	border-radius: 20px;
@@ -50,13 +49,14 @@ QCommandLinkButton {
 
 #card_1, #card_2, #card_3 {
 	border-radius: 10px;
+	border: 2px solid #fb8c00;
 }
 #ct_1, #ct_2, #ct_3 {
-	font-size: 18px;
+	font-size: 16px;
 	background-color: transparent;
 }
 #cd_1, #cd_2, #cd_3 {
-	font-size: 20px;
+	font-size: 18px;
 	background-color: transparent;
 }
 #card_1 {
@@ -73,7 +73,7 @@ QCommandLinkButton {
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-6</y>
+     <y>-10</y>
      <width>1081</width>
      <height>771</height>
     </rect>
@@ -83,7 +83,7 @@ QCommandLinkButton {
      <rect>
       <x>180</x>
       <y>100</y>
-      <width>191</width>
+      <width>401</width>
       <height>61</height>
      </rect>
     </property>
@@ -299,7 +299,7 @@ margin: 0;</string>
     <widget class="QLabel" name="cd_1">
      <property name="geometry">
       <rect>
-       <x>19</x>
+       <x>20</x>
        <y>110</y>
        <width>191</width>
        <height>21</height>
@@ -318,7 +318,7 @@ margin: 0;</string>
      <rect>
       <x>430</x>
       <y>270</y>
-      <width>211</width>
+      <width>221</width>
       <height>151</height>
      </rect>
     </property>
@@ -327,18 +327,18 @@ margin: 0;</string>
       <rect>
        <x>21</x>
        <y>20</y>
-       <width>151</width>
+       <width>181</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>No. Of Patients</string>
+      <string>Active Patients</string>
      </property>
     </widget>
     <widget class="QLabel" name="cd_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>30</x>
        <y>110</y>
        <width>171</width>
        <height>21</height>
@@ -355,9 +355,9 @@ margin: 0;</string>
    <widget class="QWidget" name="card_3" native="true">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>680</x>
       <y>270</y>
-      <width>211</width>
+      <width>231</width>
       <height>151</height>
      </rect>
     </property>
@@ -366,18 +366,18 @@ margin: 0;</string>
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>151</width>
+       <width>201</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>No. Of Patients</string>
+      <string>Therapies Completed</string>
      </property>
     </widget>
     <widget class="QLabel" name="cd_3">
      <property name="geometry">
       <rect>
-       <x>9</x>
+       <x>30</x>
        <y>110</y>
        <width>181</width>
        <height>21</height>
@@ -391,12 +391,12 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <zorder>frame</zorder>
    <zorder>DashboarLabel</zorder>
    <zorder>frame_2</zorder>
    <zorder>card_2</zorder>
    <zorder>card_1</zorder>
    <zorder>card_3</zorder>
+   <zorder>frame</zorder>
   </widget>
  </widget>
  <resources>
