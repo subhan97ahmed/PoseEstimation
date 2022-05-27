@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>AddPatient</class>
+ <widget class="QWidget" name="AddPatient">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -50,8 +50,8 @@ QCommandLinkButton {
    <widget class="QLabel" name="TreatmentLabel">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>100</y>
+      <x>180</x>
+      <y>110</y>
       <width>411</width>
       <height>61</height>
      </rect>
@@ -75,8 +75,8 @@ QCommandLinkButton {
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>0</y>
+      <x>-20</x>
+      <y>20</y>
       <width>161</width>
       <height>691</height>
      </rect>
@@ -188,7 +188,7 @@ font-size: 22px;</string>
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>-1</y>
+      <y>10</y>
       <width>961</width>
       <height>101</height>
      </rect>
@@ -205,7 +205,7 @@ font-size: 22px;</string>
     <widget class="QPushButton" name="ProfilepushButton_2">
      <property name="geometry">
       <rect>
-       <x>850</x>
+       <x>840</x>
        <y>23</y>
        <width>51</width>
        <height>51</height>
@@ -232,7 +232,7 @@ margin: 0;</string>
     <widget class="QLabel" name="UsernameLabel_2">
      <property name="geometry">
       <rect>
-       <x>760</x>
+       <x>750</x>
        <y>40</y>
        <width>91</width>
        <height>21</height>
@@ -246,8 +246,8 @@ margin: 0;</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>170</y>
+      <x>180</x>
+      <y>180</y>
       <width>391</width>
       <height>161</height>
      </rect>
@@ -316,8 +316,8 @@ margin: 0;</string>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>350</y>
+      <x>180</x>
+      <y>370</y>
       <width>391</width>
       <height>271</height>
      </rect>
@@ -484,7 +484,7 @@ margin: 0;</string>
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>180</y>
+      <y>190</y>
       <width>391</width>
       <height>151</height>
      </rect>
@@ -604,7 +604,7 @@ font-size: 14px;</string>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../../../../../../Program Files (x86)/icons/icons.qrc"/>
+  <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
