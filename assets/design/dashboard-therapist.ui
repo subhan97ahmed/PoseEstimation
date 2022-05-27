@@ -33,9 +33,11 @@ QGroupBox {
 QLineEdit, #mail_label, #pass_label {
 	padding: 10px 5px;
 }
-QLineEdit {
+QLineEdit, QDateEdit, QComboBox {
 	border-bottom: 2px solid #c17900;
 	border-radius: 0;
+	padding: 10px 5px;
+	cursor: pointer;
 }
 QPushButton {
 	background-color: rgb(249, 168, 37);

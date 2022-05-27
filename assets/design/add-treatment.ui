@@ -24,9 +24,11 @@ QGroupBox {
 QLineEdit, #mail_label, #pass_label {
 	padding: 10px 5px;
 }
-QLineEdit {
+QLineEdit, QDateEdit, QComboBox, QSpinBox {
 	border-bottom: 2px solid #c17900;
 	border-radius: 0;
+	padding: 10px 5px;
+	cursor: pointer;
 }
 QPushButton {
 	background-color: rgb(249, 168, 37);
@@ -249,7 +251,7 @@ margin: 0;</string>
       <x>400</x>
       <y>320</y>
       <width>391</width>
-      <height>321</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="title">
@@ -259,13 +261,129 @@ margin: 0;</string>
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>270</y>
+       <y>240</y>
        <width>151</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
       <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="mail_label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exercise Name</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>30</y>
+       <width>251</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>81</y>
+       <width>251</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rep Count</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>131</y>
+       <width>251</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Angle (Degree)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Video Link</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="diagnose3">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>180</y>
+       <width>251</width>
+       <height>42</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>1000</number>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+     <property name="placeholderText">
+      <string>e.g. https://youtu.be/xxx</string>
+     </property>
+     <property name="cursorMoveStyle">
+      <enum>Qt::VisualMoveStyle</enum>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -379,7 +497,7 @@ font-size: 12px;</string>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../../../../../../../icons/icons.qrc"/>
+  <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
