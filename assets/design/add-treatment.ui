@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddPatient</class>
- <widget class="QWidget" name="AddPatient">
+ <class>addTreatment</class>
+ <widget class="QWidget" name="addTreatment">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Posefect - Physiotherapist Add Patient</string>
+   <string>Posefect - Physiotherapist Add Treatment</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
@@ -69,13 +69,13 @@ QCommandLinkButton {
      <string notr="true">font-size: 26px;</string>
     </property>
     <property name="text">
-     <string>Add Patient</string>
+     <string>Add Treatment</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>-30</x>
+      <x>-20</x>
       <y>20</y>
       <width>161</width>
       <height>691</height>
@@ -243,140 +243,23 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>180</y>
-      <width>391</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Search Patient</string>
-    </property>
-    <widget class="QLabel" name="mail_label_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Patient Email</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="patientEmail">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>38</y>
-       <width>281</width>
-       <height>42</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="maxLength">
-      <number>1000</number>
-     </property>
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. email@gmail.com</string>
-     </property>
-     <property name="cursorMoveStyle">
-      <enum>Qt::VisualMoveStyle</enum>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="searchPatientBtn">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>100</y>
-       <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Search</string>
-     </property>
-    </widget>
-   </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>370</y>
+      <x>400</x>
+      <y>320</y>
       <width>391</width>
-      <height>271</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="title">
-     <string>Initial Diagnoses</string>
+     <string>Add Exercise</string>
     </property>
-    <widget class="QLabel" name="mail_label_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Diagnose 1</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="diagnose1">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>38</y>
-       <width>291</width>
-       <height>42</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>1000</number>
-     </property>
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Rotatory cuff</string>
-     </property>
-     <property name="cursorMoveStyle">
-      <enum>Qt::VisualMoveStyle</enum>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="AddPatientBtn">
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>210</y>
+       <y>270</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -385,108 +268,14 @@ margin: 0;</string>
       <string>Add</string>
      </property>
     </widget>
-    <widget class="QLabel" name="mail_label_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>92</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Diagnose 2</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="diagnose2">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>90</y>
-       <width>291</width>
-       <height>42</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>1000</number>
-     </property>
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Rotatory cuff</string>
-     </property>
-     <property name="cursorMoveStyle">
-      <enum>Qt::VisualMoveStyle</enum>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="diagnose3">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>148</y>
-       <width>291</width>
-       <height>42</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>1000</number>
-     </property>
-     <property name="frame">
-      <bool>true</bool>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Rotatory cuff</string>
-     </property>
-     <property name="cursorMoveStyle">
-      <enum>Qt::VisualMoveStyle</enum>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="mail_label_10">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>150</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Diagnose 3</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="patientCard_2" native="true">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>190</y>
+      <x>400</x>
+      <y>170</y>
       <width>391</width>
-      <height>151</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -542,23 +331,6 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_6">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>110</y>
-       <width>211</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 14px;</string>
-     </property>
-     <property name="text">
-      <string>18</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="patient_age_7">
      <property name="geometry">
       <rect>
@@ -573,38 +345,41 @@ font-size: 14px;</string>
 font-size: 14px;</string>
      </property>
      <property name="text">
-      <string>email@gmail.com</string>
+      <string>18 age</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_8">
+    <widget class="QLabel" name="disease">
      <property name="geometry">
       <rect>
        <x>80</x>
        <y>80</y>
-       <width>211</width>
-       <height>21</height>
+       <width>101</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 14px;</string>
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
      </property>
      <property name="text">
-      <string>03451234XXX</string>
+      <string>Rotatory cuff</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
-   <zorder>groupBox</zorder>
    <zorder>groupBox_2</zorder>
    <zorder>patientCard_2</zorder>
   </widget>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../icons/icons.qrc"/>
+  <include location="../../../../../../../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
