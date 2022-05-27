@@ -1,7 +1,8 @@
-numpy~=1.22.3
-opencv-python==4.5.5.64
-pyttsx3==2.90
+firebase_admin==5.2.0
 mediapipe==0.8.9.1
+numpy==1.22.3
+opencv_contrib_python==4.5.5.64
+Pillow==9.1.1
 PyQt6==6.3.0
-future==0.18.2
-Pillow==9.1.0
+pyqtgraph==0.12.4
+pyttsx3==2.90
