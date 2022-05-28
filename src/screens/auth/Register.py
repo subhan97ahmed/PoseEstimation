@@ -1,17 +1,17 @@
 import sys
 from src.ui.RegisterView import Ui_Register
-from PyQt5 import QtWidgets, QtCore, QtGui
-from src.utils.util import some_func
+from PyQt5 import QtWidgets
+
+from src.utils.util import center
 
 
 class Register(QtWidgets.QWidget):
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
     def __init__(self, parent=None):
         super(Register, self).__init__(parent=parent)
 
         self.ui = Ui_Register()
         self.ui.setupUi(self)
+        center(self)
 
         # button click method for screen change
         # self.ui.CreateAnAcc_3.clicked.connect(self.LoginScreen)
