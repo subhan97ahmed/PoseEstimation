@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>680</height>
+    <width>1025</width>
+    <height>667</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,8 +65,8 @@ QCommandLinkButton {
     <rect>
      <x>0</x>
      <y>-10</y>
-     <width>1081</width>
-     <height>771</height>
+     <width>1024</width>
+     <height>680</height>
     </rect>
    </property>
    <widget class="QFrame" name="frame">
@@ -243,8 +243,8 @@ margin: 0;</string>
    <widget class="QWidget" name="card_1" native="true">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>250</y>
+      <x>360</x>
+      <y>180</y>
       <width>391</width>
       <height>231</height>
      </rect>
@@ -259,7 +259,7 @@ margin: 0;</string>
       </rect>
      </property>
      <property name="text">
-      <string>Exercises Prescribed</string>
+      <string>Exercise Name</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton">
@@ -272,7 +272,7 @@ margin: 0;</string>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Start Exercise</string>
      </property>
     </widget>
    </widget>
@@ -301,10 +301,47 @@ margin: 0;</string>
      <string>Prescribed Exercises</string>
     </property>
    </widget>
+   <widget class="QWidget" name="card_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>440</y>
+      <width>391</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="ct_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exercise Name</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>244</x>
+       <y>172</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start Exercise</string>
+     </property>
+    </widget>
+   </widget>
    <zorder>frame_2</zorder>
    <zorder>card_1</zorder>
    <zorder>frame</zorder>
    <zorder>DashboarLabel_2</zorder>
+   <zorder>card_2</zorder>
   </widget>
  </widget>
  <resources>
