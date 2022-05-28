@@ -1,1 +1,2 @@
-command: pyuic6 -x pathInputFile.ui -o pathOutputFile.py
+command: pyuic5 -x pathInputFile.ui -o pathOutputFile.py
+qrc to .py pyrcc5 -py3 paythInputFile.qrc -o icon_rc.py
