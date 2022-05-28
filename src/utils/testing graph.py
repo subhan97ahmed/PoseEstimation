@@ -1,5 +1,5 @@
 # coding=utf-8
-from PyQt6 import QtWidgets
+from PyQt5 import QtWidgets
 import pyqtgraph as pg
 import sys  # We need sys so that we can pass argv to QApplication
 
