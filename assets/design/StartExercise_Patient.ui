@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TherapistReports</class>
- <widget class="QWidget" name="TherapistReports">
+ <class>StartExercise_Patient</class>
+ <widget class="QWidget" name="StartExercise_Patient">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Posefect - Physiotherapist Reports</string>
+   <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
@@ -24,11 +24,9 @@ QGroupBox {
 QLineEdit, #mail_label, #pass_label {
 	padding: 10px 5px;
 }
-QLineEdit, QDateEdit, QComboBox, QSpinBox {
+QLineEdit {
 	border-bottom: 2px solid #c17900;
 	border-radius: 0;
-	padding: 10px 5px;
-	cursor: pointer;
 }
 QPushButton {
 	background-color: rgb(249, 168, 37);
@@ -38,49 +36,46 @@ QPushButton {
 QCommandLinkButton {
 	background-color: transparent;
 	text-align: center;
+}
+
+#card_1, #card_2, #card_3 {
+	border-radius: 10px;
+	border: 2px solid #fb8c00;
+}
+#ct_1, #ct_2, #ct_3 {
+	font-size: 16px;
+	background-color: transparent;
+}
+#cd_1, #cd_2, #cd_3 {
+	font-size: 18px;
+	background-color: transparent;
+}
+#card_1 {
+	background-color: #f0f4c3;
+}
+#card_2 {
+	background-color: #d1c4e9;
+}
+#card_3 {
+	background-color: #ffcdd2;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
-     <width>1081</width>
-     <height>771</height>
+     <y>0</y>
+     <width>1024</width>
+     <height>680</height>
     </rect>
    </property>
-   <widget class="QLabel" name="TreatmentLabel">
+   <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>110</y>
-      <width>411</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat Medium</family>
-      <pointsize>-1</pointsize>
-      <weight>7</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size: 26px;</string>
-    </property>
-    <property name="text">
-     <string>Patients Report</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_3">
-    <property name="geometry">
-     <rect>
-      <x>-20</x>
-      <y>10</y>
+      <x>-30</x>
+      <y>0</y>
       <width>161</width>
-      <height>691</height>
+      <height>711</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -93,7 +88,7 @@ border-radius: 15px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="Logolabel_2">
+    <widget class="QLabel" name="Logolabel">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -119,7 +114,7 @@ border-radius: 15px;</string>
 font-size: 22px;</string>
      </property>
      <property name="text">
-      <string notr="true">PF</string>
+      <string notr="true">P F</string>
      </property>
      <property name="textFormat">
       <enum>Qt::AutoText</enum>
@@ -134,7 +129,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_4">
+    <widget class="QCommandLinkButton" name="commandLinkButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -151,24 +146,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_5">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>310</y>
-       <width>121</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Treatments</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../icons/icons.qrc">
-       <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
-     </property>
-    </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_6">
+    <widget class="QCommandLinkButton" name="commandLinkButton_3">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -185,12 +163,29 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
      </property>
     </widget>
+    <widget class="QCommandLinkButton" name="commandLinkButton_7">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>310</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exercises</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons/icons.qrc">
+       <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
+     </property>
+    </widget>
    </widget>
-   <widget class="QFrame" name="frame_4">
+   <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>10</y>
+      <y>-1</y>
       <width>961</width>
       <height>101</height>
      </rect>
@@ -204,11 +199,11 @@ font-size: 22px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="ProfilepushButton_2">
+    <widget class="QPushButton" name="ProfilepushButton">
      <property name="geometry">
       <rect>
        <x>840</x>
-       <y>23</y>
+       <y>30</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -231,7 +226,7 @@ margin: 0;</string>
       </size>
      </property>
     </widget>
-    <widget class="QLabel" name="UsernameLabel_2">
+    <widget class="QLabel" name="UsernameLabel">
      <property name="geometry">
       <rect>
        <x>750</x>
@@ -245,145 +240,64 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard_2" native="true">
+   <widget class="QLabel" name="DashboarLabel_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>180</y>
-      <width>301</width>
-      <height>191</height>
+      <x>160</x>
+      <y>120</y>
+      <width>401</width>
+      <height>61</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius: 10px;
-background-color: #f0f4c3;
-
-</string>
+    <property name="font">
+     <font>
+      <family>Montserrat Medium</family>
+      <pointsize>-1</pointsize>
+      <weight>7</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
     </property>
-    <widget class="QLabel" name="label_3">
+    <property name="styleSheet">
+     <string notr="true">font-size: 26px;</string>
+    </property>
+    <property name="text">
+     <string>[Current Exercise Name]</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>200</y>
+      <width>781</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>61</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-width: 20px;
-height: auto</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::RichText</enum>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../icons/icons.qrc">:/iconPrefix/treatment.png</pixmap>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="patient_name_3">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>20</y>
-       <width>211</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 16px;</string>
-     </property>
-     <property name="text">
-      <string>Patient Name</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="patient_age_6">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>110</y>
-       <width>211</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 14px;</string>
-     </property>
-     <property name="text">
-      <string>18</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="patient_age_7">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>50</y>
-       <width>211</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 14px;</string>
-     </property>
-     <property name="text">
-      <string>email@gmail.com</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="patient_age_8">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>211</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-font-size: 14px;</string>
-     </property>
-     <property name="text">
-      <string>03451234XXX</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="AddPatientBtn">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>140</y>
-       <width>151</width>
+       <x>650</x>
+       <y>352</y>
+       <width>121</width>
        <height>41</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(249, 168, 37);
-border-radius: 20px;</string>
-     </property>
      <property name="text">
-      <string>Add</string>
+      <string>Done</string>
      </property>
     </widget>
    </widget>
-   <zorder>TreatmentLabel</zorder>
-   <zorder>frame_4</zorder>
-   <zorder>frame_3</zorder>
-   <zorder>patientCard_2</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>frame</zorder>
+   <zorder>DashboarLabel_2</zorder>
+   <zorder>groupBox</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="../icons/icons.qrc"/>
   <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
