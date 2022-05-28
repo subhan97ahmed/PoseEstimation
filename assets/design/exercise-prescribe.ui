@@ -37,28 +37,7 @@ QCommandLinkButton {
 	background-color: transparent;
 	text-align: center;
 }
-
-#card_1, #card_2, #card_3 {
-	border-radius: 10px;
-	border: 2px solid #fb8c00;
-}
-#ct_1, #ct_2, #ct_3 {
-	font-size: 16px;
-	background-color: transparent;
-}
-#cd_1, #cd_2, #cd_3 {
-	font-size: 18px;
-	background-color: transparent;
-}
-#card_1 {
-	background-color: #f0f4c3;
-}
-#card_2 {
-	background-color: #d1c4e9;
-}
-#card_3 {
-	background-color: #ffcdd2;
-}</string>
+</string>
   </property>
   <widget class="QWidget" name="centralwidget" native="true">
    <property name="geometry">
@@ -240,39 +219,77 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_1" native="true">
+   <widget class="QWidget" name="exerciseCard" native="true">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>180</y>
-      <width>391</width>
-      <height>231</height>
+      <x>160</x>
+      <y>190</y>
+      <width>331</width>
+      <height>151</height>
      </rect>
     </property>
-    <widget class="QLabel" name="ct_1">
+    <property name="styleSheet">
+     <string notr="true">background-color: #f0f4c3;
+border-radius: 10px;</string>
+    </property>
+    <widget class="QLabel" name="exerciseName">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>90</x>
        <y>20</y>
-       <width>171</width>
-       <height>41</height>
+       <width>221</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
       <string>Exercise Name</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="startExerciseBtn">
      <property name="geometry">
       <rect>
-       <x>244</x>
-       <y>172</y>
+       <x>190</x>
+       <y>100</y>
        <width>131</width>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 20px;
+background-color: rgb(249, 168, 37);
+</string>
+     </property>
      <property name="text">
       <string>Start Exercise</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/iconPrefix/exercise.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="repCount">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>50</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rep x</string>
      </property>
     </widget>
    </widget>
@@ -301,47 +318,10 @@ margin: 0;</string>
      <string>Prescribed Exercises</string>
     </property>
    </widget>
-   <widget class="QWidget" name="card_2" native="true">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>440</y>
-      <width>391</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <widget class="QLabel" name="ct_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>171</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Exercise Name</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="geometry">
-      <rect>
-       <x>244</x>
-       <y>172</y>
-       <width>131</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Start Exercise</string>
-     </property>
-    </widget>
-   </widget>
    <zorder>frame_2</zorder>
-   <zorder>card_1</zorder>
+   <zorder>exerciseCard</zorder>
    <zorder>frame</zorder>
    <zorder>DashboarLabel_2</zorder>
-   <zorder>card_2</zorder>
   </widget>
  </widget>
  <resources>
