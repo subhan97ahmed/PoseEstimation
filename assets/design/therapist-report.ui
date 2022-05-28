@@ -467,7 +467,7 @@ font-size: 14px;</string>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../../../../../../Program Files (x86)/icons/icons.qrc"/>
+  <include location="../icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
