@@ -33,6 +33,9 @@ class Register(QtWidgets.QWidget):
         self.window2.show()
         self.close()
 
+    #def RegisterClick(self):
+     #   self.pushButton_4.clicked.connect(self.on_Click)
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
