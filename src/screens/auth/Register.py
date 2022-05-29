@@ -16,6 +16,9 @@ class Register(QWidget):
         # button click method for screen change
         self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
 
+    #def RegisterClick(self):
+     #   self.pushButton_4.clicked.connect(self.on_Click)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

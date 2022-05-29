@@ -181,120 +181,119 @@ font-size: 22px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QGroupBox" name="exerciseFeedGrBox">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>-1</y>
-      <width>961</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QPushButton" name="ProfilepushButton">
-     <property name="geometry">
-      <rect>
-       <x>840</x>
-       <y>30</y>
-       <width>51</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-margin: 0;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="../icons/icons.qrc">
-       <normaloff>:/iconPrefix/user-profile.png</normaloff>:/iconPrefix/user-profile.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QLabel" name="UsernameLabel">
-     <property name="geometry">
-      <rect>
-       <x>750</x>
-       <y>40</y>
-       <width>91</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>USERNAME</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="DashboarLabel_2">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>120</y>
-      <width>401</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat Medium</family>
-      <pointsize>-1</pointsize>
-      <weight>7</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font-size: 26px;</string>
-    </property>
-    <property name="text">
-     <string>[Current Exercise Name]</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>200</y>
-      <width>781</width>
-      <height>411</height>
+      <x>170</x>
+      <y>220</y>
+      <width>801</width>
+      <height>391</height>
      </rect>
     </property>
     <property name="title">
      <string/>
     </property>
-    <widget class="QPushButton" name="pushButton">
+   </widget>
+   <widget class="QWidget" name="StartexerciseCard" native="true">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>10</y>
+      <width>381</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f0f4c3;
+border-radius: 10px;</string>
+    </property>
+    <widget class="QLabel" name="exerciseName">
      <property name="geometry">
       <rect>
-       <x>650</x>
-       <y>352</y>
-       <width>121</width>
-       <height>41</height>
+       <x>90</x>
+       <y>20</y>
+       <width>221</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Done</string>
+      <string>Exercise Name</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="startExerciseBtn">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>140</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 20px;
+background-color: rgb(249, 168, 37);
+</string>
+     </property>
+     <property name="text">
+      <string>Start Exercise</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="runningman">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/iconPrefix/exercise.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="repCount">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>50</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rep x</string>
      </property>
     </widget>
    </widget>
-   <zorder>frame_2</zorder>
-   <zorder>frame</zorder>
-   <zorder>DashboarLabel_2</zorder>
-   <zorder>groupBox</zorder>
+   <widget class="QPushButton" name="doneBtn">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>630</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Done</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="ExampleVidBox">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>10</y>
+      <width>371</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
