@@ -19,6 +19,15 @@ class App(QMainWindow):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+        # initialize screens instances accordingly
+        if user_type_x == 'therapist':
+            print('test 1')
+        elif user_type_x == 'patient':
+            print('test 2')
+        else:
+            self.screen_login = Login.Login(self)
+            self.screen_register = Register.Register(self)
+
         # for navigation
         self.stacked = QStackedWidget()
         self.setCentralWidget(self.stacked)
@@ -28,20 +37,24 @@ class App(QMainWindow):
 
     def init_screen(self, user_type: str = ''):
         if user_type.lower() == 'therapist':
+            self.stacked.removeWidget(self.screen_login)
+            self.stacked.removeWidget(self.screen_register)
+
             # self.stacked.addWidget(self.)
             print('therapist')
 
         elif user_type.lower() == 'patient':
+            self.stacked.removeWidget(self.screen_login)
+            self.stacked.removeWidget(self.screen_register)
+
             # self.stacked.addWidget(self.)
             print('patient')
 
         else:
-            login = Login.Login(self)
-            register = Register.Register(self)
-            self.stacked.addWidget(login)
-            self.stacked.addWidget(register)
+
+            self.stacked.addWidget(self.screen_login)
+            self.stacked.addWidget(self.screen_register)
             print('auth')
-            print('screen: ' + self.stacked.currentWidget().objectName() + ' ' + str(self.stacked.currentIndex()))
 
     def go_to_login(self):
         self.stacked.setCurrentIndex(0)
