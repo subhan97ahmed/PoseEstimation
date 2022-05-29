@@ -2,7 +2,7 @@
 # Connect firebase here. So, we can have an auth key and point the redirection
 # either patient or physiotherapist
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QDesktopWidget
 from firebase_admin import auth
 from src.screens.auth import Login, Register
 
@@ -12,6 +12,14 @@ user_type_x = ''
 class App(QMainWindow):
     def __init__(self):
         super(App, self).__init__()
+        # for centering view
+        self.setStyleSheet("background-color: #e2f6ff;")
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+        # for navigation
         self.stacked = QStackedWidget()
         self.setCentralWidget(self.stacked)
         # init is responsible for opening screens per role base
