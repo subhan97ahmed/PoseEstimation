@@ -141,7 +141,6 @@ class Ui_Login(object):
         self.pass_label_3.setGeometry(QtCore.QRect(10, 210, 71, 42))
         self.pass_label_3.setObjectName("pass_label_3")
         self.horizontalLayout.addWidget(self.groupBox)
-        Login.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Login)
         QtCore.QMetaObject.connectSlotsByName(Login)
@@ -170,7 +169,7 @@ if __name__ == "__main__":
     import sys
 
     app = QtWidgets.QApplication(sys.argv)
-    Login = QtWidgets.QMainWindow()
+    Login = QtWidgets.QWidget()
     ui = Ui_Login()
     ui.setupUi(Login)
     Login.show()
