@@ -134,7 +134,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="homeButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -151,7 +151,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="treatmentButton">
+    <widget class="QCommandLinkButton" name="TreatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -168,7 +168,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="reportButton">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -245,7 +245,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="addExerciseCombo">
+   <widget class="QGroupBox" name="AddExerciseCombo">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -432,7 +432,7 @@ height: auto</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="patientName">
+    <widget class="QLabel" name="PatientName">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -449,7 +449,7 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patientAge">
+    <widget class="QLabel" name="PatientAge">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -491,7 +491,7 @@ font-size: 12px;</string>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
-   <zorder>addExerciseCombo</zorder>
+   <zorder>AddExerciseCombo</zorder>
    <zorder>patientCard_2</zorder>
   </widget>
  </widget>

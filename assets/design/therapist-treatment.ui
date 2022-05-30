@@ -132,7 +132,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="homeButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -149,7 +149,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="treatmentButton">
+    <widget class="QCommandLinkButton" name="TreatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -166,7 +166,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="reportButton">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -243,7 +243,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard" native="true">
+   <widget class="QWidget" name="PatientCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -279,7 +279,7 @@ background-color: #f0f4c3;
       <pixmap resource="../icons/icons.qrc">:/iconPrefix/user.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_name">
+    <widget class="QLabel" name="Patient_name">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -296,7 +296,7 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age">
+    <widget class="QLabel" name="Patient_age">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -334,7 +334,7 @@ font-size: 12px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="treatmentBtn">
+    <widget class="QPushButton" name="TreatmentBtn">
      <property name="geometry">
       <rect>
        <x>172</x>
@@ -376,7 +376,7 @@ border-radius: 20px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QCommandLinkButton" name="addPatientBtn">
+   <widget class="QCommandLinkButton" name="AddPatientBtn">
     <property name="geometry">
      <rect>
       <x>894</x>
@@ -398,8 +398,8 @@ border-radius: 20px;</string>
    </widget>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
-   <zorder>patientCard</zorder>
-   <zorder>addPatientBtn</zorder>
+   <zorder>PatientCard</zorder>
+   <zorder>AddPatientBtn</zorder>
    <zorder>frame_3</zorder>
   </widget>
  </widget>

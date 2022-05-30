@@ -108,7 +108,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="homeButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -125,7 +125,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="reportButton">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -142,7 +142,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="treatmentButton">
+    <widget class="QCommandLinkButton" name="TreatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -232,7 +232,7 @@ margin: 0;</string>
      <string notr="true">background-color: #f0f4c3;
 border-radius: 10px;</string>
     </property>
-    <widget class="QLabel" name="exerciseName">
+    <widget class="QLabel" name="ExerciseName">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -245,7 +245,7 @@ border-radius: 10px;</string>
       <string>Exercise Name</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="startExerciseBtn">
+    <widget class="QPushButton" name="StartExerciseBtn">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -279,7 +279,7 @@ background-color: rgb(249, 168, 37);
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/iconPrefix/exercise.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="repCount">
+    <widget class="QLabel" name="RepCount">
      <property name="geometry">
       <rect>
        <x>90</x>

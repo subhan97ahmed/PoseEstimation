@@ -38,7 +38,7 @@ QCommandLinkButton {
 	text-align: center;
 }
 
-#card_1, #card_2, #card_3 {
+#NextAppointmentCard, #NoOfExCompletedCard, #PrescribedExCard {
 	border-radius: 10px;
 	border: 2px solid #fb8c00;
 }
@@ -46,17 +46,63 @@ QCommandLinkButton {
 	font-size: 16px;
 	background-color: transparent;
 }
-#cd_1, #cd_2, #cd_3 {
+#NextAppointmentCard, #NoOfExCompletedCard, #PrescribedExCard {
 	font-size: 18px;
 	background-color: transparent;
 }
-#card_1 {
+#NextAppointmentCard {
 	background-color: #f0f4c3;
 }
-#card_2 {
+#NoOfExCompletedCard {
 	background-color: #d1c4e9;
 }
-#card_3 {
+#prescribedExCard {
+	background-color: #ffcdd2;
+}*  {
+	background-color: #e2f6ff;
+	font: 57 10pt &quot;Montserrat Medium&quot;;
+}
+QGroupBox {
+	font-size: 16px;
+}
+QLineEdit, #mail_label, #pass_label {
+	padding: 10px 5px;
+}
+QLineEdit, QDateEdit, QComboBox {
+	border-bottom: 2px solid #c17900;
+	border-radius: 0;
+	padding: 10px 5px;
+	cursor: pointer;
+}
+QPushButton {
+	background-color: rgb(249, 168, 37);
+	padding: 12px;
+	border-radius: 20px;
+}
+QCommandLinkButton {
+	background-color: transparent;
+	text-align: center;
+}
+
+#numpatientCard, #patientCard, #therapyCard{
+	border-radius: 10px;
+	border: 2px solid #fb8c00;
+}
+#ct_1, #ct_2, #ct_3 {
+	font-size: 16px;
+	background-color: transparent;
+}
+#NextAppointmentCard, #NoOfExCompletedCard, #PrescribedExCard {
+	font-size: 18px;
+	background-color: transparent;
+}
+#NextAppointmentCard{
+	background-color: #f0f4c3;
+}
+#NoOfExCompletedCard {
+	background-color: #d1c4e9;
+}
+#PrescribedExCard {
 	background-color: #ffcdd2;
 }</string>
   </property>
@@ -154,7 +200,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -171,7 +217,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_3">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -188,7 +234,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_7">
+    <widget class="QCommandLinkButton" name="ExerciseButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -265,7 +311,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="prescrbiedExCard" native="true">
+   <widget class="QWidget" name="PrescribedExCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -365,7 +411,7 @@ margin: 0;</string>
       <string>Next Appointment</string>
      </property>
     </widget>
-    <widget class="QLabel" name="dateLabel">
+    <widget class="QLabel" name="DateLabel">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -385,7 +431,7 @@ margin: 0;</string>
    <zorder>DashboarLabel</zorder>
    <zorder>frame_2</zorder>
    <zorder>NoOfExCompletedCard</zorder>
-   <zorder>prescrbiedExCard</zorder>
+   <zorder>PrescribedExCard</zorder>
    <zorder>frame</zorder>
    <zorder>NextAppointmentCard</zorder>
   </widget>

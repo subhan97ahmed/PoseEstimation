@@ -134,7 +134,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="homeButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -151,7 +151,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="treatmentButton">
+    <widget class="QCommandLinkButton" name="TreatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -168,7 +168,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="reportButton">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -307,7 +307,7 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patientAge">
+    <widget class="QLabel" name="PatientAge">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -324,7 +324,7 @@ font-size: 14px;</string>
       <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patientEmail">
+    <widget class="QLabel" name="PatientEmail">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -341,7 +341,7 @@ font-size: 14px;</string>
       <string>email@gmail.com</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patientContactNo">
+    <widget class="QLabel" name="PatientContactNo">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -384,7 +384,7 @@ font-size: 14px;</string>
       <string>Start Date</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="searchPatientBtn">
+    <widget class="QPushButton" name="SearchPatientBtn">
      <property name="geometry">
       <rect>
        <x>350</x>

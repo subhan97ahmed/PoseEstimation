@@ -129,7 +129,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="homeButton">
+    <widget class="QCommandLinkButton" name="HomeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -146,7 +146,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="reportButton">
+    <widget class="QCommandLinkButton" name="ReportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -181,7 +181,7 @@ font-size: 22px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="exerciseFeedGrBox">
+   <widget class="QGroupBox" name="ExerciseFeedGrBox">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -194,7 +194,7 @@ font-size: 22px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="StartexerciseCard" native="true">
+   <widget class="QWidget" name="StartExerciseCard" native="true">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -220,7 +220,7 @@ border-radius: 10px;</string>
       <string>Exercise Name</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="startExerciseBtn">
+    <widget class="QPushButton" name="StartExerciseBtn">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -254,7 +254,7 @@ background-color: rgb(249, 168, 37);
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/iconPrefix/exercise.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="repCount">
+    <widget class="QLabel" name="RepCount">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -268,7 +268,7 @@ background-color: rgb(249, 168, 37);
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="doneBtn">
+   <widget class="QPushButton" name="DoneBtn">
     <property name="geometry">
      <rect>
       <x>860</x>

@@ -49,7 +49,7 @@ QCommandLinkButton {
 	text-align: center;
 }
 
-#numpatientCard, #patientCard, #therapyCard{
+#NumpatientCard, #PatientCard, #TherapyCard{
 	border-radius: 10px;
 	border: 2px solid #fb8c00;
 }
@@ -57,17 +57,17 @@ QCommandLinkButton {
 	font-size: 16px;
 	background-color: transparent;
 }
-#cd_1, #cd_2, #cd_3 {
+#NoOfPatientsLabel, #NoofActivePatientsLabel, #TherapiesCompletedLabel{
 	font-size: 18px;
 	background-color: transparent;
 }
-#numpatientCard{
+#NumpatientCard{
 	background-color: #f0f4c3;
 }
-#patientCard {
+#PatientCard {
 	background-color: #d1c4e9;
 }
-#therapyCard {
+#TherapyCard {
 	background-color: #ffcdd2;
 }</string>
   </property>
@@ -276,7 +276,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="numpatientCard" native="true">
+   <widget class="QWidget" name="NumpatientCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -298,7 +298,7 @@ margin: 0;</string>
       <string>No. Of Patients</string>
      </property>
     </widget>
-    <widget class="QLabel" name="noOfPatientsLabel">
+    <widget class="QLabel" name="NoOfPatientsLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -315,7 +315,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard" native="true">
+   <widget class="QWidget" name="PatientCard" native="true">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -354,7 +354,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="therapyCard" native="true">
+   <widget class="QWidget" name="TherapyCard" native="true">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -395,9 +395,9 @@ margin: 0;</string>
    </widget>
    <zorder>HomeLabel</zorder>
    <zorder>frame_2</zorder>
-   <zorder>patientCard</zorder>
-   <zorder>numpatientCard</zorder>
-   <zorder>therapyCard</zorder>
+   <zorder>PatientCard</zorder>
+   <zorder>NumpatientCard</zorder>
+   <zorder>TherapyCard</zorder>
    <zorder>sideFrame</zorder>
   </widget>
  </widget>
