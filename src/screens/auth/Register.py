@@ -1,7 +1,7 @@
 import sys
-
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.RegisterView import Ui_Register
+from src.utils.util import show_warning
 
 
 class Register(QWidget):
@@ -13,22 +13,24 @@ class Register(QWidget):
         self.ui.setupUi(self)
         # button click method for screen change
         # self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
-        self.ui.pushButton_4.clicked.connect(self.register_submit)
+        self.ui.registerBtn.clicked.connect(self.register_submit)
 
     # Method to get data from text field and print it on clicking register button
     def register_submit(self):
         register_values = {
-            'f_name': self.ui.lineEdit_10.text(),
-            'email': self.ui.lineEdit_11.text(),
-            'password': self.ui.lineEdit_9.text(),
-            'confirm_pass': self.ui.lineEdit_12.text(),
-            'dob': self.ui.dateEdit_2.text(),
-            'role': self.ui.comboBox_2.currentText(),
+            'f_name': self.ui.fnameEdit.text(),
+            'email': self.ui.emailEdit.text(),
+            'password': self.ui.passwordEdit.text(),
+            'confirm_pass': self.ui.confirmPasswordEdit.text(),
+            'dob': self.ui.dobEdit.date().getDate(),
+            'role': self.ui.roleCombo.currentText(),
         }
-        print(register_values)
+        print(register_values.values())
 
-        # if (not any(register_values.values())):
-
+        if not ('' in register_values.values()):
+            print('working: ', register_values)
+        else:
+            show_warning(self, message='Invalid, please fill form first!')
 
 
 if __name__ == "__main__":

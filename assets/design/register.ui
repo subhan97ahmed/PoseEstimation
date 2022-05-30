@@ -479,7 +479,7 @@ QCommandLinkButton {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_9">
+       <widget class="QLineEdit" name="passwordEdit">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -504,7 +504,7 @@ QCommandLinkButton {
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QCommandLinkButton" name="CreateAnAcc_4">
+       <widget class="QCommandLinkButton" name="loginBtn">
         <property name="geometry">
          <rect>
           <x>217</x>
@@ -561,7 +561,7 @@ QCommandLinkButton {
          <string>Full Name</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="registerBtn">
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -605,7 +605,7 @@ QCommandLinkButton {
          <bool>false</bool>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_10">
+       <widget class="QLineEdit" name="fnameEdit">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -662,7 +662,7 @@ QCommandLinkButton {
          <string>Email</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_11">
+       <widget class="QLineEdit" name="emailEdit">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -693,7 +693,7 @@ QCommandLinkButton {
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QDateEdit" name="dateEdit_2">
+       <widget class="QDateEdit" name="dobEdit">
         <property name="geometry">
          <rect>
           <x>99</x>
@@ -729,7 +729,7 @@ QCommandLinkButton {
          <string>Role</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_2">
+       <widget class="QComboBox" name="roleCombo">
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -741,14 +741,17 @@ QCommandLinkButton {
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
+        <property name="styleSheet">
+         <string notr="true">padding: 0</string>
+        </property>
         <property name="editable">
          <bool>false</bool>
         </property>
         <property name="currentText">
-         <string/>
+         <string>Patient</string>
         </property>
         <property name="currentIndex">
-         <number>-1</number>
+         <number>0</number>
         </property>
         <property name="maxVisibleItems">
          <number>3</number>
@@ -765,6 +768,16 @@ QCommandLinkButton {
         <property name="frame">
          <bool>false</bool>
         </property>
+        <item>
+         <property name="text">
+          <string>Patient</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Physiotherapist</string>
+         </property>
+        </item>
        </widget>
        <widget class="QLabel" name="pass_label_10">
         <property name="geometry">
@@ -779,7 +792,7 @@ QCommandLinkButton {
          <string>Confirm</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_12">
+       <widget class="QLineEdit" name="confirmPasswordEdit">
         <property name="geometry">
          <rect>
           <x>100</x>
