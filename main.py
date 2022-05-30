@@ -3,10 +3,11 @@
 # either patient or physiotherapist
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QDesktopWidget
-from firebase_admin import auth
+
 from src.screens.auth import Login, Register
+from src.screens.patient import add_exercise, view_exercises, report, dashboard as pDashboard
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials
 
 user_type_x = ''
 

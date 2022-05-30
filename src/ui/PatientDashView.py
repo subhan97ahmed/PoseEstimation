@@ -190,6 +190,8 @@ class Ui_PatientDash(object):
         self.NoOfExLabel.setText(_translate("PatientDash", "0"))
         self.ct_3.setText(_translate("PatientDash", "Next Appointment"))
         self.dateLabel.setText(_translate("PatientDash", "DD/MM/YYYY"))
+
+
 import src.resource.icons_rc
 
 

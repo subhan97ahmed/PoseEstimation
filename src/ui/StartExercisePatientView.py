@@ -100,12 +100,12 @@ class Ui_StartExercise_Patient(object):
         icon1.addPixmap(QtGui.QPixmap(":/iconPrefix/report.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ReportButton.setIcon(icon1)
         self.ReportButton.setObjectName("ReportButton")
-        self.ExerciseButton = QtWidgets.QCommandLinkButton(self.frame)
-        self.ExerciseButton.setGeometry(QtCore.QRect(40, 310, 121, 41))
+        self.TreatmentButton = QtWidgets.QCommandLinkButton(self.frame)
+        self.TreatmentButton.setGeometry(QtCore.QRect(40, 310, 121, 41))
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/iconPrefix/therapist.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.ExerciseButton.setIcon(icon2)
-        self.ExerciseButton.setObjectName("ExerciseButton")
+        self.TreatmentButton.setIcon(icon2)
+        self.TreatmentButton.setObjectName("TreatmentButton")
         self.ExerciseFeedGrBox = QtWidgets.QGroupBox(self.centralwidget)
         self.ExerciseFeedGrBox.setGeometry(QtCore.QRect(170, 220, 801, 391))
         self.ExerciseFeedGrBox.setTitle("")
@@ -147,13 +147,15 @@ class Ui_StartExercise_Patient(object):
         StartExercise_Patient.setWindowTitle(_translate("StartExercise_Patient", "Form"))
         self.HomeButton.setText(_translate("StartExercise_Patient", "Home"))
         self.ReportButton.setText(_translate("StartExercise_Patient", "Reports"))
-        self.ExerciseButton.setText(_translate("StartExercise_Patient", "Exercises"))
+        self.TreatmentButton.setText(_translate("StartExercise_Patient", "Exercises"))
         self.exerciseName.setText(_translate("StartExercise_Patient", "Exercise Name"))
         self.StartExerciseBtn.setText(_translate("StartExercise_Patient", "Start Exercise"))
         self.runningman.setText(_translate("StartExercise_Patient", "<html><head/><body><p><img src=\":/iconPrefix/exercise.png\"/></p></body></html>"))
         self.RepCount.setText(_translate("StartExercise_Patient", "Rep x"))
         self.DoneBtn.setText(_translate("StartExercise_Patient", "Done"))
-import icons_rc
+
+
+import src.resource.icons_rc
 
 
 if __name__ == "__main__":

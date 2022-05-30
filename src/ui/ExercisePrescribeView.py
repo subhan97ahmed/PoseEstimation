@@ -156,7 +156,9 @@ class Ui_ExercisePrescribe(object):
         self.label.setText(_translate("ExercisePrescribe", "<html><head/><body><p><img src=\":/iconPrefix/exercise.png\"/></p></body></html>"))
         self.RepCount.setText(_translate("ExercisePrescribe", "Rep x"))
         self.DashboarLabel_2.setText(_translate("ExercisePrescribe", "Prescribed Exercises"))
-import icons_rc
+
+
+import src.resource.icons_rc
 
 
 if __name__ == "__main__":

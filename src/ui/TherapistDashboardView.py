@@ -199,9 +199,11 @@ class Ui_Dashboard(object):
         self.NoofActivePatientsLabel.setText(_translate("Dashboard", "0"))
         self.ct_3.setText(_translate("Dashboard", "Therapies Completed"))
         self.TherapiesCompletedLabel.setText(_translate("Dashboard", "0"))
-import fonts_rc
-import icons_rc
-import images_rc
+
+
+import src.resource.fonts_rc
+import src.resource.icons_rc
+import src.resource.images_rc
 
 
 if __name__ == "__main__":

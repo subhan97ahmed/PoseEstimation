@@ -188,7 +188,9 @@ class Ui_Treatment(object):
         self.disease.setText(_translate("Treatment", "Rotatory cuff"))
         self.treatmentBtn.setText(_translate("Treatment", "Treatment"))
         self.addPatientBtn.setText(_translate("Treatment", "Add Patient"))
-import icons_rc
+
+
+import src.resource.icons_rc
 
 
 if __name__ == "__main__":

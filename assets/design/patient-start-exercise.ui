@@ -163,7 +163,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="ExerciseButton">
+    <widget class="QCommandLinkButton" name="TreatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
