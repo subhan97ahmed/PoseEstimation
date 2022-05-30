@@ -5,6 +5,8 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QDesktopWidget
 from firebase_admin import auth
 from src.screens.auth import Login, Register
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 user_type_x = ''
 
@@ -18,6 +20,13 @@ class App(QMainWindow):
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
+
+        # initialize firebase
+        cred = credentials.Certificate('src/json/posefect-firebase-adminsdk.json')
+        firebase_admin.initialize_app(cred,
+                                      {
+                                          'databaseURL': 'https://posefect-b48b9-default-rtdb.firebaseio.com/'
+                                      })
 
         # initialize screens instances accordingly
         if user_type_x == 'therapist':

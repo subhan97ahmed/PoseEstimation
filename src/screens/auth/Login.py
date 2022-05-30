@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 
 from src.ui.LoginView import Ui_Login
+from src.utils.util import firebase_login
 
 
 class Login(QWidget, Ui_Login):
@@ -12,6 +13,14 @@ class Login(QWidget, Ui_Login):
         print("login")
         # button click method for screen change
         self.CreateAnAcc.clicked.connect(self.parent().go_to_register)
+        self.loginBtn.clicked.connect(self.submit_login)
+
+    def submit_login(self):
+        userEmail = self.emailEdit.text()
+        userPassword = self.passwordEdit.text()
+        if userEmail != '' and userPassword != '':
+            q = firebase_login(userEmail, userPassword)
+            print(q)
 
 
 if __name__ == "__main__":
