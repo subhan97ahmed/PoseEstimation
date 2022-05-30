@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.RegisterView import Ui_Register
 
 
+
 class Register(QWidget):
 
 
@@ -14,15 +15,17 @@ class Register(QWidget):
 
         self.ui = Ui_Register()
         self.ui.setupUi(self)
-        print("register")
+        print("Register")
         # button click method for screen change
-        self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
+        #self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
 
-    #Method to get data from text field and print it on clicking register button
-    def onRegClick(self):
-        obj = Ui_Register()
-        Fname= obj.lineEdit_10.text()
-        obj.pushButton_4.clicked(print(Fname))
+
+# Method to get data from text field and print it on clicking register button
+    def btnFun(self):
+        self.ui.pushButton_4.clicked.connect(self.clickMe())
+
+    def getFname(self):
+        print(self.ui.lineEdit_10.text())
 
 
 
