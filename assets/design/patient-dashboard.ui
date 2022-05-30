@@ -265,7 +265,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_1" native="true">
+   <widget class="QWidget" name="prescrbiedExCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -287,7 +287,7 @@ margin: 0;</string>
       <string>Exercises Prescribed</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_1">
+    <widget class="QLabel" name="NoOfExPrescribedLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -304,7 +304,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_2" native="true">
+   <widget class="QWidget" name="NoOfExCompletedCard" native="true">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -326,7 +326,7 @@ margin: 0;</string>
       <string>No of Exercises Completed</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_2">
+    <widget class="QLabel" name="NoOfExLabel">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -343,7 +343,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_3" native="true">
+   <widget class="QWidget" name="NextAppointmentCard" native="true">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -365,7 +365,7 @@ margin: 0;</string>
       <string>Next Appointment</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_3">
+    <widget class="QLabel" name="dateLabel">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -384,10 +384,10 @@ margin: 0;</string>
    </widget>
    <zorder>DashboarLabel</zorder>
    <zorder>frame_2</zorder>
-   <zorder>card_2</zorder>
-   <zorder>card_1</zorder>
+   <zorder>NoOfExCompletedCard</zorder>
+   <zorder>prescrbiedExCard</zorder>
    <zorder>frame</zorder>
-   <zorder>card_3</zorder>
+   <zorder>NextAppointmentCard</zorder>
   </widget>
  </widget>
  <resources>

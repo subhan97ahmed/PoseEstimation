@@ -134,7 +134,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_4">
+    <widget class="QCommandLinkButton" name="homeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -151,7 +151,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_5">
+    <widget class="QCommandLinkButton" name="treatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -168,7 +168,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_6">
+    <widget class="QCommandLinkButton" name="reportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -245,7 +245,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="addExerciseCombo">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -432,7 +432,7 @@ height: auto</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_name_3">
+    <widget class="QLabel" name="patientName">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -449,7 +449,7 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_7">
+    <widget class="QLabel" name="patientAge">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -491,7 +491,7 @@ font-size: 12px;</string>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
-   <zorder>groupBox_2</zorder>
+   <zorder>addExerciseCombo</zorder>
    <zorder>patientCard_2</zorder>
   </widget>
  </widget>

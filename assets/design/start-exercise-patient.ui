@@ -129,7 +129,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton">
+    <widget class="QCommandLinkButton" name="homeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -146,7 +146,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_3">
+    <widget class="QCommandLinkButton" name="reportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -163,7 +163,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/report.png</normaloff>:/iconPrefix/report.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_7">
+    <widget class="QCommandLinkButton" name="ExerciseButton">
      <property name="geometry">
       <rect>
        <x>40</x>
