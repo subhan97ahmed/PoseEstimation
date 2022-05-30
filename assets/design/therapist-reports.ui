@@ -49,7 +49,7 @@ QCommandLinkButton {
      <height>771</height>
     </rect>
    </property>
-   <widget class="QLabel" name="TreatmentLabel">
+   <widget class="QLabel" name="PatientsReportLabel">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -134,7 +134,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_4">
+    <widget class="QCommandLinkButton" name="homeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -151,7 +151,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_5">
+    <widget class="QCommandLinkButton" name="treatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -168,7 +168,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_6">
+    <widget class="QCommandLinkButton" name="reportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -245,7 +245,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard_2" native="true">
+   <widget class="QWidget" name="patientNameCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -290,7 +290,7 @@ height: auto</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_name_3">
+    <widget class="QLabel" name="patientNameLabel">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -307,7 +307,7 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_6">
+    <widget class="QLabel" name="patientAge">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -324,7 +324,7 @@ font-size: 14px;</string>
       <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_7">
+    <widget class="QLabel" name="patientEmail">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -341,7 +341,7 @@ font-size: 14px;</string>
       <string>email@gmail.com</string>
      </property>
     </widget>
-    <widget class="QLabel" name="patient_age_8">
+    <widget class="QLabel" name="patientContactNo">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -376,10 +376,10 @@ border-radius: 20px;</string>
      </property>
     </widget>
    </widget>
-   <zorder>TreatmentLabel</zorder>
+   <zorder>PatientsReportLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
-   <zorder>patientCard_2</zorder>
+   <zorder>patientNameCard</zorder>
   </widget>
  </widget>
  <resources>

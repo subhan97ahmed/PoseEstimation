@@ -49,7 +49,7 @@ QCommandLinkButton {
 	text-align: center;
 }
 
-#card_1, #card_2, #card_3 {
+#numpatientCard, #patientCard, #therapyCard{
 	border-radius: 10px;
 	border: 2px solid #fb8c00;
 }
@@ -61,13 +61,13 @@ QCommandLinkButton {
 	font-size: 18px;
 	background-color: transparent;
 }
-#card_1 {
+#numpatientCard{
 	background-color: #f0f4c3;
 }
-#card_2 {
+#patientCard {
 	background-color: #d1c4e9;
 }
-#card_3 {
+#therapyCard {
 	background-color: #ffcdd2;
 }</string>
   </property>
@@ -80,7 +80,7 @@ QCommandLinkButton {
      <height>771</height>
     </rect>
    </property>
-   <widget class="QLabel" name="DashboarLabel">
+   <widget class="QLabel" name="HomeLabel">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -105,7 +105,7 @@ QCommandLinkButton {
      <string>HOME</string>
     </property>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="sideFrame">
     <property name="geometry">
      <rect>
       <x>-30</x>
@@ -165,7 +165,7 @@ font-size: 22px;</string>
       <number>0</number>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton">
+    <widget class="QCommandLinkButton" name="homeButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -182,7 +182,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/home.png</normaloff>:/iconPrefix/home.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_2">
+    <widget class="QCommandLinkButton" name="treatmentButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -199,7 +199,7 @@ font-size: 22px;</string>
        <normaloff>:/iconPrefix/therapist.png</normaloff>:/iconPrefix/therapist.png</iconset>
      </property>
     </widget>
-    <widget class="QCommandLinkButton" name="commandLinkButton_3">
+    <widget class="QCommandLinkButton" name="reportButton">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -276,7 +276,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_1" native="true">
+   <widget class="QWidget" name="numpatientCard" native="true">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -298,7 +298,7 @@ margin: 0;</string>
       <string>No. Of Patients</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_1">
+    <widget class="QLabel" name="noOfPatientsLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -315,7 +315,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_2" native="true">
+   <widget class="QWidget" name="patientCard" native="true">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -337,7 +337,7 @@ margin: 0;</string>
       <string>Active Patients</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_2">
+    <widget class="QLabel" name="NoofActivePatientsLabel">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -354,7 +354,7 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="card_3" native="true">
+   <widget class="QWidget" name="therapyCard" native="true">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -376,7 +376,7 @@ margin: 0;</string>
       <string>Therapies Completed</string>
      </property>
     </widget>
-    <widget class="QLabel" name="cd_3">
+    <widget class="QLabel" name="TherapiesCompletedLabel">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -393,12 +393,12 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <zorder>DashboarLabel</zorder>
+   <zorder>HomeLabel</zorder>
    <zorder>frame_2</zorder>
-   <zorder>card_2</zorder>
-   <zorder>card_1</zorder>
-   <zorder>card_3</zorder>
-   <zorder>frame</zorder>
+   <zorder>patientCard</zorder>
+   <zorder>numpatientCard</zorder>
+   <zorder>therapyCard</zorder>
+   <zorder>sideFrame</zorder>
   </widget>
  </widget>
  <resources>
