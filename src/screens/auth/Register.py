@@ -5,6 +5,10 @@ from src.ui.RegisterView import Ui_Register
 
 
 class Register(QWidget):
+
+
+
+
     def __init__(self, parent=None):
         super(Register, self).__init__(parent)
 
@@ -14,8 +18,13 @@ class Register(QWidget):
         # button click method for screen change
         self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
 
-    #def RegisterClick(self):
-     #   self.pushButton_4.clicked.connect(self.on_Click)
+    #Method to get data from text field and print it on clicking register button
+    def onRegClick(self):
+        obj = Ui_Register()
+        Fname= obj.lineEdit_10.text()
+        obj.pushButton_4.clicked(print(Fname))
+
+
 
 
 if __name__ == "__main__":
