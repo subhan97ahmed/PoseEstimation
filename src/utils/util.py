@@ -17,6 +17,12 @@ def get_age(birthdate):
     return age
 
 
+def warning_for_empty(self, form_values, message='Invalid, please fill out the form first!'):
+    if type(form_values) is dict:
+        if '' in form_values.values():
+            show_warning(self, message)
+
+
 def firebase_login(email, password):
     # todo change it to according pyrebase module
     userEmail = ''
@@ -34,4 +40,3 @@ def firebase_register(email, password):
     u = auth.create_user(email=email, password=password)
     print(u.email)
     print(u.uid)
-

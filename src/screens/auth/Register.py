@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.RegisterView import Ui_Register
-from src.utils.util import show_warning
+from src.utils.util import warning_for_empty
 
 
 class Register(QWidget):
@@ -26,11 +26,7 @@ class Register(QWidget):
             'role': self.ui.roleCombo.currentText(),
         }
         print(register_values.values())
-
-        if not ('' in register_values.values()):
-            print('working: ', register_values)
-        else:
-            show_warning(self, message='Invalid, please fill form first!')
+        warning_for_empty(self, register_values)
 
 
 if __name__ == "__main__":
