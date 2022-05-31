@@ -14,6 +14,10 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         print("Patient Add Exercise")
         self.StartExerciseBtn.clicked.connect(self.initialize_exercise)
 
+        self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_1)
+        self.ReportButton.clicked.connect(self.parent().go_to_3)
+
     def initialize_exercise(self):
         self.init_time = datetime.now()
 
