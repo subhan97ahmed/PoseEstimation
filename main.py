@@ -8,7 +8,7 @@ from firebase import Firebase
 from firebase_admin import credentials, firestore
 from src.json.FirebaseConfig import firebaseConfig
 from src.screens.auth import Login, Register
-from src.screens.patient import add_exercise, view_exercises, report, dashboard as pat_dashboard
+from src.screens.patient import add_exercise, view_exercises, report as pat_report, dashboard as pat_dashboard
 from src.screens.physiotherapist import dashboard as th_dashboard
 from src.utils.util import show_warning
 
@@ -26,6 +26,9 @@ class App(QMainWindow):
         self.screen_login = None
         # Patient
         self.screen_p_dashboard = None
+        self.screen_p_add_exercise = None
+        self.screen_p_view_exercise = None
+        self.screen_p_report = None
         # therapist
         self.screen_t_dashboard = None
         # Set style for the main window
@@ -75,6 +78,9 @@ class App(QMainWindow):
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
             self.stacked.addWidget(self.screen_p_dashboard)
+            self.stacked.addWidget(self.screen_p_view_exercise)
+            self.stacked.addWidget(self.screen_p_add_exercise)
+            self.stacked.addWidget(self.screen_p_report)
             print('patient')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
@@ -89,6 +95,9 @@ class App(QMainWindow):
             self.screen_t_dashboard = th_dashboard.TDashboard(self)
         elif user_type.lower() == 'patient':
             self.screen_p_dashboard = pat_dashboard.PDashboard(self)
+            self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self)
+            self.screen_p_add_exercise = add_exercise.AddExercise(self)
+            self.screen_p_report = pat_report.TReport(self)
         else:
             self.screen_login = Login.Login(self)
             self.screen_register = Register.Register(self)
@@ -109,9 +118,9 @@ class App(QMainWindow):
                 self.type_base_screens_init(user_data["role"])
                 self.init_screen(user_data["role"])
             else:
-                show_warning(self, title="Warning", message="User not found")
+                show_warning(self, message="User not found")
         except:
-            show_warning(self, title="Warning", message="User not found")
+            show_warning(self, message="Something went wrong")
 
     def register_user(self, user_data):
         try:

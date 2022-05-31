@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.LoginView import Ui_Login
+from src.utils.util import is_form_empty
 
 
 class Login(QWidget, Ui_Login):
@@ -13,10 +14,12 @@ class Login(QWidget, Ui_Login):
         self.loginBtn.clicked.connect(self.submit_login)
 
     def submit_login(self):
-        userEmail = self.emailEdit.text()
-        userPassword = self.passwordEdit.text()
-        if userEmail != '' and userPassword != '':
-            self.parent().parent().login_user(str(userEmail), str(userPassword))
+        login_info = {
+            "email": self.emailEdit.text(),
+            "password": self.passwordEdit.text(),
+        }
+        if not is_form_empty(self, login_info):
+            self.parent().parent().login_user(login_info['email'], login_info['password'])
 
 
 if __name__ == "__main__":
