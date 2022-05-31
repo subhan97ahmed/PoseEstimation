@@ -72,7 +72,7 @@ class App(QMainWindow):
 
     # initialize screens instances accordingly
     def type_base_screens_init(self, user_type: str):
-        if user_type.lower() == 'therapist':
+        if user_type.lower() == 'physiotherapist':
             self.screen_t_dashboard = th_dashboard.TDashboard(self)
             self.screen_t_reports = reports.TReports(self)
             self.screen_t_report = th_report.TReport(self)
@@ -90,7 +90,7 @@ class App(QMainWindow):
 
     # Initializing screens widget for navigation
     def init_screen(self, user_type: str):
-        if user_type.lower() == 'therapist':
+        if user_type.lower() == 'physiotherapist':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
             self.stacked.addWidget(self.screen_t_dashboard)
