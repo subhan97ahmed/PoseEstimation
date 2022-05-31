@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
-from src.ui.StartExercisePatientView import Ui_StartExercise_Patient
+from src.ui.PatientStartExerciseView import Ui_StartExercise_Patient
 
 
 class AddExercise(QWidget, Ui_StartExercise_Patient):
