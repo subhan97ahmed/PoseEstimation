@@ -10,6 +10,9 @@ class TReport(QWidget, Ui_TherapistReport):
         print("Therapist report")
         # Todo: Generate update report file to update text
         self.TreatmentButton.setText('Exercise')
+        self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_1)
+        # self.ReportButton.clicked.connect(self.parent().go_to_3)
 
 
 if __name__ == "__main__":

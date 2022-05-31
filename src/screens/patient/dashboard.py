@@ -8,6 +8,9 @@ class PDashboard(QWidget, Ui_PatientDash):
         super(PDashboard, self).__init__(parent)
         self.setupUi(self)
         print("Patient Dashboard")
+        # self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_1)
+        self.ReportButton.clicked.connect(self.parent().go_to_3)
 
 
 if __name__ == "__main__":
