@@ -19,6 +19,10 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         self.exercise_name_populate(ex_exercises)
         self.addPatientBtn.clicked.connect(self.add_exercise_form)
 
+        self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_3)
+        self.ReportButton.clicked.connect(self.parent().go_to_1)
+
     def add_exercise_form(self):
         add_exercise = {
             "exerciseName": self.exerciseName.currentData(),

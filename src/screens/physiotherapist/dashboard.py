@@ -16,7 +16,7 @@ class TDashboard(QWidget, Ui_Dashboard):
 
         # Links
         self.HomeButton.clicked.connect(self.parent().go_to_0)
-        self.TreatmentButton.clicked.connect(self.parent().go_to_4)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
 
 

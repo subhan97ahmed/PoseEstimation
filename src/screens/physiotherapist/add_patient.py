@@ -12,6 +12,10 @@ class TAddPatient(QWidget, Ui_AddPatient):
         self.searchPatientBtn.clicked.connect(self.search_patient_form)
         self.addPatientBtn.clicked.connect(self.initial_diagnosis_form)
 
+        self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_3)
+        self.ReportButton.clicked.connect(self.parent().go_to_1)
+
     def search_patient_form(self):
         search_patient = {
             "email": self.patientEmail.text(),
