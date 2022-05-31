@@ -43,3 +43,14 @@ def firebase_register(email, password):
     u = auth.create_user(email=email, password=password)
     print(u.email)
     print(u.uid)
+
+
+def filter_report_submit(self):
+    filter_report = {
+        "start_date": self.dateEdit.text(),
+        "end_date": self.dateEdit_2.text()
+    }
+    if is_form_empty(self, filter_report):
+        return
+    print("filter: ", filter_report)
+    return filter_report
