@@ -22,11 +22,11 @@ class Register(QWidget):
             'email': self.ui.emailEdit.text(),
             'password': self.ui.passwordEdit.text(),
             'confirm_pass': self.ui.confirmPasswordEdit.text(),
-            'dob': self.ui.dobEdit.date().getDate(),
-            'role': self.ui.roleCombo.currentText(),
+            'dob': str(self.ui.dobEdit.date().toString()),
+            'role': self.ui.roleCombo.currentText().lower(),
         }
-        if is_form_empty(self, register_values):
-            return
+        if not is_form_empty(self, register_values):
+            self.parent().parent().register_user(register_values)
 
 
 if __name__ == "__main__":

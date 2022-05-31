@@ -113,6 +113,18 @@ class App(QMainWindow):
         except:
             show_warning(self, title="Warning", message="User not found")
 
+    def register_user(self, user_data):
+        try:
+            new_user = self.firebase.auth().create_user_with_email_and_password(user_data['email'],
+                                                                                user_data['password'])
+            self.user_info = new_user
+            db = firestore.client()
+            db.collection(u'users').document(u'' + new_user['localId']).set(user_data)
+            self.type_base_screens_init(user_data["role"])
+            self.init_screen(user_data["role"])
+        except:
+            show_warning(self, title="Warning", message="failed to register")
+
     def go_to_0(self):
         self.stacked.setCurrentIndex(0)
 
