@@ -43,7 +43,7 @@ QCommandLinkButton {
   <widget class="QWidget" name="centralwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>-20</y>
      <width>1081</width>
      <height>771</height>
@@ -248,8 +248,8 @@ margin: 0;</string>
    <widget class="QGroupBox" name="AddExerciseCombo">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>320</y>
+      <x>580</x>
+      <y>230</y>
       <width>391</width>
       <height>301</height>
      </rect>
@@ -257,7 +257,7 @@ margin: 0;</string>
     <property name="title">
      <string>Add Exercise</string>
     </property>
-    <widget class="QPushButton" name="AddPatientBtn">
+    <widget class="QPushButton" name="addPatientBtn">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -283,7 +283,7 @@ margin: 0;</string>
       <string>Exercise Name</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="exerciseName">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -293,7 +293,7 @@ margin: 0;</string>
       </rect>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="repCount">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -316,7 +316,7 @@ margin: 0;</string>
       <string>Rep Count</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox_2">
+    <widget class="QSpinBox" name="angleCount">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -352,7 +352,7 @@ margin: 0;</string>
       <string>Video Link</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="diagnose3">
+    <widget class="QLineEdit" name="videoLink">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -387,13 +387,13 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard_2" native="true">
+   <widget class="QWidget" name="patientCard" native="true">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>170</y>
+      <x>170</x>
+      <y>240</y>
       <width>391</width>
-      <height>131</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -432,12 +432,12 @@ height: auto</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="PatientName">
+    <widget class="QLabel" name="patientName">
      <property name="geometry">
       <rect>
        <x>80</x>
        <y>20</y>
-       <width>211</width>
+       <width>281</width>
        <height>21</height>
       </rect>
      </property>
@@ -449,12 +449,12 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PatientAge">
+    <widget class="QLabel" name="patientAge">
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>50</y>
-       <width>211</width>
+       <y>110</y>
+       <width>281</width>
        <height>21</height>
       </rect>
      </property>
@@ -463,15 +463,15 @@ font-size: 16px;</string>
 font-size: 14px;</string>
      </property>
      <property name="text">
-      <string>18 age</string>
+      <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="disease">
+    <widget class="QLabel" name="disease_1">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>101</width>
+       <x>70</x>
+       <y>140</y>
+       <width>281</width>
        <height>31</height>
       </rect>
      </property>
@@ -487,12 +487,88 @@ font-size: 12px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QLabel" name="disease_2">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>190</y>
+       <width>281</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="disease_3">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>240</y>
+       <width>281</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="patientEmail">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>50</y>
+       <width>281</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>email@gmail.com</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="PatientContactNo">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>80</y>
+       <width>281</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+font-size: 14px;</string>
+     </property>
+     <property name="text">
+      <string>03451234XXX</string>
+     </property>
+    </widget>
    </widget>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
    <zorder>AddExerciseCombo</zorder>
-   <zorder>patientCard_2</zorder>
+   <zorder>patientCard</zorder>
   </widget>
  </widget>
  <resources>
