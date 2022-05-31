@@ -12,7 +12,7 @@ class Register(QWidget):
         self.ui = Ui_Register()
         self.ui.setupUi(self)
         # button click method for screen change
-        # self.ui.CreateAnAcc_4.clicked.connect(self.parent().go_to_login)
+        self.ui.loginBtn.clicked.connect(self.parent().go_to_0)
         self.ui.registerBtn.clicked.connect(self.register_submit)
 
     # Method to get data from text field and print it on clicking register button

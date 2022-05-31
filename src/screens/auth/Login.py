@@ -9,7 +9,7 @@ class Login(QWidget, Ui_Login):
         self.setupUi(self)
         print("login")
         # button click method for screen change
-        self.CreateAnAcc.clicked.connect(self.parent().go_to_register)
+        self.CreateAnAcc.clicked.connect(self.parent().go_to_1)
         self.loginBtn.clicked.connect(self.submit_login)
 
     def submit_login(self):

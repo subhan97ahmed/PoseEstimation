@@ -111,11 +111,23 @@ class App(QMainWindow):
         except:
             show_warning(self, title="Warning", message="User not found")
 
-    def go_to_login(self):
+    def go_to_0(self):
         self.stacked.setCurrentIndex(0)
 
-    def go_to_register(self):
+    def go_to_1(self):
         self.stacked.setCurrentIndex(1)
+
+    def go_to_2(self):
+        self.stacked.setCurrentIndex(2)
+
+    def go_to_3(self):
+        self.stacked.setCurrentIndex(3)
+
+    def go_to_4(self):
+        self.stacked.setCurrentIndex(4)
+
+    def go_to_5(self):
+        self.stacked.setCurrentIndex(5)
 
 
 if __name__ == "__main__":
