@@ -249,7 +249,7 @@ margin: 0;</string>
       <x>180</x>
       <y>170</y>
       <width>311</width>
-      <height>201</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -313,12 +313,12 @@ font-size: 14px;</string>
       <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="disease">
+    <widget class="QLabel" name="disease_1">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>100</y>
-       <width>101</width>
+       <width>291</width>
        <height>31</height>
       </rect>
      </property>
@@ -337,8 +337,8 @@ font-size: 12px;</string>
     <widget class="QPushButton" name="TreatmentBtn">
      <property name="geometry">
       <rect>
-       <x>172</x>
-       <y>150</y>
+       <x>90</x>
+       <y>260</y>
        <width>131</width>
        <height>41</height>
       </rect>
@@ -373,6 +373,48 @@ border-radius: 20px;</string>
      <property name="icon">
       <iconset resource="../icons/icons.qrc">
        <normaloff>:/iconPrefix/notification.png</normaloff>:/iconPrefix/notification.png</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="disease_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>291</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="disease_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>291</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

@@ -172,7 +172,7 @@ class Ui_TherapistReports(object):
         self.PatientAge.setText(_translate("TherapistReports", "18"))
         self.PatientEmail.setText(_translate("TherapistReports", "email@gmail.com"))
         self.PatientContactNo.setText(_translate("TherapistReports", "03451234XXX"))
-        self.AddPatientBtn.setText(_translate("TherapistReports", "Add"))
+        self.AddPatientBtn.setText(_translate("TherapistReports", "View"))
 
 
 import src.resource.fonts_rc

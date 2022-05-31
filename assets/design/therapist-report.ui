@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>680</height>
+    <width>1072</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -245,13 +245,121 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="patientCard_2" native="true">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>180</y>
-      <width>301</width>
-      <height>151</height>
+      <x>740</x>
+      <y>170</y>
+      <width>271</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Filter Report</string>
+    </property>
+    <widget class="QLabel" name="mail_label_5">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start Date</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SearchPatientBtn">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>160</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>40</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>90</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="mail_label_6">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>90</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>End Date</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="ReportBoxCombo">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>390</y>
+      <width>841</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Report</string>
+    </property>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>29</y>
+       <width>821</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>819</width>
+        <height>259</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="patientCard" native="true">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>170</y>
+      <width>541</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -260,7 +368,7 @@ background-color: #f0f4c3;
 
 </string>
     </property>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -290,12 +398,12 @@ height: auto</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="patientName">
+    <widget class="QLabel" name="patientName_3">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>20</y>
-       <width>211</width>
+       <x>70</x>
+       <y>50</y>
+       <width>191</width>
        <height>21</height>
       </rect>
      </property>
@@ -307,12 +415,12 @@ font-size: 16px;</string>
       <string>Patient Name</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PatientAge">
+    <widget class="QLabel" name="patientAge_3">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>110</y>
-       <width>211</width>
+       <x>20</x>
+       <y>170</y>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>
@@ -324,12 +432,75 @@ font-size: 14px;</string>
       <string>18</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PatientEmail">
+    <widget class="QLabel" name="disease_4">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>50</y>
-       <width>211</width>
+       <x>270</x>
+       <y>40</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>Rotatory cuff</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="disease_5">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>100</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="disease_6">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>160</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+background-color: #fb8c00;
+font-size: 12px;</string>
+     </property>
+     <property name="text">
+      <string>-</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="patientEmail_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>
@@ -341,12 +512,12 @@ font-size: 14px;</string>
       <string>email@gmail.com</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PatientContactNo">
+    <widget class="QLabel" name="PatientContactNo_4">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>211</width>
+       <x>20</x>
+       <y>140</y>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>
@@ -359,110 +530,12 @@ font-size: 14px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>170</y>
-      <width>511</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Filter Report</string>
-    </property>
-    <widget class="QLabel" name="mail_label_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>71</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Start Date</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="SearchPatientBtn">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>100</y>
-       <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Search</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="dateEdit">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>40</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>50</y>
-       <width>31</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TO</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="dateEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>40</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="mail_label_6">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>40</y>
-       <width>71</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>End Date</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="ReportBoxCombo">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>360</y>
-      <width>831</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Report</string>
-    </property>
-   </widget>
    <zorder>TreatmentLabel</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame_3</zorder>
-   <zorder>patientCard_2</zorder>
    <zorder>groupBox</zorder>
    <zorder>ReportBoxCombo</zorder>
+   <zorder>patientCard</zorder>
   </widget>
  </widget>
  <resources>
