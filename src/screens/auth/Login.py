@@ -16,7 +16,6 @@ class Login(QWidget, Ui_Login):
         userEmail = self.emailEdit.text()
         userPassword = self.passwordEdit.text()
         if userEmail != '' and userPassword != '':
-            print()
             self.parent().parent().login_user(str(userEmail), str(userPassword))
 
 
