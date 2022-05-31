@@ -9,7 +9,7 @@ class TAddPatient(QWidget, Ui_AddPatient):
         super(TAddPatient, self).__init__(parent)
         self.setupUi(self)
         print("Add patient")
-        self.searchPatientBtn.iclicked.connect(self.search_patient_form)
+        self.searchPatientBtn.clicked.connect(self.search_patient_form)
         self.addPatientBtn.clicked.connect(self.initial_diagnosis_form)
 
     def search_patient_form(self):
