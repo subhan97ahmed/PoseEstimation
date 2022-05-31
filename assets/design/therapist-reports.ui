@@ -249,7 +249,7 @@ margin: 0;</string>
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>180</y>
+      <y>170</y>
       <width>301</width>
       <height>191</height>
      </rect>
@@ -372,7 +372,7 @@ font-size: 14px;</string>
 border-radius: 20px;</string>
      </property>
      <property name="text">
-      <string>Add</string>
+      <string>View</string>
      </property>
     </widget>
    </widget>
@@ -385,6 +385,7 @@ border-radius: 20px;</string>
  <resources>
   <include location="../icons/icons.qrc"/>
   <include location="../icons/icons.qrc"/>
+  <include location="../../../../../../.designer/icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
