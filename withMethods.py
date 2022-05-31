@@ -1188,8 +1188,8 @@ def sessionExercise(exerciseName):
             print(distance_between_r_thumb_r_pinky)
 
 
-exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
-                 "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[6]))
-print(name)
+#exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
+                 #"lateral raises", "quad stretch"]
+#name = startExercise(str(exerciseNames[6]))
+#print(name)
 # sessionExercise("thumb touch")
