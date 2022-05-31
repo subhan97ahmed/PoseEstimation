@@ -299,7 +299,7 @@ margin: 0;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="SearchPatientBtn">
+    <widget class="QPushButton" name="searchPatientBtn">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -372,7 +372,7 @@ margin: 0;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="AddPatientBtn">
+    <widget class="QPushButton" name="addPatientBtn">
      <property name="geometry">
       <rect>
        <x>230</x>

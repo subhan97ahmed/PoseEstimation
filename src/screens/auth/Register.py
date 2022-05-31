@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.RegisterView import Ui_Register
-from src.utils.util import warning_for_empty
+from src.utils.util import is_form_empty
 
 
 class Register(QWidget):
@@ -25,8 +25,9 @@ class Register(QWidget):
             'dob': self.ui.dobEdit.date().getDate(),
             'role': self.ui.roleCombo.currentText(),
         }
-        print(register_values.values())
-        warning_for_empty(self, register_values)
+        if is_form_empty(self, register_values):
+            return
+
 
 
 if __name__ == "__main__":

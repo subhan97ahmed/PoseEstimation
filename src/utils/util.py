@@ -17,10 +17,13 @@ def get_age(birthdate):
     return age
 
 
-def warning_for_empty(self, form_values, message='Invalid, please fill out the form first!'):
+def is_form_empty(self, form_values, message='Invalid, please fill out the form first!'):
     if type(form_values) is dict:
         if '' in form_values.values():
             show_warning(self, message)
+            return True
+        else:
+            return False
 
 
 def firebase_login(email, password):
