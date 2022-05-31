@@ -574,7 +574,7 @@ background-color: #fb8c00;
 font-size: 12px;</string>
      </property>
      <property name="text">
-      <string>Rotatory cuff</string>
+      <string>-</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

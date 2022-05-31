@@ -2,6 +2,7 @@
 # We can add our functions here for fetching and transforming data
 # through that we can share those functions for both user types
 from PyQt5.QtWidgets import QMessageBox
+from firebase import Firebase
 from firebase_admin import auth
 from datetime import date
 
@@ -26,24 +27,34 @@ def is_form_empty(self, form_values, message='Invalid, please fill out the form 
             return False
 
 
-def firebase_login(email, password):
-    # todo change it to according pyrebase module
-    userEmail = ''
-    try:
-        userEmail = auth.get_user_by_email(email).email
-    except:
-        return False
-    if userEmail != '':
-        return True
-    else:
-        return False
+# from src.json.FirebaseConfig import firebaseConfig
 
+# def firebase_login(email, password):
+#
+#     # firebase = pyrebase.initialize_app(firebaseConfig)
+#
+#     # auth = firebase.auth()
+#     # login = auth.sign_in_with_email_and_password(email, getpass(password))
+#     # print(login)
+#     # userEmail = ''
+#     # try:
+#     #     userEmail = auth.get_user_by_email(email).email
+#     # except:
+#     #     return False
+#     # if userEmail != '':
+#     #     return True
+#     # else:
+#     #     return False
+#
 
-def firebase_register(email, password):
-    u = auth.create_user(email=email, password=password)
-    print(u.email)
-    print(u.uid)
-
+# from src.json.FirebaseConfig import firebaseConfig
+# from firebase import Firebase
+# f = Firebase(firebaseConfig)
+# # f = pyrebase.initialize_app(firebaseConfig)
+# #
+# a = f.auth()
+# l = a.sign_in_with_email_and_password("subhan97ahmed@gmail.com", "12345678")
+# print(l['idToken'])
 
 def filter_report_submit(self):
     filter_report = {
