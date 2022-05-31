@@ -9,6 +9,11 @@ class TReports(QWidget, Ui_TherapistReports):
         self.setupUi(self)
         print("Therapist reports")
 
+        self.HomeButton.clicked.connect(self.parent().go_to_0)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_3)
+        self.ReportButton.clicked.connect(self.parent().go_to_1)
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
