@@ -9,7 +9,8 @@ from firebase_admin import credentials, firestore
 from src.json.FirebaseConfig import firebaseConfig
 from src.screens.auth import Login, Register
 from src.screens.patient import add_exercise, view_exercises, report as pat_report, dashboard as pat_dashboard
-from src.screens.physiotherapist import dashboard as th_dashboard, report as th_report, reports, add_patient, add_treatment, treatments
+from src.screens.physiotherapist import dashboard as th_dashboard, report as th_report, reports, add_patient, \
+    add_treatment, treatments
 from src.utils.util import show_warning
 
 
@@ -21,20 +22,20 @@ class App(QMainWindow):
         self.hold_info = None
         # instantiate for screens
         # Therapist
-        self.screen_t_dashboard = th_dashboard.TDashboard(self)
-        self.screen_t_reports = reports.TReports(self)
-        self.screen_t_report = th_report.TReport(self)
-        self.screen_t_treatments = treatments.TTreatments(self)
-        self.screen_t_add_treatment = add_treatment.TAddTreatment(self)
-        self.screen_t_add_patient = add_patient.TAddPatient(self)
+        self.screen_t_dashboard = None
+        self.screen_t_reports = None
+        self.screen_t_report = None
+        self.screen_t_treatments = None
+        self.screen_t_add_treatment = None
+        self.screen_t_add_patient = None
         # Patient
-        self.screen_p_dashboard = pat_dashboard.PDashboard(self)
-        self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self)
-        self.screen_p_add_exercise = add_exercise.AddExercise(self)
-        self.screen_p_report = pat_report.TReport(self)
+        self.screen_p_dashboard = None
+        self.screen_p_view_exercise = None
+        self.screen_p_add_exercise = None
+        self.screen_p_report = None
         # Auth
-        self.screen_login = Login.Login(self)
-        self.screen_register = Register.Register(self)
+        self.screen_login = None
+        self.screen_register = None
         # Set style for the main window
         self.setStyleSheet("background-color: #e2f6ff;")
 
@@ -55,6 +56,7 @@ class App(QMainWindow):
         self.stacked = QStackedWidget()
         self.setCentralWidget(self.stacked)
         # init is responsible for opening screens per role base
+        self.type_base_screens_init('')
         self.init_screen('')
         self.show()
 
@@ -67,6 +69,24 @@ class App(QMainWindow):
 
     def get_user_data(self):
         return self.user_info
+
+    # initialize screens instances accordingly
+    def type_base_screens_init(self, user_type: str):
+        if user_type.lower() == 'therapist':
+            self.screen_t_dashboard = th_dashboard.TDashboard(self)
+            self.screen_t_reports = reports.TReports(self)
+            self.screen_t_report = th_report.TReport(self)
+            self.screen_t_treatments = treatments.TTreatments(self)
+            self.screen_t_add_treatment = add_treatment.TAddTreatment(self)
+            self.screen_t_add_patient = add_patient.TAddPatient(self)
+        elif user_type.lower() == 'patient':
+            self.screen_p_dashboard = pat_dashboard.PDashboard(self)
+            self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self)
+            self.screen_p_add_exercise = add_exercise.AddExercise(self)
+            self.screen_p_report = pat_report.TReport(self)
+        else:
+            self.screen_login = Login.Login(self)
+            self.screen_register = Register.Register(self)
 
     # Initializing screens widget for navigation
     def init_screen(self, user_type: str):
@@ -98,20 +118,21 @@ class App(QMainWindow):
             print('auth')
 
     def login_user(self, email, password):
-        print("login: ", email, password)
+        print("login info: ", email, password)
         try:
             user = self.firebase.auth().sign_in_with_email_and_password(email, password)
-            print(user)
             db = firestore.client()
             print(db)
             doc_ref = db.collection(u'users').document(u'' + user['localId'])
             doc = doc_ref.get()
             if doc.exists:
-                print(f'Document data: {doc.to_dict()}')
                 user_data = doc.to_dict()
                 self.user_info = {
                     "uId": user['localId'],
+                    **user_data,
                 }
+                print("user info: ", self.user_info)
+                self.type_base_screens_init(user_data["role"])
                 self.init_screen(user_data["role"])
             else:
                 show_warning(self, message="User not found")
@@ -125,8 +146,7 @@ class App(QMainWindow):
             self.user_info = new_user
             db = firestore.client()
             db.collection(u'users').document(u'' + new_user['localId']).set(user_data)
-            self.type_base_screens_init(user_data["role"])
-            self.init_screen(user_data["role"])
+            self.go_to_0()
         except:
             show_warning(self, title="Warning", message="failed to register")
 
