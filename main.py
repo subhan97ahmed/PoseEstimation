@@ -9,6 +9,7 @@ from firebase_admin import credentials, firestore
 from src.json.FirebaseConfig import firebaseConfig
 from src.screens.auth import Login, Register
 from src.screens.patient import add_exercise, view_exercises, report as pat_report, dashboard as pat_dashboard
+from src.screens.physiotherapist import dashboard as th_dashboard
 from src.utils.util import show_warning
 
 user_type_x = ''
@@ -28,6 +29,8 @@ class App(QMainWindow):
         self.screen_p_add_exercise = None
         self.screen_p_view_exercise = None
         self.screen_p_report = None
+        # therapist
+        self.screen_t_dashboard = None
         # Set style for the main window
         self.setStyleSheet("background-color: #e2f6ff;")
 
@@ -67,8 +70,7 @@ class App(QMainWindow):
         if user_type.lower() == 'therapist':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
-
-            # self.stacked.addWidget(self.)
+            self.stacked.addWidget(self.screen_t_dashboard)
             print('therapist')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
@@ -90,7 +92,7 @@ class App(QMainWindow):
     # initialize screens instances accordingly
     def type_base_screens_init(self, user_type: str):
         if user_type.lower() == 'therapist':
-            print('test 1')
+            self.screen_t_dashboard = th_dashboard.TDashboard(self)
         elif user_type.lower() == 'patient':
             self.screen_p_dashboard = pat_dashboard.PDashboard(self)
             self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self)
