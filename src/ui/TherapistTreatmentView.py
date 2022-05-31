@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -107,8 +106,35 @@ class Ui_Treatment(object):
         self.UsernameLabel_2 = QtWidgets.QLabel(self.frame_4)
         self.UsernameLabel_2.setGeometry(QtCore.QRect(760, 40, 91, 21))
         self.UsernameLabel_2.setObjectName("UsernameLabel_2")
-        self.PatientCard = QtWidgets.QWidget(self.centralwidget)
-        self.PatientCard.setGeometry(QtCore.QRect(180, 170, 311, 201))
+        self.AddPatientBtn = QtWidgets.QCommandLinkButton(self.centralwidget)
+        self.AddPatientBtn.setGeometry(QtCore.QRect(894, 110, 121, 41))
+        self.AddPatientBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/iconPrefix/add-user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.AddPatientBtn.setIcon(icon4)
+        self.AddPatientBtn.setObjectName("AddPatientBtn")
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(160, 160, 881, 521))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.scrollArea = QtWidgets.QScrollArea(self.widget)
+        self.scrollArea.setStyleSheet("border: none;")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 846, 1018))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
+        self.frame.setMinimumSize(QtCore.QSize(0, 1000))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.PatientCard = QtWidgets.QWidget(self.frame)
+        self.PatientCard.setGeometry(QtCore.QRect(0, 0, 311, 311))
         self.PatientCard.setStyleSheet("border-radius: 10px;\n"
                                        "background-color: #f0f4c3;\n"
                                        "")
@@ -130,15 +156,15 @@ class Ui_Treatment(object):
         self.Patient_age.setStyleSheet("background-color: transparent;\n"
                                        "font-size: 14px;")
         self.Patient_age.setObjectName("Patient_age")
-        self.disease = QtWidgets.QLabel(self.PatientCard)
-        self.disease.setGeometry(QtCore.QRect(10, 100, 101, 31))
-        self.disease.setStyleSheet("border-radius: 15px;\n"
-                                   "background-color: #fb8c00;\n"
-                                   "font-size: 12px;")
-        self.disease.setAlignment(QtCore.Qt.AlignCenter)
-        self.disease.setObjectName("disease")
+        self.disease_1 = QtWidgets.QLabel(self.PatientCard)
+        self.disease_1.setGeometry(QtCore.QRect(10, 100, 291, 31))
+        self.disease_1.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_1.setObjectName("disease_1")
         self.TreatmentBtn = QtWidgets.QPushButton(self.PatientCard)
-        self.TreatmentBtn.setGeometry(QtCore.QRect(172, 150, 131, 41))
+        self.TreatmentBtn.setGeometry(QtCore.QRect(90, 260, 131, 41))
         self.TreatmentBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.TreatmentBtn.setStyleSheet("margin: 0;\n"
                                         "background-color: #fb8c00;\n"
@@ -148,22 +174,32 @@ class Ui_Treatment(object):
         self.notificationBtn.setGeometry(QtCore.QRect(270, 0, 31, 31))
         self.notificationBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.notificationBtn.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/iconPrefix/notification.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.notificationBtn.setIcon(icon4)
-        self.notificationBtn.setObjectName("notificationBtn")
-        self.AddPatientBtn = QtWidgets.QCommandLinkButton(self.centralwidget)
-        self.AddPatientBtn.setGeometry(QtCore.QRect(894, 110, 121, 41))
-        self.AddPatientBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/iconPrefix/add-user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.AddPatientBtn.setIcon(icon5)
-        self.AddPatientBtn.setObjectName("AddPatientBtn")
+        icon5.addPixmap(QtGui.QPixmap(":/iconPrefix/notification.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.notificationBtn.setIcon(icon5)
+        self.notificationBtn.setObjectName("notificationBtn")
+        self.disease_2 = QtWidgets.QLabel(self.PatientCard)
+        self.disease_2.setGeometry(QtCore.QRect(10, 150, 291, 31))
+        self.disease_2.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_2.setObjectName("disease_2")
+        self.disease_3 = QtWidgets.QLabel(self.PatientCard)
+        self.disease_3.setGeometry(QtCore.QRect(10, 200, 291, 31))
+        self.disease_3.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_3.setObjectName("disease_3")
+        self.verticalLayout_2.addWidget(self.frame)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout.addWidget(self.scrollArea)
         self.TreatmentLabel.raise_()
         self.frame_4.raise_()
-        self.PatientCard.raise_()
         self.AddPatientBtn.raise_()
         self.frame_3.raise_()
+        self.widget.raise_()
 
         self.retranslateUi(Treatment)
         QtCore.QMetaObject.connectSlotsByName(Treatment)
@@ -176,16 +212,19 @@ class Ui_Treatment(object):
         self.TreatmentButton.setText(_translate("Treatment", "Treatments"))
         self.ReportButton.setText(_translate("Treatment", "Reports"))
         self.UsernameLabel_2.setText(_translate("Treatment", "USERNAME"))
+        self.AddPatientBtn.setText(_translate("Treatment", "Add Patient"))
         self.Patient_name.setText(_translate("Treatment", "Patient Name"))
         self.Patient_age.setText(_translate("Treatment", "18"))
-        self.disease.setText(_translate("Treatment", "Rotatory cuff"))
+        self.disease_1.setText(_translate("Treatment", "Rotatory cuff"))
         self.TreatmentBtn.setText(_translate("Treatment", "Treatment"))
-        self.AddPatientBtn.setText(_translate("Treatment", "Add Patient"))
+        self.disease_2.setText(_translate("Treatment", "-"))
+        self.disease_3.setText(_translate("Treatment", "-"))
 
 
 import src.resource.fonts_rc
 import src.resource.icons_rc
 import src.resource.images_rc
+
 
 if __name__ == "__main__":
     import sys

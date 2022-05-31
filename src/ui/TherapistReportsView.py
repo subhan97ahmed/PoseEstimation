@@ -109,53 +109,76 @@ class Ui_TherapistReports(object):
         self.UsernameLabel_2 = QtWidgets.QLabel(self.frame_4)
         self.UsernameLabel_2.setGeometry(QtCore.QRect(750, 40, 91, 21))
         self.UsernameLabel_2.setObjectName("UsernameLabel_2")
-        self.PatientNameCard = QtWidgets.QWidget(self.centralwidget)
-        self.PatientNameCard.setGeometry(QtCore.QRect(180, 180, 301, 191))
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(160, 170, 871, 521))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.scrollArea = QtWidgets.QScrollArea(self.widget)
+        self.scrollArea.setStyleSheet("border: none;")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 836, 1018))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
+        self.frame.setMinimumSize(QtCore.QSize(0, 1000))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.PatientNameCard = QtWidgets.QWidget(self.frame)
+        self.PatientNameCard.setGeometry(QtCore.QRect(0, 0, 301, 201))
         self.PatientNameCard.setStyleSheet("border-radius: 10px;\n"
                                            "background-color: #f0f4c3;\n"
                                            "\n"
                                            "")
         self.PatientNameCard.setObjectName("PatientNameCard")
-        self.label_3 = QtWidgets.QLabel(self.PatientNameCard)
-        self.label_3.setGeometry(QtCore.QRect(10, 30, 61, 51))
-        self.label_3.setStyleSheet("background-color: transparent;\n"
+        self.label_4 = QtWidgets.QLabel(self.PatientNameCard)
+        self.label_4.setGeometry(QtCore.QRect(10, 30, 61, 51))
+        self.label_4.setStyleSheet("background-color: transparent;\n"
                                    "width: 20px;\n"
                                    "height: auto")
-        self.label_3.setText("")
-        self.label_3.setTextFormat(QtCore.Qt.RichText)
-        self.label_3.setPixmap(QtGui.QPixmap(":/iconPrefix/treatment.png"))
-        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_3.setWordWrap(False)
-        self.label_3.setObjectName("label_3")
-        self.PatientNameLabel = QtWidgets.QLabel(self.PatientNameCard)
-        self.PatientNameLabel.setGeometry(QtCore.QRect(80, 20, 211, 21))
-        self.PatientNameLabel.setStyleSheet("background-color: transparent;\n"
+        self.label_4.setText("")
+        self.label_4.setTextFormat(QtCore.Qt.RichText)
+        self.label_4.setPixmap(QtGui.QPixmap(":/iconPrefix/treatment.png"))
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setWordWrap(False)
+        self.label_4.setObjectName("label_4")
+        self.patientNameLabel = QtWidgets.QLabel(self.PatientNameCard)
+        self.patientNameLabel.setGeometry(QtCore.QRect(80, 20, 211, 21))
+        self.patientNameLabel.setStyleSheet("background-color: transparent;\n"
                                             "font-size: 16px;")
-        self.PatientNameLabel.setObjectName("PatientNameLabel")
-        self.PatientAge = QtWidgets.QLabel(self.PatientNameCard)
-        self.PatientAge.setGeometry(QtCore.QRect(80, 110, 211, 21))
-        self.PatientAge.setStyleSheet("background-color: transparent;\n"
+        self.patientNameLabel.setObjectName("patientNameLabel")
+        self.patientAge = QtWidgets.QLabel(self.PatientNameCard)
+        self.patientAge.setGeometry(QtCore.QRect(80, 110, 211, 21))
+        self.patientAge.setStyleSheet("background-color: transparent;\n"
                                       "font-size: 14px;")
-        self.PatientAge.setObjectName("PatientAge")
-        self.PatientEmail = QtWidgets.QLabel(self.PatientNameCard)
-        self.PatientEmail.setGeometry(QtCore.QRect(80, 50, 211, 21))
-        self.PatientEmail.setStyleSheet("background-color: transparent;\n"
+        self.patientAge.setObjectName("patientAge")
+        self.patientEmail = QtWidgets.QLabel(self.PatientNameCard)
+        self.patientEmail.setGeometry(QtCore.QRect(80, 50, 211, 21))
+        self.patientEmail.setStyleSheet("background-color: transparent;\n"
                                         "font-size: 14px;")
-        self.PatientEmail.setObjectName("PatientEmail")
-        self.PatientContactNo = QtWidgets.QLabel(self.PatientNameCard)
-        self.PatientContactNo.setGeometry(QtCore.QRect(80, 80, 211, 21))
-        self.PatientContactNo.setStyleSheet("background-color: transparent;\n"
+        self.patientEmail.setObjectName("patientEmail")
+        self.patientContactNo = QtWidgets.QLabel(self.PatientNameCard)
+        self.patientContactNo.setGeometry(QtCore.QRect(80, 80, 211, 21))
+        self.patientContactNo.setStyleSheet("background-color: transparent;\n"
                                             "font-size: 14px;")
-        self.PatientContactNo.setObjectName("PatientContactNo")
-        self.AddPatientBtn = QtWidgets.QPushButton(self.PatientNameCard)
-        self.AddPatientBtn.setGeometry(QtCore.QRect(140, 140, 151, 41))
-        self.AddPatientBtn.setStyleSheet("background-color: rgb(249, 168, 37);\n"
+        self.patientContactNo.setObjectName("patientContactNo")
+        self.addPatientBtn = QtWidgets.QPushButton(self.PatientNameCard)
+        self.addPatientBtn.setGeometry(QtCore.QRect(140, 140, 151, 41))
+        self.addPatientBtn.setStyleSheet("background-color: rgb(249, 168, 37);\n"
                                          "border-radius: 20px;")
-        self.AddPatientBtn.setObjectName("AddPatientBtn")
+        self.addPatientBtn.setObjectName("addPatientBtn")
+        self.verticalLayout_2.addWidget(self.frame)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout.addWidget(self.scrollArea)
         self.PatientsReportLabel.raise_()
         self.frame_4.raise_()
         self.frame_3.raise_()
-        self.PatientNameCard.raise_()
+        self.widget.raise_()
 
         self.retranslateUi(TherapistReports)
         QtCore.QMetaObject.connectSlotsByName(TherapistReports)
@@ -168,16 +191,17 @@ class Ui_TherapistReports(object):
         self.TreatmentButton.setText(_translate("TherapistReports", "Treatments"))
         self.ReportButton.setText(_translate("TherapistReports", "Reports"))
         self.UsernameLabel_2.setText(_translate("TherapistReports", "USERNAME"))
-        self.PatientNameLabel.setText(_translate("TherapistReports", "Patient Name"))
-        self.PatientAge.setText(_translate("TherapistReports", "18"))
-        self.PatientEmail.setText(_translate("TherapistReports", "email@gmail.com"))
-        self.PatientContactNo.setText(_translate("TherapistReports", "03451234XXX"))
-        self.AddPatientBtn.setText(_translate("TherapistReports", "View"))
+        self.patientNameLabel.setText(_translate("TherapistReports", "Patient Name"))
+        self.patientAge.setText(_translate("TherapistReports", "18"))
+        self.patientEmail.setText(_translate("TherapistReports", "email@gmail.com"))
+        self.patientContactNo.setText(_translate("TherapistReports", "03451234XXX"))
+        self.addPatientBtn.setText(_translate("TherapistReports", "View"))
 
 
 import src.resource.fonts_rc
 import src.resource.icons_rc
 import src.resource.images_rc
+
 
 if __name__ == "__main__":
     import sys

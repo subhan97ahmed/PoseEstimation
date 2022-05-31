@@ -7,7 +7,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ExercisePrescribe(object):
     def setupUi(self, ExercisePrescribe):
         ExercisePrescribe.setObjectName("ExercisePrescribe")
-        ExercisePrescribe.resize(1025, 667)
+        ExercisePrescribe.resize(1024, 680)
         ExercisePrescribe.setStyleSheet("*  {\n"
                                         "    background-color: #e2f6ff;\n"
                                         "    font: 57 10pt \"Montserrat Medium\";\n"
@@ -33,7 +33,7 @@ class Ui_ExercisePrescribe(object):
                                         "}\n"
                                         "")
         self.centralwidget = QtWidgets.QWidget(ExercisePrescribe)
-        self.centralwidget.setGeometry(QtCore.QRect(0, -10, 1024, 680))
+        self.centralwidget.setGeometry(QtCore.QRect(0, 0, 1024, 680))
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(-30, 10, 161, 711))
@@ -97,8 +97,39 @@ class Ui_ExercisePrescribe(object):
         self.UsernameLabel = QtWidgets.QLabel(self.frame_2)
         self.UsernameLabel.setGeometry(QtCore.QRect(750, 40, 91, 21))
         self.UsernameLabel.setObjectName("UsernameLabel")
-        self.exerciseCard = QtWidgets.QWidget(self.centralwidget)
-        self.exerciseCard.setGeometry(QtCore.QRect(160, 190, 331, 151))
+        self.DashboarLabel_2 = QtWidgets.QLabel(self.centralwidget)
+        self.DashboarLabel_2.setGeometry(QtCore.QRect(160, 110, 401, 61))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat Medium")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.DashboarLabel_2.setFont(font)
+        self.DashboarLabel_2.setStyleSheet("font-size: 26px;")
+        self.DashboarLabel_2.setObjectName("DashboarLabel_2")
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(150, 170, 881, 511))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.scrollArea = QtWidgets.QScrollArea(self.widget)
+        self.scrollArea.setStyleSheet("border: none;")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 846, 1018))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.frame_3 = QtWidgets.QFrame(self.scrollAreaWidgetContents)
+        self.frame_3.setMinimumSize(QtCore.QSize(0, 1000))
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.exerciseCard = QtWidgets.QWidget(self.frame_3)
+        self.exerciseCard.setGeometry(QtCore.QRect(0, -10, 331, 151))
         self.exerciseCard.setStyleSheet("background-color: #f0f4c3;\n"
                                         "border-radius: 10px;")
         self.exerciseCard.setObjectName("exerciseCard")
@@ -118,21 +149,13 @@ class Ui_ExercisePrescribe(object):
         self.RepCount = QtWidgets.QLabel(self.exerciseCard)
         self.RepCount.setGeometry(QtCore.QRect(90, 50, 221, 21))
         self.RepCount.setObjectName("RepCount")
-        self.DashboarLabel_2 = QtWidgets.QLabel(self.centralwidget)
-        self.DashboarLabel_2.setGeometry(QtCore.QRect(160, 120, 401, 61))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat Medium")
-        font.setPointSize(-1)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.DashboarLabel_2.setFont(font)
-        self.DashboarLabel_2.setStyleSheet("font-size: 26px;")
-        self.DashboarLabel_2.setObjectName("DashboarLabel_2")
+        self.verticalLayout_2.addWidget(self.frame_3)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout.addWidget(self.scrollArea)
         self.frame_2.raise_()
-        self.exerciseCard.raise_()
         self.frame.raise_()
         self.DashboarLabel_2.raise_()
+        self.widget.raise_()
 
         self.retranslateUi(ExercisePrescribe)
         QtCore.QMetaObject.connectSlotsByName(ExercisePrescribe)
@@ -144,17 +167,18 @@ class Ui_ExercisePrescribe(object):
         self.ReportButton.setText(_translate("ExercisePrescribe", "Reports"))
         self.TreatmentButton.setText(_translate("ExercisePrescribe", "Exercises"))
         self.UsernameLabel.setText(_translate("ExercisePrescribe", "USERNAME"))
+        self.DashboarLabel_2.setText(_translate("ExercisePrescribe", "Prescribed Exercises"))
         self.ExerciseName.setText(_translate("ExercisePrescribe", "Exercise Name"))
         self.StartExerciseBtn.setText(_translate("ExercisePrescribe", "Start Exercise"))
         self.label.setText(_translate("ExercisePrescribe",
                                       "<html><head/><body><p><img src=\":/iconPrefix/exercise.png\"/></p></body></html>"))
         self.RepCount.setText(_translate("ExercisePrescribe", "Rep x"))
-        self.DashboarLabel_2.setText(_translate("ExercisePrescribe", "Prescribed Exercises"))
 
 
 import src.resource.fonts_rc
 import src.resource.icons_rc
 import src.resource.images_rc
+
 
 if __name__ == "__main__":
     import sys

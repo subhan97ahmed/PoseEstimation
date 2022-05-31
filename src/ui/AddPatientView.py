@@ -170,50 +170,71 @@ class Ui_AddPatient(object):
         self.mail_label_10 = QtWidgets.QLabel(self.groupBox_2)
         self.mail_label_10.setGeometry(QtCore.QRect(10, 150, 81, 31))
         self.mail_label_10.setObjectName("mail_label_10")
-        self.patientCard_2 = QtWidgets.QWidget(self.centralwidget)
-        self.patientCard_2.setGeometry(QtCore.QRect(610, 190, 391, 151))
-        self.patientCard_2.setStyleSheet("border-radius: 10px;\n"
-                                         "background-color: #f0f4c3;\n"
-                                         "\n"
-                                         "")
-        self.patientCard_2.setObjectName("patientCard_2")
-        self.label_3 = QtWidgets.QLabel(self.patientCard_2)
-        self.label_3.setGeometry(QtCore.QRect(10, 30, 61, 51))
-        self.label_3.setStyleSheet("background-color: transparent;\n"
+        self.patientCard = QtWidgets.QWidget(self.centralwidget)
+        self.patientCard.setGeometry(QtCore.QRect(610, 190, 391, 291))
+        self.patientCard.setStyleSheet("border-radius: 10px;\n"
+                                       "background-color: #f0f4c3;\n"
+                                       "\n"
+                                       "")
+        self.patientCard.setObjectName("patientCard")
+        self.label_5 = QtWidgets.QLabel(self.patientCard)
+        self.label_5.setGeometry(QtCore.QRect(10, 30, 61, 51))
+        self.label_5.setStyleSheet("background-color: transparent;\n"
                                    "width: 20px;\n"
                                    "height: auto")
-        self.label_3.setText("")
-        self.label_3.setTextFormat(QtCore.Qt.RichText)
-        self.label_3.setPixmap(QtGui.QPixmap(":/iconPrefix/treatment.png"))
-        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_3.setWordWrap(False)
-        self.label_3.setObjectName("label_3")
-        self.PatientName = QtWidgets.QLabel(self.patientCard_2)
-        self.PatientName.setGeometry(QtCore.QRect(80, 20, 211, 21))
-        self.PatientName.setStyleSheet("background-color: transparent;\n"
-                                       "font-size: 16px;")
-        self.PatientName.setObjectName("PatientName")
-        self.PatientAge = QtWidgets.QLabel(self.patientCard_2)
-        self.PatientAge.setGeometry(QtCore.QRect(80, 110, 211, 21))
-        self.PatientAge.setStyleSheet("background-color: transparent;\n"
-                                      "font-size: 14px;")
-        self.PatientAge.setObjectName("PatientAge")
-        self.PatientEmail = QtWidgets.QLabel(self.patientCard_2)
-        self.PatientEmail.setGeometry(QtCore.QRect(80, 50, 211, 21))
-        self.PatientEmail.setStyleSheet("background-color: transparent;\n"
+        self.label_5.setText("")
+        self.label_5.setTextFormat(QtCore.Qt.RichText)
+        self.label_5.setPixmap(QtGui.QPixmap(":/iconPrefix/treatment.png"))
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setWordWrap(False)
+        self.label_5.setObjectName("label_5")
+        self.patientName_2 = QtWidgets.QLabel(self.patientCard)
+        self.patientName_2.setGeometry(QtCore.QRect(80, 20, 281, 21))
+        self.patientName_2.setStyleSheet("background-color: transparent;\n"
+                                         "font-size: 16px;")
+        self.patientName_2.setObjectName("patientName_2")
+        self.patientAge_2 = QtWidgets.QLabel(self.patientCard)
+        self.patientAge_2.setGeometry(QtCore.QRect(80, 110, 281, 21))
+        self.patientAge_2.setStyleSheet("background-color: transparent;\n"
                                         "font-size: 14px;")
-        self.PatientEmail.setObjectName("PatientEmail")
-        self.PatientContactNo = QtWidgets.QLabel(self.patientCard_2)
-        self.PatientContactNo.setGeometry(QtCore.QRect(80, 80, 211, 21))
-        self.PatientContactNo.setStyleSheet("background-color: transparent;\n"
-                                            "font-size: 14px;")
-        self.PatientContactNo.setObjectName("PatientContactNo")
+        self.patientAge_2.setObjectName("patientAge_2")
+        self.disease_1 = QtWidgets.QLabel(self.patientCard)
+        self.disease_1.setGeometry(QtCore.QRect(70, 140, 281, 31))
+        self.disease_1.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_1.setObjectName("disease_1")
+        self.disease_2 = QtWidgets.QLabel(self.patientCard)
+        self.disease_2.setGeometry(QtCore.QRect(70, 190, 281, 31))
+        self.disease_2.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_2.setObjectName("disease_2")
+        self.disease_3 = QtWidgets.QLabel(self.patientCard)
+        self.disease_3.setGeometry(QtCore.QRect(70, 240, 281, 31))
+        self.disease_3.setStyleSheet("border-radius: 15px;\n"
+                                     "background-color: #fb8c00;\n"
+                                     "font-size: 12px;")
+        self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_3.setObjectName("disease_3")
+        self.patientEmail_3 = QtWidgets.QLabel(self.patientCard)
+        self.patientEmail_3.setGeometry(QtCore.QRect(80, 50, 281, 21))
+        self.patientEmail_3.setStyleSheet("background-color: transparent;\n"
+                                          "font-size: 14px;")
+        self.patientEmail_3.setObjectName("patientEmail_3")
+        self.PatientContactNo_3 = QtWidgets.QLabel(self.patientCard)
+        self.PatientContactNo_3.setGeometry(QtCore.QRect(80, 80, 281, 21))
+        self.PatientContactNo_3.setStyleSheet("background-color: transparent;\n"
+                                              "font-size: 14px;")
+        self.PatientContactNo_3.setObjectName("PatientContactNo_3")
         self.TreatmentLabel.raise_()
         self.frame_4.raise_()
         self.frame_3.raise_()
         self.groupBox.raise_()
         self.groupBox_2.raise_()
-        self.patientCard_2.raise_()
+        self.patientCard.raise_()
 
         self.retranslateUi(AddPatient)
         QtCore.QMetaObject.connectSlotsByName(AddPatient)
@@ -238,10 +259,13 @@ class Ui_AddPatient(object):
         self.diagnose2.setPlaceholderText(_translate("AddPatient", "e.g. Rotatory cuff"))
         self.diagnose3.setPlaceholderText(_translate("AddPatient", "e.g. Rotatory cuff"))
         self.mail_label_10.setText(_translate("AddPatient", "Diagnose 3"))
-        self.PatientName.setText(_translate("AddPatient", "Patient Name"))
-        self.PatientAge.setText(_translate("AddPatient", "18"))
-        self.PatientEmail.setText(_translate("AddPatient", "email@gmail.com"))
-        self.PatientContactNo.setText(_translate("AddPatient", "03451234XXX"))
+        self.patientName_2.setText(_translate("AddPatient", "Patient Name"))
+        self.patientAge_2.setText(_translate("AddPatient", "18"))
+        self.disease_1.setText(_translate("AddPatient", "-"))
+        self.disease_2.setText(_translate("AddPatient", "-"))
+        self.disease_3.setText(_translate("AddPatient", "-"))
+        self.patientEmail_3.setText(_translate("AddPatient", "email@gmail.com"))
+        self.PatientContactNo_3.setText(_translate("AddPatient", "03451234XXX"))
 
 
 import src.resource.fonts_rc
