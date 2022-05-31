@@ -33,9 +33,9 @@ def add_data_firebase(foodName):
     }
     # TODO change it to uuid
     # i = random.randint(1, 1000)
-    l =db.collection(u'users').document(u'I7Uhj1GyTdTs9xlYswgHkGLvJS22')
-    q =l.get()
-    print(q.to_dict())
+    ref = db.collection(u'test').document(u'I7Uhj1GyTdTs9xlYswgHkGLvJS22').set(data)
+    # q = ref.key.set(data)
+    # print(q.to_dict())
     # docs = doc_ref.stream()
     # for doc in docs:
     #     print(f'{doc.id} = > {doc.to_dict()}')
