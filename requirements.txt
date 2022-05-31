@@ -1,10 +1,9 @@
+firebase==3.0.1
 firebase_admin==5.2.0
 mediapipe==0.8.9.1
 numpy==1.22.3
 opencv_python==4.5.5.64
 Pillow==9.1.1
 PyQt5==5.15.6
-PyQt6==6.3.0
 pyqtgraph==0.12.4
 pyttsx3==2.90
-future==0.18.2

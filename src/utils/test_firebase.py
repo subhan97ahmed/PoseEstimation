@@ -6,7 +6,7 @@ firebase_admin.initialize_app(cred,
                               {
                                   'databaseURL': 'https://posefect-b48b9-default-rtdb.firebaseio.com/'
                               })
-
+# firebase_admin.get
 
 def add_data_firebase(foodName):
     # import pandas as pd
@@ -18,7 +18,7 @@ def add_data_firebase(foodName):
     #                                   'databaseURL': 'https://ai-kitchen-helper.firebaseio.com/'
     #                               })
     db = firestore.client()
-    doc_ref = db.collection(u'test')
+    # doc_ref = db.collection(u'test')
     # Import data
     # df = pd.read_csv(‘PPP_data.csv’)
     # tmp = df.to_dict(orient='records')
@@ -33,10 +33,12 @@ def add_data_firebase(foodName):
     }
     # TODO change it to uuid
     # i = random.randint(1, 1000)
-    db.collection(u'test').document(u'user_1').set(data)
-    docs = doc_ref.stream()
-    for doc in docs:
-        print(f'{doc.id} = > {doc.to_dict()}')
+    l =db.collection(u'users').document(u'I7Uhj1GyTdTs9xlYswgHkGLvJS22')
+    q =l.get()
+    print(q.to_dict())
+    # docs = doc_ref.stream()
+    # for doc in docs:
+    #     print(f'{doc.id} = > {doc.to_dict()}')
 
 
 add_data_firebase('hello')
