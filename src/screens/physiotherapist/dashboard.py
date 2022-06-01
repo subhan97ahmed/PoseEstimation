@@ -9,8 +9,11 @@ class TDashboard(QWidget, Ui_Dashboard):
         self.setupUi(self)
         if not self.parent().user_info:
             return
-        print("Therapist Dashboard: ", self.parent().user_info)
-        # self.UsernameLabel.setText(f'Dr. {self.parent().user_info.f_name}')
+        info = self.parent().user_info
+        # db = firestore.client()
+        # fb = db.collection(u'users').document(u'' + info['uId'])
+        # print("fv: ", fb)
+        self.UsernameLabel.setText(f'Dr. {info["f_name"]}')
         # self.NoOfPatientsLabel.setText(len(self.parent().user_info.patients))
         # self.NoofActivePatientsLabel.setText(sum(True for d in self.parent().user_info.patients if ))
 

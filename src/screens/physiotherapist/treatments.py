@@ -12,7 +12,7 @@ class TTreatments(QWidget, Ui_Treatment):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
-        self.AddPatientBtn.clicked.connect(self.parent().go_to_4)
+        self.AddPatientBtn.clicked.connect(self.parent().go_to_5)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
