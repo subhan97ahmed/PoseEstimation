@@ -4,7 +4,7 @@
 from PyQt5.QtWidgets import QMessageBox
 from firebase import Firebase
 from firebase_admin import auth
-from datetime import date
+from datetime import datetime
 
 
 def show_warning(self, title='Warning', message='something went wrong!'):
@@ -12,9 +12,12 @@ def show_warning(self, title='Warning', message='something went wrong!'):
     QMessageBox().warning(self, title, message)
 
 
-def get_age(birthdate):
-    today = date.today()
+def get_age(birthdatestr):
+    birthdate = datetime.strptime(birthdatestr, '%a %b %d %Y').date()
+    print("birthdate: ", birthdate)
+    today = datetime.today()
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+    print("age: ", age)
     return age
 
 

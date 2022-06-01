@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from firebase_admin import firestore
 from src.ui.AddPatientView import Ui_AddPatient
-from src.utils.util import is_form_empty
+from src.utils.util import is_form_empty, get_age
 
 
 class TAddPatient(QWidget, Ui_AddPatient):
@@ -13,6 +13,10 @@ class TAddPatient(QWidget, Ui_AddPatient):
         self.diagnose1.setText("-")
         self.diagnose2.setText("-")
         self.diagnose3.setText("-")
+        self.patientName_2.setText("-")
+        self.patientEmail_3.setText("-")
+        self.PatientContactNo_3.setText("-")
+        self.patientAge_2.setText("-")
         self.db = firestore.client()
         self.patients = self.db.collection(u'users').where(u'role', u'==', 'patient').stream()
         self.patient_data = None
@@ -38,6 +42,10 @@ class TAddPatient(QWidget, Ui_AddPatient):
                     **pat
                 }
                 print("patient_data: ", self.patient_data)
+                self.patientName_2.setText(pat["f_name"])
+                self.patientEmail_3.setText(pat["email"])
+                dob = get_age(pat["dob"])
+                self.patientAge_2.setText(str(dob))
 
     def initial_diagnosis_form(self):
         initial_diagnoses = {
@@ -54,12 +62,13 @@ class TAddPatient(QWidget, Ui_AddPatient):
         print("self.patient_data: ", self.patient_data)
         print("therapist id: ", self.parent().parent().user_info["uId"])
 
-        patient_info = self.db.collection(u'users').document(self.patient_data["uId"])
-        patient_info.update(self.patient_data["uId"])
-        therapist_info = self.db.collection(u'users').document(self.parent().parent().user_info["uId"])
-        therapist_data = therapist_info.get()
-        print("check data: ", therapist_data, [self.patient_data["uId"], *therapist_data.patients])
-        # therapist_info.update({//
+        patient_info = self.db.collection(u'users').document(u'' + self.patient_data["uId"])
+        patient_info.update(self.patient_data)
+        print("patient_info: ", patient_info.get())
+        therapist_info = self.db.collection(u'users').document(u'' + self.parent().parent().user_info["uId"])
+
+        # print("check data: ", therapist_data, [self.patient_data["uId"], *therapist_data.patients])
+        # therapist_info.update()
         # self.parent().parent().go_to_
 
 
