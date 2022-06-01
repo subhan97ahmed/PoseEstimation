@@ -32,6 +32,7 @@ class TAddPatient(QWidget, Ui_AddPatient):
         search_patient = {
             "email": self.patientEmail.text(),
         }
+        # self.patients = self.db.collection(u'users').where(u'role', u'==', 'patient').stream()
         if is_form_empty(self, search_patient):
             return
         for patient in self.patients:
@@ -46,6 +47,13 @@ class TAddPatient(QWidget, Ui_AddPatient):
                 self.patientEmail_3.setText(pat["email"])
                 dob = get_age(pat["dob"])
                 self.patientAge_2.setText(str(dob))
+                if "diagnosis_1" in pat and "diagnosis_2" in pat and "diagnosis_3" in pat:
+                    self.diagnose1.setText(pat["diagnosis_1"])
+                    self.diagnose2.setText(pat["diagnosis_2"])
+                    self.diagnose3.setText(pat["diagnosis_3"])
+                    self.disease_1.setText(pat["diagnosis_1"])
+                    self.disease_2.setText(pat["diagnosis_2"])
+                    self.disease_3.setText(pat["diagnosis_3"])
 
     def initial_diagnosis_form(self):
         initial_diagnoses = {
@@ -66,11 +74,22 @@ class TAddPatient(QWidget, Ui_AddPatient):
         patient_info.update(self.patient_data)
         print("patient_info: ", patient_info.get())
         therapist_info = self.db.collection(u'users').document(u'' + self.parent().parent().user_info["uId"])
+        print("get_therapist_assigned: ", therapist_info)
+        get_therapist_info = therapist_info.get()
+        therapist_dict = get_therapist_info.to_dict()
+        print("therapist_dict: ", therapist_dict)
+        if not "assigned_patients" in therapist_dict:
+            print("therapist_dict not contains", self.patient_data["uId"])
+            therapist_info.update({**therapist_dict, "assigned_patients": [self.patient_data["uId"]]})
+        else:
+            if not self.patient_data["uId"] in therapist_dict["assigned_patients"]:
+                print("therapist_dict contains", self.patient_data["uId"])
+                therapist_info.update({
+                    **therapist_dict,
+                    "assigned_patients": [*therapist_dict["assigned_patients"], self.patient_data["uId"]]
+                })
 
-        # print("check data: ", therapist_data, [self.patient_data["uId"], *therapist_data.patients])
-        # therapist_info.update()
-        # self.parent().parent().go_to_
-
+        self.parent().parent().go_to_3()
 
 
 if __name__ == "__main__":
