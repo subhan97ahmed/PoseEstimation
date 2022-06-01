@@ -12,6 +12,7 @@ class TReports(QWidget, Ui_TherapistReports):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
+        self.addPatientBtn.clicked.connect(self.parent().go_to_2)
 
 
 
