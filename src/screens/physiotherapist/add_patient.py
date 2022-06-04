@@ -18,7 +18,7 @@ class TAddPatient(QWidget, Ui_AddPatient):
         self.PatientContactNo_3.setText("-")
         self.patientAge_2.setText("-")
         self.db = firestore.client()
-        self.patients = self.db.collection(u'users').where(u'role', u'==', 'patient').stream()
+        self.patients = None
         self.patient_data = None
 
         self.searchPatientBtn.clicked.connect(self.search_patient_form)
@@ -32,7 +32,8 @@ class TAddPatient(QWidget, Ui_AddPatient):
         search_patient = {
             "email": self.patientEmail.text(),
         }
-        # self.patients = self.db.collection(u'users').where(u'role', u'==', 'patient').stream()
+        self.patients = self.db.collection(u'users').where(u'role', u'==', 'patient').stream()
+        print("self.patients", self.patients)
         if is_form_empty(self, search_patient):
             return
         for patient in self.patients:

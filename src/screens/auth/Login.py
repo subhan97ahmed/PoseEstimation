@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.LoginView import Ui_Login
 from src.utils.util import is_form_empty
+from src.utils.static import addonStyles
 
 
 class Login(QWidget, Ui_Login):
@@ -12,6 +13,7 @@ class Login(QWidget, Ui_Login):
         # button click method for screen change
         self.CreateAnAcc.clicked.connect(self.parent().go_to_1)
         self.loginBtn.clicked.connect(self.submit_login)
+        self.setStyleSheet(self.styleSheet() + addonStyles)
 
     def submit_login(self):
         login_info = {
