@@ -55,6 +55,7 @@ class App(QMainWindow):
         # for navigation
         self.stacked = QStackedWidget()
         self.setCentralWidget(self.stacked)
+        self.stacked.currentChanged.connect(self.initCurrent)
         # init is responsible for opening screens per role base
         self.type_base_screens_init('')
         self.init_screen('')
@@ -161,12 +162,25 @@ class App(QMainWindow):
 
     def go_to_3(self):
         self.stacked.setCurrentIndex(3)
+        if self.user_info["role"] == "physiotherapist":
+            db = firestore.client()
+            print(db)
+            doc_ref = db.collection(u'users').document(u'' + self.user_info["uId"])
+            doc = doc_ref.get()
+            if doc.exists:
+                user_data = doc.to_dict()
+                print("user_data: ", user_data)
+                self.user_info = user_data
 
     def go_to_4(self):
         self.stacked.setCurrentIndex(4)
 
     def go_to_5(self):
         self.stacked.setCurrentIndex(5)
+
+    def initCurrent(self):
+        if hasattr(self.stacked.currentWidget(), "initializer"):
+            self.stacked.currentWidget().initializer()
 
 
 if __name__ == "__main__":
