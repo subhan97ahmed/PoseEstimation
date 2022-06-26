@@ -26,7 +26,7 @@ class TReport(QWidget, Ui_TherapistReport):
         self.patientName_3.setText(info["f_name"])
         self.patientEmail_4.setText(info["email"])
         self.PatientContactNo_4.setText('-')
-        self.patientAge_3.setText(str(get_age(info["dob"])))
+        self.patientAge_3.setText(get_age(info["dob"]))
         #
         if 'diagnosis_1' in info.keys():
             self.disease_4.setText(info["diagnosis_1"])

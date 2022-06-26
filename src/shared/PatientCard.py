@@ -5,10 +5,10 @@ import src.resource.images_rc
 
 
 class PatientCard:
-    def __init__(self, frame=None, name="Name", age=0, disease1="-", disease2="-", disease3="-"):
+    def __init__(self, frame, name="Name", age="", disease1="-", disease2="-", disease3="-"):
         _translate = QtCore.QCoreApplication.translate
         self.PatientCard = QtWidgets.QWidget(frame)
-        # self.PatientCard.setGeometry(QtCore.QRect(0, 0, 311, 311))
+        self.PatientCard.setGeometry(QtCore.QRect(0, 0, 311, 311))
         self.PatientCard.setStyleSheet("border-radius: 10px;\n"
                                        "background-color: #f0f4c3;\n"
                                        "")
@@ -35,7 +35,7 @@ class PatientCard:
         self.disease_1.setStyleSheet("border-radius: 15px;\n"
                                      "background-color: #fb8c00;\n"
                                      "font-size: 12px;")
-        self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_1.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
         self.disease_1.setObjectName("disease_1")
         self.TreatmentBtn = QtWidgets.QPushButton(self.PatientCard)
         self.TreatmentBtn.setGeometry(QtCore.QRect(90, 260, 131, 41))
@@ -57,19 +57,19 @@ class PatientCard:
         self.disease_2.setStyleSheet("border-radius: 15px;\n"
                                      "background-color: #fb8c00;\n"
                                      "font-size: 12px;")
-        self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_2.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
         self.disease_2.setObjectName("disease_2")
         self.disease_3 = QtWidgets.QLabel(self.PatientCard)
         self.disease_3.setGeometry(QtCore.QRect(10, 200, 291, 31))
         self.disease_3.setStyleSheet("border-radius: 15px;\n"
                                      "background-color: #fb8c00;\n"
                                      "font-size: 12px;")
-        self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_3.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
         self.disease_3.setObjectName("disease_3")
 
         # Set values
         self.Patient_name.setText(_translate("Treatment", name))
-        self.Patient_age.setText(_translate("Treatment", str(age)))
+        self.Patient_age.setText(_translate("Treatment", age))
         self.disease_1.setText(_translate("Treatment", disease1))
         self.TreatmentBtn.setText(_translate("Treatment", "Treatment"))
         self.disease_2.setText(_translate("Treatment", disease2))

@@ -18,7 +18,7 @@ def get_age(birthdatestr):
     today = datetime.today()
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
     print("age: ", age)
-    return age
+    return str(age)
 
 
 def is_form_empty(self, form_values, message='Invalid, please fill out the form first!'):

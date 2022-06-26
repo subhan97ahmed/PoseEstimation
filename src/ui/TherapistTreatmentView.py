@@ -8,28 +8,28 @@ class Ui_Treatment(object):
         Treatment.setObjectName("Treatment")
         Treatment.resize(1024, 680)
         Treatment.setStyleSheet("*  {\n"
-                                "    background-color: #e2f6ff;\n"
-                                "    font: 57 10pt \"Montserrat Medium\";\n"
-                                "}\n"
-                                "QGroupBox {\n"
-                                "    font-size: 16px;\n"
-                                "}\n"
-                                "QLineEdit, #mail_label, #pass_label {\n"
-                                "    padding: 10px 5px;\n"
-                                "}\n"
-                                "QLineEdit {\n"
-                                "    border-bottom: 2px solid #c17900;\n"
-                                "    border-radius: 0;\n"
-                                "}\n"
-                                "QPushButton {\n"
-                                "    background-color: rgb(249, 168, 37);\n"
-                                "    padding: 12px;\n"
-                                "    border-radius: 20px;\n"
-                                "}\n"
-                                "QCommandLinkButton {\n"
-                                "    background-color: transparent;\n"
-                                "    text-align: center;\n"
-                                "}")
+"    background-color: #e2f6ff;\n"
+"    font: 57 10pt \"Montserrat Medium\";\n"
+"}\n"
+"QGroupBox {\n"
+"    font-size: 16px;\n"
+"}\n"
+"QLineEdit, #mail_label, #pass_label {\n"
+"    padding: 10px 5px;\n"
+"}\n"
+"QLineEdit {\n"
+"    border-bottom: 2px solid #c17900;\n"
+"    border-radius: 0;\n"
+"}\n"
+"QPushButton {\n"
+"    background-color: rgb(249, 168, 37);\n"
+"    padding: 12px;\n"
+"    border-radius: 20px;\n"
+"}\n"
+"QCommandLinkButton {\n"
+"    background-color: transparent;\n"
+"    text-align: center;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(Treatment)
         self.centralwidget.setGeometry(QtCore.QRect(-10, 0, 1081, 771))
         self.centralwidget.setObjectName("centralwidget")
@@ -47,7 +47,7 @@ class Ui_Treatment(object):
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(-30, 0, 161, 691))
         self.frame_3.setStyleSheet("background-color: #ffbd45;\n"
-                                   "border-radius: 15px;")
+"border-radius: 15px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -62,7 +62,7 @@ class Ui_Treatment(object):
         self.Logolabel_2.setFont(font)
         self.Logolabel_2.setAutoFillBackground(False)
         self.Logolabel_2.setStyleSheet("font-family: \"Montserrat ExtraBold\";\n"
-                                       "font-size: 22px;")
+"font-size: 22px;")
         self.Logolabel_2.setText("PF")
         self.Logolabel_2.setTextFormat(QtCore.Qt.AutoText)
         self.Logolabel_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -96,7 +96,7 @@ class Ui_Treatment(object):
         self.ProfilepushButton_2 = QtWidgets.QPushButton(self.frame_4)
         self.ProfilepushButton_2.setGeometry(QtCore.QRect(850, 23, 51, 51))
         self.ProfilepushButton_2.setStyleSheet("background-color: transparent;\n"
-                                               "margin: 0;")
+"margin: 0;")
         self.ProfilepushButton_2.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/iconPrefix/user-profile.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -113,35 +113,17 @@ class Ui_Treatment(object):
         icon4.addPixmap(QtGui.QPixmap(":/iconPrefix/add-user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AddPatientBtn.setIcon(icon4)
         self.AddPatientBtn.setObjectName("AddPatientBtn")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(160, 160, 881, 521))
-        self.widget.setObjectName("widget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.scrollHolder = QtWidgets.QWidget(self.centralwidget)
+        self.scrollHolder.setGeometry(QtCore.QRect(160, 160, 871, 521))
+        self.scrollHolder.setObjectName("scrollHolder")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollHolder)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.scrollArea = QtWidgets.QScrollArea(self.widget)
-        self.scrollArea.setStyleSheet("border: none;")
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setObjectName("scrollArea")
-        self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 846, 1018))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        self.frame.setMinimumSize(QtCore.QSize(0, 1000))
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-
-        self.verticalLayout_2.addWidget(self.frame)
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.verticalLayout.addWidget(self.scrollArea)
         self.TreatmentLabel.raise_()
         self.frame_4.raise_()
         self.AddPatientBtn.raise_()
         self.frame_3.raise_()
-        self.widget.raise_()
+        self.scrollHolder.raise_()
 
         self.retranslateUi(Treatment)
         QtCore.QMetaObject.connectSlotsByName(Treatment)
@@ -155,12 +137,6 @@ class Ui_Treatment(object):
         self.ReportButton.setText(_translate("Treatment", "Reports"))
         self.UsernameLabel_2.setText(_translate("Treatment", "USERNAME"))
         self.AddPatientBtn.setText(_translate("Treatment", "Add Patient"))
-        # self.Patient_name.setText(_translate("Treatment", "Patient Name"))
-        # self.Patient_age.setText(_translate("Treatment", "18"))
-        # self.disease_1.setText(_translate("Treatment", "Rotatory cuff"))
-        # self.TreatmentBtn.setText(_translate("Treatment", "Treatment"))
-        # self.disease_2.setText(_translate("Treatment", "-"))
-        # self.disease_3.setText(_translate("Treatment", "-"))
 
 
 import src.resource.fonts_rc
@@ -170,7 +146,6 @@ import src.resource.images_rc
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     Treatment = QtWidgets.QWidget()
     ui = Ui_Treatment()

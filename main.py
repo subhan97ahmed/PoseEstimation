@@ -1,6 +1,7 @@
 # This file should be the main entry point for the application.
 # Connect firebase here. So, we can have an auth key and point the redirection
 # either patient or physiotherapist
+import asyncio
 import sys
 import firebase_admin
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QDesktopWidget

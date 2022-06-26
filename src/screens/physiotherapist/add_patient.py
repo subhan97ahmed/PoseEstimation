@@ -46,8 +46,7 @@ class TAddPatient(QWidget, Ui_AddPatient):
                 print("patient_data: ", self.patient_data)
                 self.patientName_2.setText(pat["f_name"])
                 self.patientEmail_3.setText(pat["email"])
-                dob = get_age(pat["dob"])
-                self.patientAge_2.setText(str(dob))
+                self.patientAge_2.setText(get_age(pat["dob"]))
                 if "diagnosis_1" in pat and "diagnosis_2" in pat and "diagnosis_3" in pat:
                     self.diagnose1.setText(pat["diagnosis_1"])
                     self.diagnose2.setText(pat["diagnosis_2"])
