@@ -1,5 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QWidget, QApplication, QScrollArea, QVBoxLayout, QLabel
+from PyQt5.QtWidgets import QWidget, QApplication, QScrollArea, QVBoxLayout, QLabel, QHBoxLayout, QListWidget, \
+    QListWidgetItem
 from firebase_admin import firestore
 
 from src.shared.PatientCard import PatientCard
@@ -11,8 +12,8 @@ class TTreatments(QWidget, Ui_Treatment):
     def __init__(self, parent=None):
         super(TTreatments, self).__init__(parent)
         self.setupUi(self)
-        # self.scroll = QScrollArea()  # Scroll Area which contains the widgets, set as the centralWidget
-        # self.vbox = QVBoxLayout()  # The Vertical Box that contains the Horizontal Boxes of  labels and buttons
+        self.scroll = QScrollArea()  # Scroll Area which contains the widgets, set as the centralWidget
+        self.hbox = QHBoxLayout()
         print("Therapist treatments")
         self.patients = None
         self.HomeButton.clicked.connect(self.parent().go_to_0)
@@ -20,23 +21,12 @@ class TTreatments(QWidget, Ui_Treatment):
         self.ReportButton.clicked.connect(self.parent().go_to_1)
         self.AddPatientBtn.clicked.connect(self.parent().go_to_5)
 
-        self.scrollArea = QScrollArea()
-        # self.setCentralWidget(self.scrollArea)
-        self.scrollArea.setWidgetResizable(True)
-
-        self.contents = QWidget()
-        self.scrollArea.setWidget(self.contents)
-
-
-
-    # @firestore.async_transactional
-    def initializer(self):
-        print("print")
-        self.patients = self.parent().parent().user_info["assigned_patients"]
+        self.patients = self.parent().user_info["assigned_patients"]
         if not len(self.patients):
             return
-
         db = firestore.client()
+        patient_index = 0
+        patient_card = {}
         for patient in self.patients:
             print("patient: ", patient)
             doc_ref = db.collection(u'users').document(u'' + patient)
@@ -48,31 +38,74 @@ class TTreatments(QWidget, Ui_Treatment):
                                    f"disease1={doc_data['diagnosis_1']}, disease2={doc_data['diagnosis_2']}"
                                    f"disease3={doc_data['diagnosis_3']}")
 
-                patient_card = PatientCard(
-                                           frame=self.frame_3,
-                                           name=doc_data["f_name"],
-                                           age=get_age(doc_data["dob"]),
-                                           disease1=doc_data["diagnosis_1"],
-                                           disease2=doc_data["diagnosis_2"],
-                                           disease3=doc_data["diagnosis_3"]
+                patient_card[patient_index] = PatientCard(
+                    frame=self.scrollHolder,
+                    name=str(doc_data["f_name"]),
+                    age=str(get_age(doc_data["dob"])),
+                    disease1=str(doc_data["diagnosis_1"]),
+                    disease2=str(doc_data["diagnosis_2"]),
+                    disease3=str(doc_data["diagnosis_3"])
                 )
-                layout = QVBoxLayout(self.contents)
-                self.contents.setLayout(layout)
-                layout.addWidget(card_info)
-                self.scrollArea.move(self.parent().parent().rect().center())
 
-                # self.update()
-                # self.show()
-                # layout = QtWidgets.QVBoxLayout()
-                # self.contents = card_info
+                # self.vbox.addWidget(patient_card[c].PatientCard)
+                self.hbox.insertWidget(patient_index, patient_card[patient_index].PatientCard)
 
-                # self.centralwidget(self.scrollArea)
-                # self.centralwidget(self.scroll)
+                if patient_index != 0:
+                    patient_card[patient_index].PatientCard.move(
+                        patient_card[patient_index - 1].PatientCard.rect().x() + patient_card[
+                            patient_index - 1].PatientCard.rect().width()+15,
+                        patient_card[patient_index - 1].PatientCard.rect().y())
+                patient_index = patient_index + 1
 
-                # self.verticalLayout.addWidget(patient_card)
-                # self.scroll.ch
-                # self..resize(120, 30)
-                # self.btn.move(600, 200)
+    #
+
+    # @firestore.async_transactional
+    # def initializer(self):
+    #     print("print")
+    #     self.patients = self.parent().parent().user_info["assigned_patients"]
+    #     if not len(self.patients):
+    #         return
+    #     db = firestore.client()
+    #     for patient in self.patients:
+    #         print("patient: ", patient)
+    #         doc_ref = db.collection(u'users').document(u'' + patient)
+    #         doc = doc_ref.get()
+    #         if doc.exists:
+    #             doc_data = doc.to_dict()
+    #             print("============doc_data: ", doc_data)
+    #             card_info = QLabel(f"name={doc_data['f_name']}, age={get_age(doc_data['dob'])},"
+    #                                f"disease1={doc_data['diagnosis_1']}, disease2={doc_data['diagnosis_2']}"
+    #                                f"disease3={doc_data['diagnosis_3']}")
+    #
+    #             patient_card = PatientCard(
+    #                 frame=self.scrollHolder,
+    #                 # name=str(doc_data["f_name"]),
+    #                 # age=str(get_age(doc_data["dob"])),
+    #                 # disease1=str(doc_data["diagnosis_1"]),
+    #                 # disease2=str(doc_data["diagnosis_2"]),
+    #                 # disease3=str(doc_data["diagnosis_3"])
+    #             )
+    #
+    #             # patient_card.PatientCard.move(patient_card.PatientCard.rect().x() + 20,
+    #             #                                patient_card.PatientCard.rect().y())
+    #
+    #             # layout = QVBoxLayout(self.contents)
+    #             # self.contents.setLayout(layout)
+    #             # layout.addWidget(patient_card.PatientCard)
+    #             # self.scrollArea.move(self.scrollHolder.rect().center())
+    #
+    #             # self.update()
+    #             # self.show()
+    #             # layout = QtWidgets.QVBoxLayout()
+    #             # self.contents = card_info
+    #
+    #             # self.centralwidget(self.scrollArea)
+    #             # self.centralwidget(self.scroll)
+    #
+    #             # self.verticalLayout.addWidget(patient_card)
+    #             # self.scroll.ch
+    #             # self..resize(120, 30)
+    #             # self.btn.move(600, 200)
 
 
 if __name__ == "__main__":
