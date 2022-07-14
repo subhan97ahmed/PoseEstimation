@@ -2,10 +2,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import src.resource.fonts_rc
 import src.resource.icons_rc
 import src.resource.images_rc
+from src.utils.util import get_age
 
 
 class PatientCard:
-    def __init__(self, frame, name="Name", age="", disease1="-", disease2="-", disease3="-"):
+    def __init__(self, frame, patient_info, event_func=any):
         _translate = QtCore.QCoreApplication.translate
         self.PatientCard = QtWidgets.QWidget(frame)
         self.PatientCard.setGeometry(QtCore.QRect(0, 0, 311, 311))
@@ -68,9 +69,10 @@ class PatientCard:
         self.disease_3.setObjectName("disease_3")
 
         # Set values
-        self.Patient_name.setText(_translate("Treatment", name))
-        self.Patient_age.setText(_translate("Treatment", age))
-        self.disease_1.setText(_translate("Treatment", disease1))
-        self.TreatmentBtn.setText(_translate("Treatment", "Treatment"))
-        self.disease_2.setText(_translate("Treatment", disease2))
-        self.disease_3.setText(_translate("Treatment", disease3))
+        self.Patient_name.setText(_translate("Treatment", patient_info["f_name"]))
+        self.Patient_age.setText(_translate("Treatment", get_age(patient_info["dob"])))
+        self.disease_1.setText(_translate("Treatment", patient_info["diagnosis_1"]))
+        self.disease_2.setText(_translate("Treatment", patient_info["diagnosis_2"]))
+        self.disease_3.setText(_translate("Treatment", patient_info["diagnosis_3"]))
+        self.TreatmentBtn.setText(_translate("Treatment", "Add Treatment"))
+        self.TreatmentBtn.clicked.connect(lambda: event_func(patient_info))

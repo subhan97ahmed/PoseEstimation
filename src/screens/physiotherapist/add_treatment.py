@@ -30,6 +30,7 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
             "angle": self.angleCount.text(),
             "videoLink": self.videoLink.text(),
         }
+        print("check: ", add_exercise)
         if is_form_empty(self, add_exercise):
             return
         print("submit: ", add_exercise)
@@ -38,7 +39,10 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         print("keys: ", exercises)
         for exercise in exercises:
             print("exercise: ", exercise)
-            self.exerciseName.addItem(exercise['name'], exercise)
+            self.exerciseName.addItem(exercise['name'], exercise['name'])
+
+    def initializer(self):
+        print(f"patient data treatment: {self.parent().parent().hold_info}")
 
 
 if __name__ == "__main__":

@@ -62,16 +62,6 @@ class App(QMainWindow):
         self.init_screen('')
         self.show()
 
-    # To share data across widgets, main.py can act as a store to hold and share data
-    def set_data(self, info):
-        self.hold_info = info
-
-    def get_data(self):
-        return self.hold_info
-
-    def get_user_data(self):
-        return self.user_info
-
     # initialize screens instances accordingly
     def type_base_screens_init(self, user_type: str):
         if user_type.lower() == 'physiotherapist':
@@ -95,22 +85,22 @@ class App(QMainWindow):
         if user_type.lower() == 'physiotherapist':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
-            self.stacked.addWidget(self.screen_t_dashboard)
-            self.stacked.addWidget(self.screen_t_reports)
-            self.stacked.addWidget(self.screen_t_report)
-            self.stacked.addWidget(self.screen_t_treatments)
-            self.stacked.addWidget(self.screen_t_add_treatment)
-            self.stacked.addWidget(self.screen_t_add_patient)
+            self.stacked.addWidget(self.screen_t_dashboard)  # 0
+            self.stacked.addWidget(self.screen_t_reports)  # 1
+            self.stacked.addWidget(self.screen_t_report)  # 2
+            self.stacked.addWidget(self.screen_t_treatments)  # 3
+            self.stacked.addWidget(self.screen_t_add_treatment)  # 4
+            self.stacked.addWidget(self.screen_t_add_patient)  # 5
             print('therapist')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
         elif user_type.lower() == 'patient':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
-            self.stacked.addWidget(self.screen_p_dashboard)
-            self.stacked.addWidget(self.screen_p_view_exercise)
-            self.stacked.addWidget(self.screen_p_add_exercise)
-            self.stacked.addWidget(self.screen_p_report)
+            self.stacked.addWidget(self.screen_p_dashboard)  # 0
+            self.stacked.addWidget(self.screen_p_view_exercise)  # 1
+            self.stacked.addWidget(self.screen_p_add_exercise)  # 2
+            self.stacked.addWidget(self.screen_p_report)  # 3
             print('patient')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
@@ -170,7 +160,7 @@ class App(QMainWindow):
             doc = doc_ref.get()
             if doc.exists:
                 user_data = doc.to_dict()
-                print("user_data: ", user_data)
+                print("main.py: user_data: ", user_data)
                 self.user_info = user_data
 
     def go_to_4(self):
