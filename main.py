@@ -62,6 +62,10 @@ class App(QMainWindow):
         self.init_screen('')
         self.show()
 
+    def set_hold_data(self, data: any):
+        print(f"hold: {data}")
+        self.hold_info = data
+
     # initialize screens instances accordingly
     def type_base_screens_init(self, user_type: str):
         if user_type.lower() == 'physiotherapist':
@@ -171,7 +175,7 @@ class App(QMainWindow):
 
     def initCurrent(self):
         if hasattr(self.stacked.currentWidget(), "initializer"):
-            self.stacked.currentWidget().initializer()
+            self.stacked.currentWidget().initializer(hold_data=self.hold_info, user_data=self.user_info)
 
 
 if __name__ == "__main__":

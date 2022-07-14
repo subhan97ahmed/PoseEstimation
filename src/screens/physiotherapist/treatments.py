@@ -1,11 +1,9 @@
 import sys
-from PyQt5.QtWidgets import QWidget, QApplication, QScrollArea, QVBoxLayout, QLabel, QHBoxLayout, QListWidget, \
-    QListWidgetItem
+from PyQt5.QtWidgets import QWidget, QApplication, QScrollArea, QHBoxLayout
 from firebase_admin import firestore
 
 from src.shared.PatientCard import PatientCard
 from src.ui.TherapistTreatmentView import Ui_Treatment
-from src.utils.util import get_age
 
 
 class TTreatments(QWidget, Ui_Treatment):
@@ -50,8 +48,8 @@ class TTreatments(QWidget, Ui_Treatment):
                 patient_index = patient_index + 1
 
     def onAddTreatment(self, patient_info):
-        self.parent().parent().hold_data = patient_info
-        print(f"on add treatment: ", patient_info, self.parent().parent().hold_data)
+        self.parent().parent().set_hold_data(patient_info)
+        print(f"on add treatment: ", patient_info)
         self.parent().parent().go_to_4()
 
 
