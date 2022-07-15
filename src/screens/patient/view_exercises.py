@@ -23,12 +23,21 @@ class PExercisePrescribe(QWidget, Ui_ExercisePrescribe):
                 exercise_info=exercise,
                 event_func=lambda x: self.onStartExercise(x),
             )
-            # todo add func to move y axis after 3 cards
+
             if exercise_index != 0:
-                exercise_card[exercise_index].ExerciseCard.move(
-                    exercise_card[exercise_index - 1].ExerciseCard.rect().x() + exercise_card[
-                        exercise_index - 1].ExerciseCard.rect().width() + 15,
-                    exercise_card[exercise_index - 1].ExerciseCard.rect().y())
+                # exercise_card[exercise_index - 1].ExerciseCard.rect().x() +
+                if exercise_index % 2 != 0:
+                    exercise_card[exercise_index].ExerciseCard.move(exercise_card[
+                                                                        exercise_index - 1].ExerciseCard.rect().x(),
+                                                                    exercise_card[
+                                                                        exercise_index - 1].ExerciseCard.rect().height() + 15
+                                                                    )
+                else:
+                    exercise_card[exercise_index].ExerciseCard.move(exercise_card[
+                                                                        exercise_index - 1].ExerciseCard.rect().width() + 80,
+                                                                    exercise_card[
+                                                                        exercise_index - 1].ExerciseCard.rect().y())
+
             exercise_index = exercise_index + 1
 
     def onStartExercise(self, exercise_info):

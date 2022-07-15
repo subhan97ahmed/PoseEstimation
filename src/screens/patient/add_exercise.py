@@ -19,7 +19,15 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.TreatmentButton.clicked.connect(self.parent().go_to_1)
         self.ReportButton.clicked.connect(self.parent().go_to_3)
 
+        # ex data load
+
+
         self.StartExerciseBtn.clicked.connect(self.start_exercise)
+
+    def initializer(self,hold_data, user_data):
+        print(hold_data)
+        self.exerciseName.setText(hold_data["name"])
+        self.RepCount.setText("Rep " + str(hold_data["rep_count"]))
 
     def initialize_exercise(self):
         self.init_time = datetime.now()
@@ -30,9 +38,12 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
 
     def submit_exercise(self):
         print("submit")
+        time_diff = self.timer_diff()
+        print(time_diff)
 
-    def start_exercise(self, exercise_name):
-        startExercise('thumb flex')
+    def start_exercise(self):
+        self.init_time = datetime.now()
+        startExercise(str(self.exerciseName.text()))
 
 
 if __name__ == "__main__":
