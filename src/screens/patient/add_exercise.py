@@ -43,6 +43,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
 
     def start_exercise(self):
         self.init_time = datetime.now()
+        # todo add rep_count and target_angle args in startExercise
         startExercise(str(self.exerciseName.text()))
 
 
