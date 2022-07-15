@@ -1,7 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
 from src.ui.AddTreatmentView import Ui_AddTreatment
-from src.utils.util import is_form_empty, get_age
+from src.utils.util import is_form_empty, get_age, show_warning
+from firebase_admin import firestore
 
 ex_exercises = ["Wrist Curl", "Thumb Flex", "Squat", "Arm Curl", "Jumping Jacks", "High Knee", "Shoulder Shrug",
                 "Lateral Raises", "Quad Stretch"
@@ -13,6 +14,8 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         super(TAddTreatment, self).__init__(parent)
         self.setupUi(self)
         print("Add treatment")
+        self.db = firestore.client()
+        self.patient = None
         self.exercise_name_populate(ex_exercises)
         self.addPatientBtn.clicked.connect(self.add_exercise_form)
 
@@ -22,15 +25,33 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
 
     def add_exercise_form(self):
         add_exercise = {
-            "exerciseName": self.exerciseName.currentData().lower(),
-            "rep": self.repCount.text(),
-            "angle": self.angleCount.text(),
-            "videoLink": self.videoLink.text(),
+            "name": self.exerciseName.currentData().lower(),
+            "rep_count": self.repCount.text(),
+            "target_angle": self.angleCount.text(),
+            "video_link": self.videoLink.text(),
         }
         print("check: ", add_exercise)
         if is_form_empty(self, add_exercise):
             return
-        print("submit: ", add_exercise)
+
+        doc_ref = self.db.collection(u'users').document(u'' + self.patient['uId'])
+        doc = doc_ref.get()
+        if doc.exists:
+            user_data = doc.to_dict()
+            if not 'assigned_ex' in user_data:
+                doc_ref.update({**user_data, 'assigned_ex': [add_exercise]})
+            else:
+                for assignedEx in user_data['assigned_ex']:
+                    if add_exercise['name'] == assignedEx['name']:
+                        show_warning(message='Exercise already assigned')
+                        return
+
+                doc_ref.update({
+                    **user_data,
+                    "assigned_ex": [*user_data["assigned_ex"], add_exercise]
+                })
+                QMessageBox().information(self, "Success", "Exercise added successfully")
+                self.parent().parent().go_to_3()
 
     def exercise_name_populate(self, exercises):
         print("keys: ", exercises)
@@ -46,6 +67,7 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         self.disease_1.setText(hold_data["diagnosis_1"])
         self.disease_2.setText(hold_data["diagnosis_2"])
         self.disease_3.setText(hold_data["diagnosis_3"])
+        self.patient = hold_data
 
 
 if __name__ == "__main__":
