@@ -1,6 +1,11 @@
 from datetime import datetime
 import sys
+
+from PyQt5 import QtWebEngineWidgets
+from PyQt5.QtCore import QUrl
+from PyQt5.QtWebEngineWidgets import QWebEngineSettings
 from PyQt5.QtWidgets import QWidget, QApplication
+
 from src.ui.PatientStartExerciseView import Ui_StartExercise_Patient
 from withMethods import startExercise
 
@@ -19,16 +24,27 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.TreatmentButton.clicked.connect(self.parent().go_to_1)
         self.ReportButton.clicked.connect(self.parent().go_to_3)
 
-        # ex data load
-
-
         self.StartExerciseBtn.clicked.connect(self.start_exercise)
 
-    def initializer(self,hold_data, user_data):
+        self.webview = QtWebEngineWidgets.QWebEngineView(self.ExampleVidBox)
+        self.webview.resize(self.ExampleVidBox.size())
+        self.webview.settings().setAttribute(QWebEngineSettings.FullScreenSupportEnabled, True)
+        self.webview.settings().setAttribute(QWebEngineSettings.LocalContentCanAccessRemoteUrls, True)
+        self.webview.settings().setAttribute(QWebEngineSettings.AllowRunningInsecureContent, True)
+        self.webview.page().fullScreenRequested.connect(lambda request: request.accept())
+
+    def initializer(self, hold_data, user_data):
         print(hold_data)
         self.exerciseName.setText(hold_data["name"])
         self.RepCount.setText("Rep " + str(hold_data["rep_count"]))
-        self.ex_data =hold_data
+        self.ex_data = hold_data
+        # for youtube video
+        baseUrl = "local"
+        htmlString = """
+                                      <iframe width="350" height="212" src={url} frameborder="0" allowfullscreen></iframe>
+                                              """.format(url=hold_data['video_link'])
+
+        self.webview.setHtml(htmlString, QUrl(baseUrl))
 
     def initialize_exercise(self):
         self.init_time = datetime.now()
@@ -46,7 +62,8 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.init_time = datetime.now()
         # todo add return score from startExercise
         # todo fix rep_count in startExercise
-        startExercise(str(self.exerciseName.text()),target_angle=self.ex_data["target_angle"],rep_count=self.ex_data["rep_count"])
+        startExercise(str(self.exerciseName.text()), target_angle=self.ex_data["target_angle"],
+                      rep_count=self.ex_data["rep_count"])
 
 
 if __name__ == "__main__":
