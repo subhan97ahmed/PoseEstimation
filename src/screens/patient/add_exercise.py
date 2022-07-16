@@ -28,6 +28,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         print(hold_data)
         self.exerciseName.setText(hold_data["name"])
         self.RepCount.setText("Rep " + str(hold_data["rep_count"]))
+        self.ex_data =hold_data
 
     def initialize_exercise(self):
         self.init_time = datetime.now()
@@ -43,8 +44,9 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
 
     def start_exercise(self):
         self.init_time = datetime.now()
-        # todo add rep_count and target_angle args in startExercise
-        startExercise(str(self.exerciseName.text()))
+        # todo add return score from startExercise
+        # todo fix rep_count in startExercise
+        startExercise(str(self.exerciseName.text()),target_angle=self.ex_data["target_angle"],rep_count=self.ex_data["rep_count"])
 
 
 if __name__ == "__main__":

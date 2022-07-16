@@ -61,7 +61,7 @@ def calculate_score(current_angle, target_angle):
     return score
 
 
-def startExercise(exerciseName):
+def startExercise(exerciseName, target_angle, rep_count):
     if exerciseName == "wrist curl":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -71,7 +71,8 @@ def startExercise(exerciseName):
         # hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
-        wrist_angle_wrist_curl = 130
+        # wrist_angle_wrist_curl = 130
+        wrist_angle_wrist_curl = target_angle
         # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
             while cap.isOpened():
@@ -209,7 +210,8 @@ def startExercise(exerciseName):
         # hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
-        angle_thumb_flex = 125
+        # angle_thumb_flex = 125
+        angle_thumb_flex = target_angle
         # Setup mediapipe instance
         with mp_pose.Holistic(min_tracking_confidence=0.5, min_detection_confidence=0.5) as pose:
             while cap.isOpened():
@@ -338,7 +340,8 @@ def startExercise(exerciseName):
         hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
-        knee_angle_squat = 90
+        # knee_angle_squat = 90
+        knee_angle_squat = target_angle
         # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
             while cap.isOpened():
@@ -457,7 +460,8 @@ def startExercise(exerciseName):
         counter = 0
         stage = None
 
-        best_angle = 180
+        # best_angle = 180
+        best_angle = target_angle
         # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
             while cap.isOpened():
@@ -816,7 +820,8 @@ def startExercise(exerciseName):
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
-        lateral_raises_target_angle = 80
+        # lateral_raises_target_angle = 80
+        lateral_raises_target_angle = target_angle
         cap = cv2.VideoCapture(0)
         # Setup mediapipe instance
         with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
@@ -881,7 +886,7 @@ def startExercise(exerciseName):
                         with q.mutex:
                             q.queue.clear()
                     # todo change this scoring method it does not work after testing
-                    score = calculate_score(angleAtRShoulder,lateral_raises_target_angle)
+                    score = calculate_score(angleAtRShoulder, lateral_raises_target_angle)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
@@ -1187,9 +1192,8 @@ def sessionExercise(exerciseName):
             print(distance_between_r_thumb_r_ring)
             print(distance_between_r_thumb_r_pinky)
 
-
-#exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
-                 #"lateral raises", "quad stretch"]
-#name = startExercise(str(exerciseNames[6]))
-#print(name)
+# exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
+# "lateral raises", "quad stretch"]
+# name = startExercise(str(exerciseNames[6]))
+# print(name)
 # sessionExercise("thumb touch")
