@@ -201,6 +201,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score * 100
     elif exerciseName == "thumb flex":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -331,13 +332,14 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score * 100
     elif exerciseName == "squat":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
         # for hands
-        mp_hand = mp.solutions.hands
-        hands = mp_hand.Hands(max_num_hands=2)
+        # mp_hand = mp.solutions.hands
+        # hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
         # knee_angle_squat = 90
@@ -449,6 +451,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score * 100
     elif exerciseName == "arm curl":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -535,15 +538,16 @@ def startExercise(exerciseName, target_angle, rep_count):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
 
                 cv2.imshow("Exercise Feed", image)
-                if cv2.waitKey(10) & 0xFF == ord('q'):
+                if (cv2.waitKey(10) & 0xFF == ord('q')) or counter > rep_count:
                     break
             cap.release()
             cv2.destroyAllWindows()
             print("best angle was " + str(best_angle))
+
     elif exerciseName == "jumping jacks":
         q.put("start doing jumping jacks")
         # target angle for this exercise
-        jumping_jacks_target_angle = 0
+        jumping_jacks_target_angle = target_angle
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
@@ -649,6 +653,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            score*100
     elif exerciseName == "high knee":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -736,6 +741,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            score*100
     elif exerciseName == "shoulder shrug":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -816,6 +822,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score * 100
     elif exerciseName == "lateral raises":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -909,13 +916,14 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score * 100
     elif exerciseName == "quad stretch":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
         mp_pose = mp.solutions.pose
         # for hands
-        mp_hand = mp.solutions.hands
-        hands = mp_hand.Hands(max_num_hands=2)
+        # mp_hand = mp.solutions.hands
+        # hands = mp_hand.Hands(max_num_hands=2)
 
         cap = cv2.VideoCapture(0)
         # Setup mediapipe instance
@@ -964,7 +972,6 @@ def startExercise(exerciseName, target_angle, rep_count):
                         # clear queue of the text
                         with q.mutex:
                             q.queue.clear()
-
                     if (abs(sum([r_wrist[0] - r_ankle[0], r_wrist[1] - r_ankle[1]])) > 0.2 and abs(
                             sum([l_wrist[0] - l_ankle[0], l_wrist[1] - l_ankle[1]])) > 0.2):
                         q.put("Bring your ankle to your wrist")
@@ -1002,6 +1009,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
+            return score*100
     return exerciseName
 
 

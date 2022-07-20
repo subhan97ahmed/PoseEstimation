@@ -60,10 +60,10 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
 
     def start_exercise(self):
         self.init_time = datetime.now()
-        # todo add return score from startExercise
         # todo fix rep_count in startExercise
-        startExercise(str(self.exerciseName.text()), target_angle=self.ex_data["target_angle"],
-                      rep_count=self.ex_data["rep_count"])
+        score = startExercise(str(self.exerciseName.text()), target_angle=self.ex_data["target_angle"],
+                              rep_count=self.ex_data["rep_count"])
+        print(score)
 
 
 if __name__ == "__main__":
