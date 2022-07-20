@@ -18,7 +18,8 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         self.patient = None
         self.exercise_name_populate(ex_exercises)
         self.addPatientBtn.clicked.connect(self.add_exercise_form)
-
+        self.UsernameLabel_2.setText(f'Dr. {self.parent().user_info["f_name"]}')
+        self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
@@ -60,14 +61,15 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
             self.exerciseName.addItem(exercise, exercise)
 
     def initializer(self, hold_data, user_data):
-        self.PatientContactNo.setText('-')
-        self.patientName.setText(hold_data['f_name'])
-        self.patientEmail.setText(hold_data['email'])
-        self.patientAge.setText(str(get_age(hold_data['dob'])))
-        self.disease_1.setText(hold_data["diagnosis_1"])
-        self.disease_2.setText(hold_data["diagnosis_2"])
-        self.disease_3.setText(hold_data["diagnosis_3"])
-        self.patient = hold_data
+        if hold_data is not None:
+            self.PatientContactNo.setText('-')
+            self.patientName.setText(hold_data['f_name'])
+            self.patientEmail.setText(hold_data['email'])
+            self.patientAge.setText(str(get_age(hold_data['dob'])))
+            self.disease_1.setText(hold_data["diagnosis_1"])
+            self.disease_2.setText(hold_data["diagnosis_2"])
+            self.disease_3.setText(hold_data["diagnosis_3"])
+            self.patient = hold_data
 
 
 if __name__ == "__main__":

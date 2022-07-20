@@ -23,6 +23,7 @@ class TReport(QWidget, Ui_TherapistReport):
         # print("fv: ", fb)
         print(info)
         self.UsernameLabel_2.setText(info["f_name"])
+        self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
         self.patientName_3.setText(info["f_name"])
         self.patientEmail_4.setText(info["email"])
         self.PatientContactNo_4.setText('-')

@@ -29,11 +29,13 @@ class App(QMainWindow):
         self.screen_t_treatments = None
         self.screen_t_add_treatment = None
         self.screen_t_add_patient = None
+        self.therapist_screens = None
         # Patient
         self.screen_p_dashboard = None
         self.screen_p_view_exercise = None
         self.screen_p_add_exercise = None
         self.screen_p_report = None
+        self.patient_screens = None
         # Auth
         self.screen_login = None
         self.screen_register = None
@@ -68,6 +70,7 @@ class App(QMainWindow):
 
     # initialize screens instances accordingly
     def type_base_screens_init(self, user_type: str):
+        print("=== type base screens init ===: ", user_type)
         if user_type.lower() == 'physiotherapist':
             self.screen_t_dashboard = th_dashboard.TDashboard(self)
             self.screen_t_reports = reports.TReports(self)
@@ -86,32 +89,40 @@ class App(QMainWindow):
 
     # Initializing screens widget for navigation
     def init_screen(self, user_type: str):
+        print("=== init screen ====", user_type)
         if user_type.lower() == 'physiotherapist':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
-            self.stacked.addWidget(self.screen_t_dashboard)  # 0
-            self.stacked.addWidget(self.screen_t_reports)  # 1
-            self.stacked.addWidget(self.screen_t_report)  # 2
-            self.stacked.addWidget(self.screen_t_treatments)  # 3
-            self.stacked.addWidget(self.screen_t_add_treatment)  # 4
-            self.stacked.addWidget(self.screen_t_add_patient)  # 5
+            self.therapist_screens = [self.screen_t_dashboard, self.screen_t_reports, self.screen_t_report,
+                                      self.screen_t_treatments, self.screen_t_add_treatment, self.screen_t_add_patient]
+            self.add_widget(self.therapist_screens)
             print('therapist')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
         elif user_type.lower() == 'patient':
             self.stacked.removeWidget(self.screen_login)
             self.stacked.removeWidget(self.screen_register)
-            self.stacked.addWidget(self.screen_p_dashboard)  # 0
-            self.stacked.addWidget(self.screen_p_view_exercise)  # 1
-            self.stacked.addWidget(self.screen_p_add_exercise)  # 2
-            self.stacked.addWidget(self.screen_p_report)  # 3
+            self.patient_screens = [self.screen_p_dashboard, self.screen_p_view_exercise, self.screen_p_add_exercise,
+                                    self.screen_p_report]
+            self.add_widget(self.patient_screens)
             print('patient')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
         else:
+            if self.stacked.count() != 0:
+                for x in range(self.stacked.count()):
+                    if self.user_info['role'] == 'patient':
+                        self.stacked.removeWidget(self.patient_screens[x])
+                    elif self.user_info['role'] == 'physiotherapist':
+                        self.stacked.removeWidget(self.therapist_screens[x])
             self.stacked.addWidget(self.screen_login)
             self.stacked.addWidget(self.screen_register)
-            print('auth')
+            self.setFixedWidth(800)
+            self.setFixedHeight(600)
+
+    def add_widget(self, widgets):
+        for widget in widgets:
+            self.stacked.addWidget(widget)
 
     def login_user(self, email, password):
         print("login info: ", email, password)
@@ -145,6 +156,10 @@ class App(QMainWindow):
             self.go_to_0()
         except:
             show_warning(self, title="Warning", message="failed to register")
+
+    def logout_user(self):
+        self.init_screen("")
+        self.user_info = None
 
     def go_to_0(self):
         self.stacked.setCurrentIndex(0)
