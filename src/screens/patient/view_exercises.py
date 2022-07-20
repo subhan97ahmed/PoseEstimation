@@ -10,6 +10,8 @@ class PExercisePrescribe(QWidget, Ui_ExercisePrescribe):
         super(PExercisePrescribe, self).__init__(parent)
         self.setupUi(self)
         print("Patient View Exercise")
+        self.UsernameLabel.setText(self.parent().user_info["f_name"])
+        self.ProfilepushButton.clicked.connect(self.parent().logout_user)
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         # self.TreatmentButton.clicked.connect(self.parent().go_to_1)
         self.ReportButton.clicked.connect(self.parent().go_to_3)

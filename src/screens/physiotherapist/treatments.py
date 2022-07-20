@@ -14,6 +14,8 @@ class TTreatments(QWidget, Ui_Treatment):
         self.hbox = QHBoxLayout()
         print("Therapist treatments")
         self.patients = None
+        self.UsernameLabel_2.setText(f'Dr. {self.parent().user_info["f_name"]}')
+        self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)

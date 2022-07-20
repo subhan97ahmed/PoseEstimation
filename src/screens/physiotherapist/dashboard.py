@@ -10,13 +10,8 @@ class TDashboard(QWidget, Ui_Dashboard):
         if not self.parent().user_info:
             return
         info = self.parent().user_info
-        # db = firestore.client()
-        # fb = db.collection(u'users').document(u'' + info['uId'])
-        # print("fv: ", fb)
         self.UsernameLabel.setText(f'Dr. {info["f_name"]}')
-        # self.NoOfPatientsLabel.setText(len(self.parent().user_info.patients))
-        # self.NoofActivePatientsLabel.setText(sum(True for d in self.parent().user_info.patients if ))
-
+        self.ProfilepushButton.clicked.connect(self.parent().logout_user)
         # Links
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
