@@ -16,7 +16,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.setupUi(self)
 
         self.init_time = None
-
+        self.ex_data = None
         print("Patient Add Exercise")
         self.StartExerciseBtn.clicked.connect(self.initialize_exercise)
 
@@ -34,17 +34,18 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.webview.page().fullScreenRequested.connect(lambda request: request.accept())
 
     def initializer(self, hold_data, user_data):
-        print(hold_data)
-        self.exerciseName.setText(hold_data["name"])
-        self.RepCount.setText("Rep " + str(hold_data["rep_count"]))
-        self.ex_data = hold_data
-        # for youtube video
-        baseUrl = "local"
-        htmlString = """
-                                      <iframe width="350" height="212" src={url} frameborder="0" allowfullscreen></iframe>
-                                              """.format(url=hold_data['video_link'])
+        if hold_data is not None:
+            print(hold_data)
+            self.exerciseName.setText(hold_data["name"])
+            self.RepCount.setText("Rep " + str(hold_data["rep_count"]))
+            self.ex_data = hold_data
+            # for youtube video
+            baseUrl = "local"
+            htmlString = """
+                                                  <iframe width="350" height="212" src={url} frameborder="0" allowfullscreen></iframe>
+                                                          """.format(url=hold_data['video_link'])
 
-        self.webview.setHtml(htmlString, QUrl(baseUrl))
+            self.webview.setHtml(htmlString, QUrl(baseUrl))
 
     def initialize_exercise(self):
         self.init_time = datetime.now()
