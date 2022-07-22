@@ -39,6 +39,19 @@ class TReports(QWidget, Ui_TherapistReports):
                         patient_name_card[patient_index - 1].PatientNameCard.rect().x() + patient_name_card[
                             patient_index - 1].PatientNameCard.rect().width() + 15,
                         patient_name_card[patient_index - 1].PatientNameCard.rect().y())
+
+                if patient_index != 0:
+                    if patient_index % 2 != 0:
+                        patient_name_card[patient_index].PatientNameCard.move(
+                            patient_name_card[
+                                patient_index - 1].PatientNameCard.rect().x(),
+                            patient_name_card[patient_index - 1].PatientNameCard.rect().height() + 15)
+                    else:
+                        patient_name_card[patient_index].PatientNameCard.move(
+                            patient_name_card[
+                                patient_index - 1].PatientNameCard.rect().width() + 80,
+                            patient_name_card[patient_index - 1].PatientNameCard.rect().y())
+
                 patient_index = patient_index + 1
 
     def onView(self, patient):

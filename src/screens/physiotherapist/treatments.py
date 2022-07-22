@@ -10,8 +10,6 @@ class TTreatments(QWidget, Ui_Treatment):
     def __init__(self, parent=None):
         super(TTreatments, self).__init__(parent)
         self.setupUi(self)
-        self.scroll = QScrollArea()  # Scroll Area which contains the widgets, set as the centralWidget
-        self.hbox = QHBoxLayout()
         print("Therapist treatments")
         self.patients = None
         self.UsernameLabel_2.setText(f'Dr. {self.parent().user_info["f_name"]}')
@@ -35,18 +33,22 @@ class TTreatments(QWidget, Ui_Treatment):
                 print("============doc_data: ", doc_data)
 
                 patient_card[patient_index] = PatientCard(
-                    frame=self.scrollHolder,
+                    frame=self.frame,
                     patient_info=doc_data,
                     event_func=lambda x: self.onAddTreatment(x),
                 )
-
-                self.hbox.insertWidget(patient_index, patient_card[patient_index].PatientCard)
-
                 if patient_index != 0:
-                    patient_card[patient_index].PatientCard.move(
-                        patient_card[patient_index - 1].PatientCard.rect().x() + patient_card[
-                            patient_index - 1].PatientCard.rect().width() + 15,
-                        patient_card[patient_index - 1].PatientCard.rect().y())
+                    if patient_index % 2 != 0:
+                        patient_card[patient_index].PatientCard.move(
+                            patient_card[
+                                patient_index - 1].PatientCard.rect().width(),
+                            patient_card[patient_index - 1].PatientCard.rect().height() + 15)
+                    else:
+                        patient_card[patient_index].PatientCard.move(
+                            patient_card[
+                                patient_index - 1].PatientCard.rect().width() + 80,
+                            patient_card[patient_index - 1].PatientCard.rect().y())
+
                 patient_index = patient_index + 1
 
     def onAddTreatment(self, patient_info):
