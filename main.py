@@ -72,17 +72,17 @@ class App(QMainWindow):
     def type_base_screens_init(self, user_type: str):
         print("=== type base screens init ===: ", user_type)
         if user_type.lower() == 'physiotherapist':
-            self.screen_t_dashboard = th_dashboard.TDashboard(self)
-            self.screen_t_reports = reports.TReports(self)
-            self.screen_t_report = th_report.TReport(self)
-            self.screen_t_treatments = treatments.TTreatments(self)
-            self.screen_t_add_treatment = add_treatment.TAddTreatment(self)
-            self.screen_t_add_patient = add_patient.TAddPatient(self)
+            self.screen_t_dashboard = th_dashboard.TDashboard(self) # 0
+            self.screen_t_reports = reports.TReports(self) # 1
+            self.screen_t_report = th_report.TReport(self) # 2
+            self.screen_t_treatments = treatments.TTreatments(self) # 3
+            self.screen_t_add_treatment = add_treatment.TAddTreatment(self) # 4
+            self.screen_t_add_patient = add_patient.TAddPatient(self) # 5
         elif user_type.lower() == 'patient':
-            self.screen_p_dashboard = pat_dashboard.PDashboard(self)
-            self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self)
-            self.screen_p_add_exercise = add_exercise.AddExercise(self)
-            self.screen_p_report = pat_report.TReport(self)
+            self.screen_p_dashboard = pat_dashboard.PDashboard(self) # 0
+            self.screen_p_view_exercise = view_exercises.PExercisePrescribe(self) # 1
+            self.screen_p_add_exercise = add_exercise.AddExercise(self) # 2
+            self.screen_p_report = pat_report.TReport(self) # 3
         else:
             self.screen_login = Login.Login(self)
             self.screen_register = Register.Register(self)
