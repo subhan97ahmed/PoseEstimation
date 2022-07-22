@@ -2,8 +2,6 @@
 # We can add our functions here for fetching and transforming data
 # through that we can share those functions for both user types
 from PyQt5.QtWidgets import QMessageBox
-from firebase import Firebase
-from firebase_admin import auth
 from datetime import datetime
 
 
@@ -12,9 +10,12 @@ def show_warning(self, title='Warning', message='something went wrong!'):
     QMessageBox().warning(self, title, message)
 
 
+def str_to_date(str_date):
+    return datetime.strptime(str_date, '%a %b %d %Y').date()
+
+
 def get_age(birthdatestr):
-    birthdate = datetime.strptime(birthdatestr, '%a %b %d %Y').date()
-    print("birthdate: ", birthdate)
+    birthdate = str_to_date(birthdatestr)
     today = datetime.today()
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
     print("age: ", age)
@@ -30,35 +31,6 @@ def is_form_empty(self, form_values, message='Invalid, please fill out the form 
             return False
 
 
-# from src.json.FirebaseConfig import firebaseConfig
-
-# def firebase_login(email, password):
-#
-#     # firebase = pyrebase.initialize_app(firebaseConfig)
-#
-#     # auth = firebase.auth()
-#     # login = auth.sign_in_with_email_and_password(email, getpass(password))
-#     # print(login)
-#     # userEmail = ''
-#     # try:
-#     #     userEmail = auth.get_user_by_email(email).email
-#     # except:
-#     #     return False
-#     # if userEmail != '':
-#     #     return True
-#     # else:
-#     #     return False
-#
-
-# from src.json.FirebaseConfig import firebaseConfig
-# from firebase import Firebase
-# f = Firebase(firebaseConfig)
-# # f = pyrebase.initialize_app(firebaseConfig)
-# #
-# a = f.auth()
-# l = a.sign_in_with_email_and_password("subhan97ahmed@gmail.com", "12345678")
-# print(l['idToken'])
-
 def filter_report_submit(self):
     filter_report = {
         "start_date": self.dateEdit.text(),
@@ -68,3 +40,27 @@ def filter_report_submit(self):
         return
     print("filter: ", filter_report)
     return filter_report
+
+
+def compare_date(self, ex_range):
+    if ex_range.start_date > ex_range.end_date:
+        show_warning(self, message="start date should be less than end date")
+        return None
+    else:
+        return ex_range
+
+
+def get_exercise_history(histories, exercise_name):
+    for history in histories:
+        if exercise_name == history.ex_name:
+            return history.history
+
+
+def get_history_range(history, ex_range):
+    history_range = []
+    for history_data in history:
+        his_date = str_to_date(history_data.date)
+        if ex_range.start_date <= his_date <= ex_range.end_date:
+            history_range.append(history_data)
+
+    return history_range
