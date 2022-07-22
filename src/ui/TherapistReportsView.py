@@ -148,11 +148,6 @@ class Ui_TherapistReports(object):
         self.TreatmentButton.setText(_translate("TherapistReports", "Treatments"))
         self.ReportButton.setText(_translate("TherapistReports", "Reports"))
         self.UsernameLabel_2.setText(_translate("TherapistReports", "USERNAME"))
-        self.patientNameLabel.setText(_translate("TherapistReports", "Patient Name"))
-        self.patientAge.setText(_translate("TherapistReports", "18"))
-        self.patientEmail.setText(_translate("TherapistReports", "email@gmail.com"))
-        self.patientContactNo.setText(_translate("TherapistReports", "03451234XXX"))
-        self.addPatientBtn.setText(_translate("TherapistReports", "View"))
 
 
 import src.resource.fonts_rc

@@ -2,8 +2,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication
 from src.ui.TherapistReportsView import Ui_TherapistReports
 from firebase_admin import firestore
-from src.shared.PatientReportCard import PatientReportCard
-
+from src.shared.PatientReportCard import PatientNameCard
 
 
 class TReports(QWidget, Ui_TherapistReports):
@@ -16,7 +15,6 @@ class TReports(QWidget, Ui_TherapistReports):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
-        self.addPatientBtn.clicked.connect(self.parent().go_to_2)
         self.patients = self.parent().user_info["assigned_patients"]
         if not len(self.patients):
             return
@@ -31,14 +29,11 @@ class TReports(QWidget, Ui_TherapistReports):
                 doc_data = doc.to_dict()
                 print("============doc_data: ", doc_data)
 
-                patient_name_card[patient_index] = PatientReportCard(
-                    frame=self.scrollHolder,
+                patient_name_card[patient_index] = PatientNameCard(
+                    frame=self.frame,
                     patient=doc_data,
                     event_func=lambda x: self.onView(x),
                 )
-
-                self.hbox.insertWidget(patient_index,patient_name_card[patient_index].PatientNameCard)
-
                 if patient_index != 0:
                     patient_name_card[patient_index].PatientNameCard.move(
                         patient_name_card[patient_index - 1].PatientNameCard.rect().x() + patient_name_card[

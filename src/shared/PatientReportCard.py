@@ -5,7 +5,7 @@ import src.resource.images_rc
 from src.utils.util import get_age
 
 
-class PatientReportCard:
+class PatientNameCard:
     def __init__(self, frame, patient, event_func=any):
         _translate = QtCore.QCoreApplication.translate
         self.PatientNameCard = QtWidgets.QWidget(frame)
@@ -53,7 +53,7 @@ class PatientReportCard:
         self.addPatientBtn.setObjectName("addPatientBtn")
 
         # Set values
-        self.patientNameLabel.setText(_translate("TherapistReports", f"{patient['rep_count']}"))
+        self.patientNameLabel.setText(_translate("TherapistReports", f"{patient['f_name']}"))
         self.patientAge.setText(_translate("TherapistReports", f"{get_age(patient['dob'])}"))
         self.patientEmail.setText(_translate("TherapistReports", f"{patient['email']}"))
         self.patientContactNo.setText(_translate("TherapistReports", "---"))
