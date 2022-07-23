@@ -43,24 +43,33 @@ def filter_report_submit(self):
 
 
 def compare_date(self, ex_range):
-    if ex_range.start_date > ex_range.end_date:
+    if ex_range['start_date'] > ex_range['end_date']:
         show_warning(self, message="start date should be less than end date")
         return None
     else:
         return ex_range
 
 
-def get_exercise_history(histories, exercise_name):
+def get_exercise_history(self, histories, exercise_name):
     for history in histories:
-        if exercise_name == history.ex_name:
-            return history.history
+        if exercise_name == history['ex_name']:
+            if history['history'] is None:
+                show_warning(self, message=f"No history found for exercise {exercise_name}.\n"
+                                           f"Select another to continue")
+                return None
+            return history['history']
 
 
 def get_history_range(history, ex_range):
-    history_range = []
+    history_info = {'score': [], 'days': []}
+    if not history:
+        return None
     for history_data in history:
-        his_date = str_to_date(history_data.date)
-        if ex_range.start_date <= his_date <= ex_range.end_date:
-            history_range.append(history_data)
-
-    return history_range
+        his_date = str_to_date(history_data['date'])
+        if ex_range['start_date'] <= his_date <= ex_range['end_date']:
+            history_info['score'].append(history_data['score'])
+            print("his_date: ", his_date, type(his_date))
+            ex_date_no = int(his_date.strftime('%Y%m%d'))
+            print("=== ex date: ", ex_date_no)
+            history_info['days'].append(ex_date_no)  # 2022 01 02 - 2023 01 02
+    return history_info

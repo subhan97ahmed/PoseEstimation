@@ -1,12 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
 from src.ui.AddTreatmentView import Ui_AddTreatment
+from src.utils.static import ex_exercises
 from src.utils.util import is_form_empty, get_age, show_warning
 from firebase_admin import firestore
-
-ex_exercises = ["Wrist Curl", "Thumb Flex", "Squat", "Arm Curl", "Jumping Jacks", "High Knee", "Shoulder Shrug",
-                "Lateral Raises", "Quad Stretch"
-                ]
 
 
 class TAddTreatment(QWidget, Ui_AddTreatment):
