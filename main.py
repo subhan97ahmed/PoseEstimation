@@ -118,7 +118,7 @@ class App(QMainWindow):
             self.stacked.addWidget(self.screen_login)
             self.stacked.addWidget(self.screen_register)
             self.setFixedWidth(800)
-            self.setFixedHeight(600)
+            self.setFixedHeight(700)
 
     def add_widget(self, widgets):
         for widget in widgets:

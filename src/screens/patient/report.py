@@ -12,22 +12,22 @@ class TReport(QWidget, Ui_TherapistReport):
         super(TReport, self).__init__(parent)
         self.setupUi(self)
         print("Patient report")
-        self.info = self.parent().user_info
-        self.patient = self.info
-        self.patientName_3.setText(self.info['f_name'])
-        self.patientEmail_4.setText(self.info['email'])
-        self.PatientContactNo_4.setText('-')
-        self.patientAge_3.setText(get_age(self.info['dob']))
-        self.disease_4.setText(self.info["diagnosis_1"])
-        self.disease_5.setText(self.info["diagnosis_2"])
-        self.disease_6.setText(self.info["diagnosis_3"])
-
-        # ============================================
+        self.TreatmentButton.setText('Exercises')
+        self.UsernameLabel_2.setText(self.parent().user_info["f_name"])
         self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
         # Links
         self.HomeButton.clicked.connect(self.parent().go_to_0)
-        self.TreatmentButton.clicked.connect(self.parent().go_to_3)
-        self.ReportButton.clicked.connect(self.parent().go_to_1)
+        self.TreatmentButton.clicked.connect(self.parent().go_to_1)
+        self.ReportButton.clicked.connect(self.parent().go_to_3)
+
+        self.patient = self.parent().user_info
+        self.patientName_3.setText(self.patient['f_name'])
+        self.patientEmail_4.setText(self.patient['email'])
+        self.PatientContactNo_4.setText('-')
+        self.patientAge_3.setText(get_age(self.patient['dob']))
+        self.disease_4.setText(self.patient["diagnosis_1"])
+        self.disease_5.setText(self.patient["diagnosis_2"])
+        self.disease_6.setText(self.patient["diagnosis_3"])
 
         self.search_patient_btn.clicked.connect(self.search_exercise_form)
         self.exercise_name_populate(ex_exercises)
