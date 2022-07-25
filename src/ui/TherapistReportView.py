@@ -73,7 +73,7 @@ class Ui_TherapistReport(object):
         self.Logolabel_2.setAutoFillBackground(False)
         self.Logolabel_2.setStyleSheet("font-family: \"Montserrat ExtraBold\";\n"
                                        "font-size: 22px;")
-        self.Logolabel_2.setText("PF")
+        self.Logolabel_2.setText("P F")
         self.Logolabel_2.setTextFormat(QtCore.Qt.AutoText)
         self.Logolabel_2.setAlignment(QtCore.Qt.AlignCenter)
         self.Logolabel_2.setWordWrap(True)

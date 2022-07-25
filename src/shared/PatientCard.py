@@ -76,3 +76,5 @@ class PatientCard:
         self.disease_3.setText(_translate("Treatment", patient_info["diagnosis_3"]))
         self.TreatmentBtn.setText(_translate("Treatment", "Add Treatment"))
         self.TreatmentBtn.clicked.connect(lambda: event_func(patient_info))
+
+        self.PatientCard.show()

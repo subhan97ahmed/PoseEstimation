@@ -129,7 +129,7 @@ class Ui_Treatment(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        self.frame.setMinimumSize(QtCore.QSize(0, 1000))
+        self.frame.setMinimumSize(QtCore.QSize(0, 1500))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")

@@ -15,6 +15,8 @@ class TReports(QWidget, Ui_TherapistReports):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
+        if not ("assigned_patients" in self.parent().user_info):
+            return
         self.patients = self.parent().user_info["assigned_patients"]
         if not len(self.patients):
             return
@@ -35,30 +37,22 @@ class TReports(QWidget, Ui_TherapistReports):
                     event_func=lambda x: self.onView(x),
                 )
                 if patient_index != 0:
-                    patient_name_card[patient_index].PatientNameCard.move(
-                        patient_name_card[patient_index - 1].PatientNameCard.rect().x() + patient_name_card[
-                            patient_index - 1].PatientNameCard.rect().width() + 15,
-                        patient_name_card[patient_index - 1].PatientNameCard.rect().y())
-
-                if patient_index != 0:
                     if patient_index % 2 != 0:
-                        patient_name_card[patient_index].PatientNameCard.move(
-                            patient_name_card[
-                                patient_index - 1].PatientNameCard.rect().x(),
-                            patient_name_card[patient_index - 1].PatientNameCard.rect().height() + 15)
-                    else:
                         patient_name_card[patient_index].PatientNameCard.move(
                             patient_name_card[
                                 patient_index - 1].PatientNameCard.rect().width() + 80,
                             patient_name_card[patient_index - 1].PatientNameCard.rect().y())
-
+                    else:
+                        patient_name_card[patient_index].PatientNameCard.move(
+                            patient_name_card[
+                                patient_index - 1].PatientNameCard.rect().x(),
+                            patient_name_card[patient_index - 1].PatientNameCard.rect().height() + 15)
                 patient_index = patient_index + 1
 
     def onView(self, patient):
         self.parent().parent().set_hold_data(patient)
         print(f"on view: ", patient)
         self.parent().parent().go_to_2()
-
 
 
 if __name__ == "__main__":

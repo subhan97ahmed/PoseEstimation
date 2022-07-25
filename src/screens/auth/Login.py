@@ -6,7 +6,7 @@ from src.utils.static import addonStyles
 
 #todo: remove this after work
 static_login_info = {
-            "email": 'y@gmail.com',
+            "email": 'posetest@yopmail.com',
             "password": '123456',
         }
 
