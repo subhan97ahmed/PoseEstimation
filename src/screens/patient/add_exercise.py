@@ -7,7 +7,6 @@ from PyQt5.QtWebEngineWidgets import QWebEngineSettings
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 from src.ui.PatientStartExerciseView import Ui_StartExercise_Patient
 from withMethods import startExercise
 
@@ -36,7 +35,6 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.webview.page().fullScreenRequested.connect(lambda request: request.accept())
         self.InfoLabel = QtWidgets.QLabel(self.ExerciseFeedGrBox)
         self.InfoLabel.setGeometry(QtCore.QRect(10, 10, 781, 31))
-        # self.InfoLabel.setGeometry(self.frame.geometry().getRect())
         self.InfoLabel.setAlignment(self.ExerciseFeedGrBox.alignment())
         self.InfoLabel.setAlignment(QtCore.Qt.AlignHCenter)
         self.InfoLabel.setWordWrap(True)
@@ -50,7 +48,6 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.InfoLabel.setFont(font)
         self.InfoLabel.setText("Press Q to exit the exercise")
         self.InfoLabel.setObjectName("InfoLabel")
-
 
     def initializer(self, hold_data, user_data):
         if hold_data is not None:
