@@ -18,12 +18,15 @@ class TReports(QWidget, Ui_TherapistReports):
         if not ("assigned_patients" in self.parent().user_info):
             return
         self.patients = self.parent().user_info["assigned_patients"]
-        if not len(self.patients):
+        self.load_patient_reports(self.patients)
+
+    def load_patient_reports(self, patients):
+        if not len(patients):
             return
         db = firestore.client()
         patient_index = 0
         patient_name_card = {}
-        for patient in self.patients:
+        for patient in patients:
             print("patient: ", patient)
             doc_ref = db.collection(u'users').document(u'' + patient)
             doc = doc_ref.get()
@@ -53,6 +56,12 @@ class TReports(QWidget, Ui_TherapistReports):
         self.parent().parent().set_hold_data(patient)
         print(f"on view: ", patient)
         self.parent().parent().go_to_2()
+
+    def initializer(self, hold_data, user_data):
+        if not ("assigned_patients" in user_data):
+            return
+        # if patients are available initially
+        self.load_patient_reports(user_data['assigned_patients'])
 
 
 if __name__ == "__main__":
