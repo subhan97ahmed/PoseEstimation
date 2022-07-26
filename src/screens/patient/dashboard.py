@@ -14,6 +14,13 @@ class PDashboard(QWidget, Ui_PatientDash):
         self.TreatmentButton.clicked.connect(self.parent().go_to_1)
         self.ReportButton.clicked.connect(self.parent().go_to_3)
 
+    def initializer(self, hold_data, user_data):
+        self.NoOfExPrescribedLabel.setText(str(len(user_data['assigned_ex'])))
+        ex_count = 0
+        for history in user_data["histories"]:
+            ex_count += len(history)
+        self.NoOfExLabel.setText(str(ex_count))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -16,6 +16,13 @@ class TDashboard(QWidget, Ui_Dashboard):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
+        self.NoOfPatientsLabel.setText(str(self.parent().user_info['ass_ex_count']))
+        self.NoofActivePatientsLabel.setText(str(len(self.parent().user_info['assigned_patients'])))
+
+    def initializer(self, hold_data, user_data):
+        print("===dashboard: ", hold_data, user_data)
+        self.NoOfPatientsLabel.setText(str(user_data['ass_ex_count']))
+        self.NoofActivePatientsLabel.setText(str(len(user_data['assigned_patients'])))
 
 
 if __name__ == "__main__":

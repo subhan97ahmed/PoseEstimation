@@ -188,23 +188,11 @@ class Ui_PatientDash(object):
         self.NoOfExLabel.setGeometry(QtCore.QRect(80, 110, 171, 21))
         self.NoOfExLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.NoOfExLabel.setObjectName("NoOfExLabel")
-        self.NextAppointmentCard = QtWidgets.QWidget(self.centralwidget)
-        self.NextAppointmentCard.setGeometry(QtCore.QRect(740, 270, 231, 151))
-        self.NextAppointmentCard.setStyleSheet("background-color: #f0f4c3;")
-        self.NextAppointmentCard.setObjectName("NextAppointmentCard")
-        self.ct_3 = QtWidgets.QLabel(self.NextAppointmentCard)
-        self.ct_3.setGeometry(QtCore.QRect(10, 20, 201, 41))
-        self.ct_3.setObjectName("ct_3")
-        self.DateLabel = QtWidgets.QLabel(self.NextAppointmentCard)
-        self.DateLabel.setGeometry(QtCore.QRect(30, 110, 181, 21))
-        self.DateLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
-        self.DateLabel.setObjectName("DateLabel")
         self.DashboarLabel.raise_()
         self.frame_2.raise_()
         self.NoOfExCompletedCard.raise_()
         self.PrescribedExCard.raise_()
         self.frame.raise_()
-        self.NextAppointmentCard.raise_()
 
         self.retranslateUi(PatientDash)
         QtCore.QMetaObject.connectSlotsByName(PatientDash)
@@ -221,8 +209,6 @@ class Ui_PatientDash(object):
         self.NoOfExPrescribedLabel.setText(_translate("PatientDash", "0"))
         self.ct_2.setText(_translate("PatientDash", "No of Exercises Completed"))
         self.NoOfExLabel.setText(_translate("PatientDash", "0"))
-        self.ct_3.setText(_translate("PatientDash", "Next Appointment"))
-        self.DateLabel.setText(_translate("PatientDash", "DD/MM/YYYY"))
 
 
 import src.resource.fonts_rc
