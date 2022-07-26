@@ -60,6 +60,18 @@ def get_exercise_history(self, histories, exercise_name):
             return history['history']
 
 
+def get_exercise_history_index(self, histories, exercise_name):
+    index = 0
+    for history in histories:
+        if exercise_name == history['ex_name']:
+            if history['history'] is None:
+                show_warning(self, message=f"No history found for exercise {exercise_name}.\n"
+                                           f"Select another to continue")
+                return None
+            return index
+        index = index + 1
+
+
 def get_history_range(history, ex_range):
     history_info = {'score': [], 'days': []}
     if not history:

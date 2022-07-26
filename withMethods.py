@@ -538,11 +538,12 @@ def startExercise(exerciseName, target_angle, rep_count):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
 
                 cv2.imshow("Exercise Feed", image)
-                if (cv2.waitKey(10) & 0xFF == ord('q')) or counter > rep_count:
+                if (cv2.waitKey(10) & 0xFF == ord('q')) or counter > int(rep_count):
                     break
             cap.release()
             cv2.destroyAllWindows()
-            print("best angle was " + str(best_angle))
+            return int((counter/rep_count)*100)
+            # print("best angle was " + str(best_angle))
 
     elif exerciseName == "jumping jacks":
         q.put("start doing jumping jacks")
@@ -1010,7 +1011,7 @@ def startExercise(exerciseName, target_angle, rep_count):
             cap.release()
             cv2.destroyAllWindows()
             return score*100
-    return exerciseName
+    # return exerciseName
 
 
 def distanceBetweenTwoLandmarks(mark1, mark2):

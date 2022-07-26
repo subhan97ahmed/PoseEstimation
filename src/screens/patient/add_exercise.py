@@ -6,9 +6,11 @@ from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineSettings
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
+from firebase_admin import firestore
 
 from src.ui.PatientStartExerciseView import Ui_StartExercise_Patient
 from withMethods import startExercise
+from src.utils.util import get_exercise_history, get_exercise_history_index
 
 
 class AddExercise(QWidget, Ui_StartExercise_Patient):
@@ -48,6 +50,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         self.InfoLabel.setFont(font)
         self.InfoLabel.setText("Press Q to exit the exercise")
         self.InfoLabel.setObjectName("InfoLabel")
+        self.db = firestore.client()
 
     def initializer(self, hold_data, user_data):
         if hold_data is not None:
@@ -80,6 +83,47 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         score = startExercise(str(self.exerciseName.text()), target_angle=self.ex_data["target_angle"],
                               rep_count=self.ex_data["rep_count"])
         print(score)
+        if score is not None:
+            # print(datetime.today())
+            dateToday = datetime.today().__format__('%a %b %d %Y')
+            histories = self.parent().parent().user_info["histories"]
+            print(histories)
+            print(str(self.exerciseName.text()))
+            history = get_exercise_history(self, histories, exercise_name=str(self.exerciseName.text()))
+            historyIndex = get_exercise_history_index(self, histories, exercise_name=str(self.exerciseName.text()))
+            # for hisNo in history:
+            doc_ref = self.db.collection(u'users').document(
+                u'' + self.parent().parent().user_info['uId'])
+            doc = doc_ref.get()
+            if not history is None:
+                for hisNo in range(len(history)):
+                    if history[hisNo]["date"] == dateToday:
+                        if int(history[hisNo]["score"]) < int(score):
+                            history[hisNo]["score"] = int(score)
+                            histories[historyIndex]["history"] = history
+                            if doc.exists:
+                                user_data = doc.to_dict()
+                                doc_ref.update({
+                                    **user_data,
+                                    "histories": histories
+                                })
+
+                    elif hisNo == len(history) - 1:
+                        history[hisNo]["date"] = dateToday
+                        history[hisNo]["score"] = int(score)
+                        histories[historyIndex]["history"] = history
+                        if doc.exists:
+                            user_data = doc.to_dict()
+                            doc_ref.update({
+                                **user_data,
+                                "histories": histories
+                            })
+            else:
+                newHis = {'ex_name': str(self.exerciseName.text()),
+                          'history': [{"date": dateToday, "score": int(score)}]}
+                if doc.exists:
+                    user_data = doc.to_dict()
+                    doc_ref.update({**user_data, 'histories': [*user_data["histories"], newHis]})
 
 
 if __name__ == "__main__":
