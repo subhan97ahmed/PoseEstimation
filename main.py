@@ -1,7 +1,6 @@
 # This file should be the main entry point for the application.
 # Connect firebase here. So, we can have an auth key and point the redirection
 # either patient or physiotherapist
-import asyncio
 import sys
 import firebase_admin
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QDesktopWidget
@@ -173,14 +172,7 @@ class App(QMainWindow):
     def go_to_3(self):
         self.stacked.setCurrentIndex(3)
         if self.user_info["role"] == "physiotherapist":
-            db = firestore.client()
-            print(db)
-            doc_ref = db.collection(u'users').document(u'' + self.user_info["uId"])
-            doc = doc_ref.get()
-            if doc.exists:
-                user_data = doc.to_dict()
-                print("main.py: user_data: ", user_data)
-                self.user_info = user_data
+            self.reload_user_data()
 
     def go_to_4(self):
         self.stacked.setCurrentIndex(4)
@@ -191,6 +183,16 @@ class App(QMainWindow):
     def initCurrent(self):
         if hasattr(self.stacked.currentWidget(), "initializer"):
             self.stacked.currentWidget().initializer(hold_data=self.hold_info, user_data=self.user_info)
+
+    def reload_user_data(self):
+        db = firestore.client()
+        print(db)
+        doc_ref = db.collection(u'users').document(u'' + self.user_info["uId"])
+        doc = doc_ref.get()
+        if doc.exists:
+            user_data = doc.to_dict()
+            print("main.py: user_data: ", user_data)
+            self.user_info = user_data
 
 
 if __name__ == "__main__":

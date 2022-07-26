@@ -59,3 +59,5 @@ class PatientNameCard:
         self.patientContactNo.setText(_translate("TherapistReports", "---"))
         self.addPatientBtn.setText(_translate("TherapistReports", "View Report"))
         self.addPatientBtn.clicked.connect(lambda: event_func(patient))
+
+        self.PatientNameCard.show()

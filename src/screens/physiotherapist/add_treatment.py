@@ -24,7 +24,7 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
     def add_exercise_form(self):
         add_exercise = {
             "name": self.exerciseName.currentData().lower(),
-            "rep_count": self.repCount.text(),
+            "rep_count": int(self.repCount.text()),
             "target_angle": self.angleCount.text(),
             "video_link": self.videoLink.text(),
         }
@@ -46,6 +46,7 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
 
                 doc_ref.update({
                     **user_data,
+                    "ass_ex_count": user_data["ass_ex_count"]+1,
                     "assigned_ex": [*user_data["assigned_ex"], add_exercise]
                 })
                 QMessageBox().information(self, "Success", "Exercise added successfully")

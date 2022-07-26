@@ -36,7 +36,7 @@ class Ui_ExercisePrescribe(object):
         self.centralwidget.setGeometry(QtCore.QRect(0, 0, 1024, 680))
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(-30, 10, 161, 711))
+        self.frame.setGeometry(QtCore.QRect(-30, 0, 161, 711))
         self.frame.setStyleSheet("background-color: #ffbd45;\n"
                                  "border-radius: 15px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)

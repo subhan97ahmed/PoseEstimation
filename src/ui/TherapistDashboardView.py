@@ -142,7 +142,7 @@ class Ui_Dashboard(object):
         self.NumpatientCard.setGeometry(QtCore.QRect(180, 270, 231, 151))
         self.NumpatientCard.setObjectName("NumpatientCard")
         self.ct_1 = QtWidgets.QLabel(self.NumpatientCard)
-        self.ct_1.setGeometry(QtCore.QRect(20, 20, 151, 41))
+        self.ct_1.setGeometry(QtCore.QRect(20, 20, 191, 41))
         self.ct_1.setObjectName("ct_1")
         self.NoOfPatientsLabel = QtWidgets.QLabel(self.NumpatientCard)
         self.NoOfPatientsLabel.setGeometry(QtCore.QRect(20, 110, 191, 21))
@@ -159,22 +159,10 @@ class Ui_Dashboard(object):
         self.NoofActivePatientsLabel.setAlignment(
             QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.NoofActivePatientsLabel.setObjectName("NoofActivePatientsLabel")
-        self.TherapyCard = QtWidgets.QWidget(self.centralwidget)
-        self.TherapyCard.setGeometry(QtCore.QRect(680, 270, 231, 151))
-        self.TherapyCard.setObjectName("TherapyCard")
-        self.ct_3 = QtWidgets.QLabel(self.TherapyCard)
-        self.ct_3.setGeometry(QtCore.QRect(10, 20, 201, 41))
-        self.ct_3.setObjectName("ct_3")
-        self.TherapiesCompletedLabel = QtWidgets.QLabel(self.TherapyCard)
-        self.TherapiesCompletedLabel.setGeometry(QtCore.QRect(30, 110, 181, 21))
-        self.TherapiesCompletedLabel.setAlignment(
-            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
-        self.TherapiesCompletedLabel.setObjectName("TherapiesCompletedLabel")
         self.HomeLabel.raise_()
         self.frame_2.raise_()
         self.PatientCard.raise_()
         self.NumpatientCard.raise_()
-        self.TherapyCard.raise_()
         self.sideFrame.raise_()
 
         self.retranslateUi(Dashboard)
@@ -188,12 +176,10 @@ class Ui_Dashboard(object):
         self.TreatmentButton.setText(_translate("Dashboard", "Treatments"))
         self.ReportButton.setText(_translate("Dashboard", "Reports"))
         self.UsernameLabel.setText(_translate("Dashboard", "USERNAME"))
-        self.ct_1.setText(_translate("Dashboard", "No. Of Patients"))
+        self.ct_1.setText(_translate("Dashboard", "Assigned Exercises"))
         self.NoOfPatientsLabel.setText(_translate("Dashboard", "0"))
         self.ct_2.setText(_translate("Dashboard", "Active Patients"))
         self.NoofActivePatientsLabel.setText(_translate("Dashboard", "0"))
-        self.ct_3.setText(_translate("Dashboard", "Therapies Completed"))
-        self.TherapiesCompletedLabel.setText(_translate("Dashboard", "0"))
 
 
 import src.resource.fonts_rc

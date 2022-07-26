@@ -20,8 +20,9 @@ class TAddPatient(QWidget, Ui_AddPatient):
         self.db = firestore.client()
         self.patients = None
         self.patient_data = None
-
         self.searchPatientBtn.clicked.connect(self.search_patient_form)
+        # add flag for enabling add patient
+        self.addPatientBtn.setEnabled(False)
         self.addPatientBtn.clicked.connect(self.initial_diagnosis_form)
         self.UsernameLabel_2.setText(f'Dr. {self.parent().user_info["f_name"]}')
         self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
@@ -55,6 +56,7 @@ class TAddPatient(QWidget, Ui_AddPatient):
                     self.disease_1.setText(pat["diagnosis_1"])
                     self.disease_2.setText(pat["diagnosis_2"])
                     self.disease_3.setText(pat["diagnosis_3"])
+        self.addPatientBtn.setDisabled(False)
 
     def initial_diagnosis_form(self):
         initial_diagnoses = {

@@ -15,13 +15,18 @@ class TReports(QWidget, Ui_TherapistReports):
         self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_3)
         self.ReportButton.clicked.connect(self.parent().go_to_1)
+        if not ("assigned_patients" in self.parent().user_info):
+            return
         self.patients = self.parent().user_info["assigned_patients"]
-        if not len(self.patients):
+        self.load_patient_reports(self.patients)
+
+    def load_patient_reports(self, patients):
+        if not len(patients):
             return
         db = firestore.client()
         patient_index = 0
         patient_name_card = {}
-        for patient in self.patients:
+        for patient in patients:
             print("patient: ", patient)
             doc_ref = db.collection(u'users').document(u'' + patient)
             doc = doc_ref.get()
@@ -35,23 +40,16 @@ class TReports(QWidget, Ui_TherapistReports):
                     event_func=lambda x: self.onView(x),
                 )
                 if patient_index != 0:
-                    patient_name_card[patient_index].PatientNameCard.move(
-                        patient_name_card[patient_index - 1].PatientNameCard.rect().x() + patient_name_card[
-                            patient_index - 1].PatientNameCard.rect().width() + 15,
-                        patient_name_card[patient_index - 1].PatientNameCard.rect().y())
-
-                if patient_index != 0:
                     if patient_index % 2 != 0:
-                        patient_name_card[patient_index].PatientNameCard.move(
-                            patient_name_card[
-                                patient_index - 1].PatientNameCard.rect().x(),
-                            patient_name_card[patient_index - 1].PatientNameCard.rect().height() + 15)
-                    else:
                         patient_name_card[patient_index].PatientNameCard.move(
                             patient_name_card[
                                 patient_index - 1].PatientNameCard.rect().width() + 80,
                             patient_name_card[patient_index - 1].PatientNameCard.rect().y())
-
+                    else:
+                        patient_name_card[patient_index].PatientNameCard.move(
+                            patient_name_card[
+                                patient_index - 1].PatientNameCard.rect().x(),
+                            patient_name_card[patient_index - 1].PatientNameCard.rect().height() + 15)
                 patient_index = patient_index + 1
 
     def onView(self, patient):
@@ -59,6 +57,11 @@ class TReports(QWidget, Ui_TherapistReports):
         print(f"on view: ", patient)
         self.parent().parent().go_to_2()
 
+    def initializer(self, hold_data, user_data):
+        if not ("assigned_patients" in user_data):
+            return
+        # if patients are available initially
+        self.load_patient_reports(user_data['assigned_patients'])
 
 
 if __name__ == "__main__":

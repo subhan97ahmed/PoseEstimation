@@ -17,6 +17,10 @@ class Register(QWidget):
 
     # Method to get data from text field and print it on clicking register button
     def register_submit(self):
+        if self.ui.roleCombo.currentText().lower() == "patient":
+            info = {"histories": [], "assigned_ex": []}
+        else:
+            info = {"ass_ex_count": 0}
         register_values = {
             'f_name': self.ui.fnameEdit.text(),
             'email': self.ui.emailEdit.text(),
@@ -24,6 +28,7 @@ class Register(QWidget):
             'confirm_pass': self.ui.confirmPasswordEdit.text(),
             'dob': str(self.ui.dobEdit.date().toString()),
             'role': self.ui.roleCombo.currentText().lower(),
+            **info
         }
         if not is_form_empty(self, register_values):
             self.parent().parent().register_user(register_values)
