@@ -232,18 +232,34 @@ def startExercise(exerciseName, target_angle, rep_count):
                 # Extract landmarks
                 try:
                     # todo do this for left hand too
-                    landmarks = results.right_hand_landmarks.landmark
-                    # Get coordinates
-                    r_thumb_cmc = [landmarks[mp_pose.HandLandmark.THUMB_CMC.value].x,
-                                   landmarks[mp_pose.HandLandmark.THUMB_CMC.value].y]
+                    r_landmarks = results.right_hand_landmarks.landmark
 
-                    r_thumb_mcp = [landmarks[mp_pose.HandLandmark.THUMB_MCP.value].x,
-                                   landmarks[mp_pose.HandLandmark.THUMB_MCP.value].y]
+                    # Right Hand Coordinates
+                    r_thumb_cmc = [r_landmarks[mp_pose.HandLandmark.THUMB_CMC.value].x,
+                                   r_landmarks[mp_pose.HandLandmark.THUMB_CMC.value].y]
 
-                    r_thumb_ip = [landmarks[mp_pose.HandLandmark.THUMB_IP.value].x,
-                                  landmarks[mp_pose.HandLandmark.THUMB_IP.value].y]
+                    r_thumb_mcp = [r_landmarks[mp_pose.HandLandmark.THUMB_MCP.value].x,
+                                   r_landmarks[mp_pose.HandLandmark.THUMB_MCP.value].y]
+
+                    r_thumb_ip = [r_landmarks[mp_pose.HandLandmark.THUMB_IP.value].x,
+                                  r_landmarks[mp_pose.HandLandmark.THUMB_IP.value].y]
+
+                    l_landmarks = results.left_hand_landmarks.landmark
+
+                    # Left Hand Coordinates
+                    l_thumb_cmc = [l_landmarks[mp_pose.HandLandmark.THUMB_CMC.value].x,
+                                   l_landmarks[mp_pose.HandLandmark.THUMB_CMC.value].y]
+
+                    l_thumb_mcp = [l_landmarks[mp_pose.HandLandmark.THUMB_MCP.value].x,
+                                   l_landmarks[mp_pose.HandLandmark.THUMB_MCP.value].y]
+
+                    l_thumb_ip = [l_landmarks[mp_pose.HandLandmark.THUMB_IP.value].x,
+                                  l_landmarks[mp_pose.HandLandmark.THUMB_IP.value].y]
+
+
                     # Calculate angle
                     angleAtRthumbMCP = calculate_angle(r_thumb_cmc, r_thumb_mcp, r_thumb_ip)
+                    angleAtLthumbMCP = calculate_angle(l_thumb_cmc, l_thumb_mcp, l_thumb_ip)
 
                     # r_z_wrist = landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].z
                     # l_z_wrist = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].z
@@ -272,6 +288,20 @@ def startExercise(exerciseName, target_angle, rep_count):
                                     tuple(np.multiply(r_thumb_mcp, [640, 480]).astype(int)),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
 
+                    if angleAtLthumbMCP == angle_thumb_flex or angleAtLthumbMCP < angle_thumb_flex:
+                        q.put("hold it right there you have perfect form")
+                        cv2.putText(image, str("hold it right there perfect form"),
+                                    tuple(np.multiply(r_thumb_mcp, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                    else:
+                        # clear queue of the text
+                        with q.mutex:
+                            q.queue.clear()
+                        cv2.putText(image, str(angleAtLthumbMCP),
+                                    tuple(np.multiply(r_thumb_mcp, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
+
                     # if (angleAtRwrist == wrist_angle_wrist_curl or angleAtRwrist < wrist_angle_wrist_curl) and \
                     #         landmarks[
                     #             mp_pose.PoseLandmark.RIGHT_WRIST.value].visibility > .5:
@@ -295,6 +325,7 @@ def startExercise(exerciseName, target_angle, rep_count):
                     #                 )
                     # scoring to if the there is no diff between (ex_angle) and performed ex then score is 100%
                     score = calculate_score(angleAtRthumbMCP, angle_thumb_flex)
+                    score = calculate_score(angleAtLthumbMCP, angle_thumb_flex)
                     cv2.putText(image, "score: " + str(score),
                                 (160, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
@@ -304,6 +335,7 @@ def startExercise(exerciseName, target_angle, rep_count):
                     # print(landmarks)
                     # print(averageDis)
                     print("angleAtRthumbMCP " + str(angleAtRthumbMCP))
+                    print("angleAtLthumbMCP " + str(angleAtLthumbMCP))
                     # print("angleAtLwrist " + str(angleAtLwrist))
 
                 except:
@@ -314,17 +346,17 @@ def startExercise(exerciseName, target_angle, rep_count):
                                           mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
+                mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_pose.HAND_CONNECTIONS,
+                                          mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
+                                          mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
+                                          )
                 # Plot Pose landmarks in 3D.
                 # mp_drawing.plot_landmarks(results.pose_world_landmarks, mp_pose.POSE_CONNECTIONS)
 
-                # for hands
-                # if resultshands.multi_hand_landmarks:
-                #     for handLms in resultshands.multi_hand_landmarks:
-                #         mp_drawing.draw_landmarks(image, handLms, mp_hand.HAND_CONNECTIONS,
-                #                                   mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2,
-                #                                                          circle_radius=2),
-                #                                   mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
-                #                                   )
+                # for hands if resultshands.multi_hand_landmarks: for handLms in resultshands.multi_hand_landmarks:
+                # mp_drawing.draw_landmarks(image, handLms, mp_hand.HAND_CONNECTIONS, mp_drawing.DrawingSpec(color=(
+                # 245, 117, 66), thickness=2, circle_radius=2), mp_drawing.DrawingSpec(color=(245, 66, 230),
+                # thickness=2, circle_radius=2) )
 
                 cv2.imshow('Exercise Feed', image)
                 if cv2.waitKey(10) & 0xFF == ord('q'):
@@ -460,8 +492,10 @@ def startExercise(exerciseName, target_angle, rep_count):
         cap = cv2.VideoCapture(0)
 
         # Curl counter variables
-        counter = 0
-        stage = None
+        l_counter = 0
+        r_counter = 0
+        l_stage = None
+        r_stage = None
 
         # best_angle = 180
         best_angle = target_angle
@@ -484,8 +518,8 @@ def startExercise(exerciseName, target_angle, rep_count):
                 # Extract Landmarks
                 try:
                     landmarks = results.pose_landmarks.landmark
-
-                    # Get Coordinates
+                    # todo do this for right arm too
+                    # Get left hand Coordinates
                     l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
                                   landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
                     l_elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,
@@ -493,23 +527,45 @@ def startExercise(exerciseName, target_angle, rep_count):
                     l_wrist = [landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x,
                                landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
 
+                    # Get right hand coordinates
+
+                    r_shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,
+                                  landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
+                    r_elbow = [landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,
+                               landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].y]
+                    r_wrist = [landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x,
+                               landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y]
+
                     # calculate angle
-                    angle = calculate_angle(l_shoulder, l_elbow, l_wrist)
+                    l_angle = calculate_angle(l_shoulder, l_elbow, l_wrist)
+                    r_angle = calculate_angle(r_shoulder, r_elbow, r_wrist)
                     # calculate best angle of the session
-                    if angle < best_angle:
-                        best_angle = angle
+                    if l_angle < best_angle:
+                        best_angle = l_angle
+                    if r_angle < best_angle:
+                        best_angle = r_angle
 
                     # visualize angle
-                    cv2.putText(image, str(angle), tuple(np.multiply(l_elbow, [640, 480]).astype(int)),
+                    cv2.putText(image, str(l_angle), tuple(np.multiply(l_elbow, [640, 480]).astype(int)),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
+                    cv2.putText(image, str(r_angle), tuple(np.multiply(l_elbow, [640, 480]).astype(int)),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
 
                     # Curl counter logic
-                    if angle > 150.0:
-                        stage = "down"
-                    if angle < 40.0 and stage == 'down':
-                        stage = "up"
-                        counter += 1
-                        print(counter)
+                    if l_angle > 150.0:
+                        l_stage = "down"
+                    if l_angle < 40.0 and l_stage == 'down':
+                        l_stage = "up"
+                        l_counter += 1
+                        print(l_counter)
+
+                    if r_angle > 150.0:
+                        r_stage = "down"
+                    if r_angle < 40.0 and r_stage == 'down':
+                        r_stage = "up"
+                        r_counter += 1
+                        print(r_counter)
+
 
                 except:
                     pass
@@ -519,16 +575,31 @@ def startExercise(exerciseName, target_angle, rep_count):
                 cv2.rectangle(image, (0, 0), (255, 73), (244, 117, 16), -1)
 
                 # Rep data
-                cv2.putText(image, 'REPS', (15, 12),
+
+                # todo change coordinates so both don't overlay each other
+                cv2.putText(image, 'R REPS', (15, 12),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(image, str(counter),
+                cv2.putText(image, str(r_counter),
+                            (10, 60),
+                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+
+                cv2.putText(image, 'L REPS', (15, 12),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, str(l_counter),
                             (10, 60),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
                 # Stage data
-                cv2.putText(image, 'STAGE', (65, 12),
+                # todo change coordinates so both don't overlay each other
+                cv2.putText(image, 'L STAGE', (65, 12),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(image, str(stage),
+                cv2.putText(image, str(l_stage),
+                            (60, 60),
+                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+
+                cv2.putText(image, 'R STAGE', (65, 12),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+                cv2.putText(image, str(r_stage),
                             (60, 60),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
@@ -538,11 +609,13 @@ def startExercise(exerciseName, target_angle, rep_count):
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
 
                 cv2.imshow("Exercise Feed", image)
-                if (cv2.waitKey(10) & 0xFF == ord('q')) or counter > rep_count:
+                if (cv2.waitKey(10) & 0xFF == ord('q')) or r_counter > rep_count:
                     break
             cap.release()
             cv2.destroyAllWindows()
+            score = (r_counter / rep_count) * 100
             print("best angle was " + str(best_angle))
+            return score
 
     elif exerciseName == "jumping jacks":
         q.put("start doing jumping jacks")
@@ -653,7 +726,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            score*100
+            return score*100
     elif exerciseName == "high knee":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -741,7 +814,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            score*100
+            return score*100
     elif exerciseName == "shoulder shrug":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
