@@ -1258,6 +1258,6 @@ def sessionExercise(exerciseName):
 
 exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
 "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[3]),125,10)
+# name = startExercise(str(exerciseNames[3]),125,10)
 # print(name)
 # sessionExercise("thumb touch")

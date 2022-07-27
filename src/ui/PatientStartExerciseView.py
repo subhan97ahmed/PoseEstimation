@@ -124,9 +124,6 @@ class Ui_StartExercise_Patient(object):
         self.RepCount = QtWidgets.QLabel(self.StartExerciseCard)
         self.RepCount.setGeometry(QtCore.QRect(90, 50, 221, 21))
         self.RepCount.setObjectName("RepCount")
-        self.DoneBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.DoneBtn.setGeometry(QtCore.QRect(860, 630, 121, 41))
-        self.DoneBtn.setObjectName("DoneBtn")
         self.ExampleVidBox = QtWidgets.QGroupBox(self.centralwidget)
         self.ExampleVidBox.setGeometry(QtCore.QRect(590, 10, 371, 191))
         self.ExampleVidBox.setTitle("")
@@ -144,9 +141,9 @@ class Ui_StartExercise_Patient(object):
         self.exerciseName.setText(_translate("StartExercise_Patient", "Exercise Name"))
         self.StartExerciseBtn.setText(_translate("StartExercise_Patient", "Start Exercise"))
         self.runningman.setText(_translate("StartExercise_Patient",
-                                           "<html><head/><body><p><img src=\":/iconPrefix/exercise.png\"/></p></body></html>"))
+                                           "<html><head/><body><p><img src=\":/iconPrefix/exercise.png\"/></p></body"
+                                           "></html>"))
         self.RepCount.setText(_translate("StartExercise_Patient", "Rep x"))
-        self.DoneBtn.setText(_translate("StartExercise_Patient", "Done"))
 
 
 import src.resource.fonts_rc

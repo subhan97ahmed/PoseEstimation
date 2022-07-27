@@ -29,15 +29,15 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
 
         self.StartExerciseBtn.clicked.connect(self.start_exercise)
 
-        self.webview = QtWebEngineWidgets.QWebEngineView(self.ExampleVidBox)
-        self.webview.resize(self.ExampleVidBox.size())
+        self.webview = QtWebEngineWidgets.QWebEngineView(self.ExerciseFeedGrBox)
+        self.webview.resize(self.ExerciseFeedGrBox.size())
         self.webview.settings().setAttribute(QWebEngineSettings.FullScreenSupportEnabled, True)
         self.webview.settings().setAttribute(QWebEngineSettings.LocalContentCanAccessRemoteUrls, True)
         self.webview.settings().setAttribute(QWebEngineSettings.AllowRunningInsecureContent, True)
         self.webview.page().fullScreenRequested.connect(lambda request: request.accept())
-        self.InfoLabel = QtWidgets.QLabel(self.ExerciseFeedGrBox)
-        self.InfoLabel.setGeometry(QtCore.QRect(10, 10, 781, 31))
-        self.InfoLabel.setAlignment(self.ExerciseFeedGrBox.alignment())
+        self.InfoLabel = QtWidgets.QLabel(self.ExampleVidBox)
+        self.InfoLabel.setGeometry(QtCore.QRect(10, 10, 360, 31))
+        self.InfoLabel.setAlignment(self.ExampleVidBox.alignment())
         self.InfoLabel.setAlignment(QtCore.Qt.AlignHCenter)
         self.InfoLabel.setWordWrap(True)
         self.InfoLabel.setIndent(0)
@@ -48,7 +48,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
         font.setItalic(False)
         font.setWeight(7)
         self.InfoLabel.setFont(font)
-        self.InfoLabel.setText("Press Q to exit the exercise")
+        self.InfoLabel.setText("Press Q to save & exit the exercise")
         self.InfoLabel.setObjectName("InfoLabel")
         self.db = firestore.client()
 
@@ -61,7 +61,7 @@ class AddExercise(QWidget, Ui_StartExercise_Patient):
             # for youtube video
             baseUrl = "local"
             htmlString = """
-                                                  <iframe width="350" height="212" src={url} frameborder="0" allowfullscreen></iframe>
+                                                  <iframe width="775" height="375" src={url} frameborder="0" allowfullscreen></iframe>
                                                           """.format(url=hold_data['video_link'])
             self.webview.setHtml(htmlString, QUrl(baseUrl))
 
