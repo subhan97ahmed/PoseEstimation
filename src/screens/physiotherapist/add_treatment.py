@@ -33,22 +33,28 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
             return
 
         doc_ref = self.db.collection(u'users').document(u'' + self.patient['uId'])
+        therapist_ref = self.db.collection(u'users').document(u'' + self.parent().parent().user_info["uId"])
         doc = doc_ref.get()
-        if doc.exists:
+        therapist_doc = therapist_ref.get()
+        if doc.exists and therapist_doc.exists:
             user_data = doc.to_dict()
             if not 'assigned_ex' in user_data:
                 doc_ref.update({**user_data, 'assigned_ex': [add_exercise]})
             else:
                 for assignedEx in user_data['assigned_ex']:
                     if add_exercise['name'] == assignedEx['name']:
-                        show_warning(message='Exercise already assigned')
+                        show_warning(self, message='Exercise already assigned')
                         return
-
+                print("user_data['ass_ex_count']: ", self.parent().parent().user_info["ass_ex_count"])
                 doc_ref.update({
                     **user_data,
-                    "ass_ex_count": user_data["ass_ex_count"]+1,
                     "assigned_ex": [*user_data["assigned_ex"], add_exercise]
                 })
+                therapist_ref.update({
+                    **self.parent().parent().user_info,
+                    "ass_ex_count": self.parent().parent().user_info["ass_ex_count"] + 1,
+                })
+
                 QMessageBox().information(self, "Success", "Exercise added successfully")
                 self.parent().parent().go_to_3()
 

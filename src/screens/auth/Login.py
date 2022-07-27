@@ -25,7 +25,6 @@ class Login(QWidget, Ui_Login):
             "email": self.emailEdit.text(),
             "password": self.passwordEdit.text(),
         }
-        login_info=static_login_info
         if not is_form_empty(self, login_info):
             self.parent().parent().login_user(login_info['email'], login_info['password'])
 
