@@ -201,7 +201,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "thumb flex":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -231,7 +231,6 @@ def startExercise(exerciseName, target_angle, rep_count):
 
                 # Extract landmarks
                 try:
-                    # todo do this for left hand too
                     r_landmarks = results.right_hand_landmarks.landmark
 
                     # Right Hand Coordinates
@@ -280,30 +279,30 @@ def startExercise(exerciseName, target_angle, rep_count):
                                     tuple(np.multiply(r_thumb_mcp, [640, 480]).astype(int)),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
                                     )
-                    else:
                         # clear queue of the text
+                    else:
                         with q.mutex:
                             q.queue.clear()
                         cv2.putText(image, str(angleAtRthumbMCP),
                                     tuple(np.multiply(r_thumb_mcp, [640, 480]).astype(int)),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
-
-                    # if (angleAtRwrist == wrist_angle_wrist_curl or angleAtRwrist < wrist_angle_wrist_curl) and \
-                    #         landmarks[
-                    #             mp_pose.PoseLandmark.RIGHT_WRIST.value].visibility > .5:
-                    #     q.put("hold it right there you have perfect form")
-                    #     cv2.putText(image, str("hold it right there perfect form"),
-                    #                 tuple(np.multiply(r_wrist, [640, 480]).astype(int)),
-                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
-                    #                 )
-                    # else:
-                    #     # clear queue of the text
-                    #     with q.mutex:
-                    #         q.queue.clear()
-                    #     cv2.putText(image, str(angleAtRwrist),
-                    #                 tuple(np.multiply(r_wrist, [640, 480]).astype(int)),
-                    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
-                    #                 )
+                    # and \
+                    #         l_landmarks[
+                    #             mp_pose.PoseLandmark.LEFT_WRIST.value].visibility > .5:
+                    if angleAtLthumbMCP == angle_thumb_flex or angleAtLthumbMCP < angle_thumb_flex:
+                        q.put("hold it right there you have perfect form")
+                        cv2.putText(image, str("hold it right there perfect form"),
+                                    tuple(np.multiply(l_thumb_mcp, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                    else:
+                        # clear queue of the text
+                        with q.mutex:
+                            q.queue.clear()
+                        cv2.putText(image, str(angleAtLthumbMCP),
+                                    tuple(np.multiply(l_thumb_mcp, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
+                                    )
                     # if averageDis > -0.7:
                     #     cv2.putText(image, str("Move closer"),
                     #                 (100, 50),
@@ -332,6 +331,10 @@ def startExercise(exerciseName, target_angle, rep_count):
                                           mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
                                           mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                           )
+                mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_pose.HAND_CONNECTIONS,
+                                          mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
+                                          mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
+                                          )
                 # Plot Pose landmarks in 3D.
                 # mp_drawing.plot_landmarks(results.pose_world_landmarks, mp_pose.POSE_CONNECTIONS)
 
@@ -346,7 +349,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "squat":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -465,7 +468,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "arm curl":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -500,7 +503,6 @@ def startExercise(exerciseName, target_angle, rep_count):
                 # Extract Landmarks
                 try:
                     landmarks = results.pose_landmarks.landmark
-                    # todo do this for right arm too
                     # Get left hand Coordinates
                     l_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
                                   landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
@@ -707,7 +709,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     elif exerciseName == "high knee":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -795,7 +797,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     elif exerciseName == "shoulder shrug":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -876,7 +878,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "lateral raises":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -970,7 +972,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "quad stretch":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -1063,7 +1065,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     # return exerciseName
 
 
@@ -1254,8 +1256,8 @@ def sessionExercise(exerciseName):
             print(distance_between_r_thumb_r_ring)
             print(distance_between_r_thumb_r_pinky)
 
-# exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
-# "lateral raises", "quad stretch"]
-# name = startExercise(str(exerciseNames[6]))
+exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
+"lateral raises", "quad stretch"]
+name = startExercise(str(exerciseNames[3]),125,10)
 # print(name)
 # sessionExercise("thumb touch")
