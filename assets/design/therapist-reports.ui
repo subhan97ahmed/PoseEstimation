@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: #e2f6ff;
+	background-color: #EAF7FF;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {
@@ -25,13 +25,13 @@ QLineEdit, #mail_label, #pass_label {
 	padding: 10px 5px;
 }
 QLineEdit, QDateEdit, QComboBox, QSpinBox {
-	border-bottom: 2px solid #c17900;
+	border-bottom: 2px solid #3E84DC;
 	border-radius: 0;
 	padding: 10px 5px;
 	cursor: pointer;
 }
 QPushButton {
-	background-color: rgb(249, 168, 37);
+	background-color: #04D486;
 	padding: 12px;
 	border-radius: 20px;
 }
@@ -84,7 +84,7 @@ QCommandLinkButton {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #ffbd45;
+     <string notr="true">background-color: #3E84DC;
 border-radius: 15px;</string>
     </property>
     <property name="frameShape">
@@ -298,7 +298,7 @@ margin: 0;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">border-radius: 10px;
-background-color: #f0f4c3;
+background-color: #FFFFFF;
 
 </string>
             </property>
@@ -410,7 +410,7 @@ font-size: 14px;</string>
               </rect>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(249, 168, 37);
+              <string notr="true">background-color: #04D486;
 border-radius: 20px;</string>
              </property>
              <property name="text">

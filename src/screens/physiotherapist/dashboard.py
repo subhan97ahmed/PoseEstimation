@@ -18,8 +18,13 @@ class TDashboard(QWidget, Ui_Dashboard):
         self.ReportButton.clicked.connect(self.parent().go_to_1)
         self.NoOfPatientsLabel.setText(str(self.parent().user_info['ass_ex_count']))
         self.NoofActivePatientsLabel.setText(str(len(self.parent().user_info['assigned_patients'])))
+        self.is_loaded = False
 
     def initializer(self, hold_data, user_data):
+        if self.is_loaded:
+            print("reload user")
+            self.parent().parent().reload_user_data()
+        self.is_loaded = True
         print("===dashboard: ", hold_data, user_data)
         self.NoOfPatientsLabel.setText(str(user_data['ass_ex_count']))
         self.NoofActivePatientsLabel.setText(str(len(user_data['assigned_patients'])))

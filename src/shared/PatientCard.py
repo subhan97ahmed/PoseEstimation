@@ -11,7 +11,7 @@ class PatientCard:
         self.PatientCard = QtWidgets.QWidget(frame)
         self.PatientCard.setGeometry(QtCore.QRect(0, 0, 311, 311))
         self.PatientCard.setStyleSheet("border-radius: 10px;\n"
-                                       "background-color: #f0f4c3;\n"
+                                       "background-color: #FFFFFF;\n"
                                        "")
         self.PatientCard.setObjectName("PatientCard")
         self.label = QtWidgets.QLabel(self.PatientCard)
@@ -34,7 +34,7 @@ class PatientCard:
         self.disease_1 = QtWidgets.QLabel(self.PatientCard)
         self.disease_1.setGeometry(QtCore.QRect(10, 100, 291, 31))
         self.disease_1.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_1.setObjectName("disease_1")
@@ -42,7 +42,7 @@ class PatientCard:
         self.TreatmentBtn.setGeometry(QtCore.QRect(90, 260, 131, 41))
         self.TreatmentBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.TreatmentBtn.setStyleSheet("margin: 0;\n"
-                                        "background-color: #fb8c00;\n"
+                                        "background-color: #04D486;\n"
                                         "border-radius: 20px;")
         self.TreatmentBtn.setObjectName("TreatmentBtn")
         self.notificationBtn = QtWidgets.QCommandLinkButton(self.PatientCard)
@@ -56,14 +56,14 @@ class PatientCard:
         self.disease_2 = QtWidgets.QLabel(self.PatientCard)
         self.disease_2.setGeometry(QtCore.QRect(10, 150, 291, 31))
         self.disease_2.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_2.setObjectName("disease_2")
         self.disease_3 = QtWidgets.QLabel(self.PatientCard)
         self.disease_3.setGeometry(QtCore.QRect(10, 200, 291, 31))
         self.disease_3.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_3.setObjectName("disease_3")

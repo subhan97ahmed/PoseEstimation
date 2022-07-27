@@ -39,7 +39,7 @@ class App(QMainWindow):
         self.screen_login = None
         self.screen_register = None
         # Set style for the main window
-        self.setStyleSheet("background-color: #e2f6ff;")
+        self.setStyleSheet("background-color: #EAF7FF;")
 
         # for centering view
         qr = self.frameGeometry()
@@ -95,6 +95,7 @@ class App(QMainWindow):
             self.therapist_screens = [self.screen_t_dashboard, self.screen_t_reports, self.screen_t_report,
                                       self.screen_t_treatments, self.screen_t_add_treatment, self.screen_t_add_patient]
             self.add_widget(self.therapist_screens)
+            self.setWindowTitle("Posefect: Physiotherapist")
             print('therapist')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
@@ -104,6 +105,7 @@ class App(QMainWindow):
             self.patient_screens = [self.screen_p_dashboard, self.screen_p_view_exercise, self.screen_p_add_exercise,
                                     self.screen_p_report]
             self.add_widget(self.patient_screens)
+            self.setWindowTitle("Posefect: Patient")
             print('patient')
             self.setFixedWidth(1024)
             self.setFixedHeight(680)
@@ -116,6 +118,7 @@ class App(QMainWindow):
                         self.stacked.removeWidget(self.therapist_screens[x])
             self.stacked.addWidget(self.screen_login)
             self.stacked.addWidget(self.screen_register)
+            self.setWindowTitle("Welcome to Posefect")
             self.setFixedWidth(800)
             self.setFixedHeight(700)
 

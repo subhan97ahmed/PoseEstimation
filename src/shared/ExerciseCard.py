@@ -9,7 +9,7 @@ class ExerciseCard:
         _translate = QtCore.QCoreApplication.translate
         self.ExerciseCard = QtWidgets.QWidget(frame)
         self.ExerciseCard.setGeometry(QtCore.QRect(0, 0, 331, 151))
-        self.ExerciseCard.setStyleSheet("background-color: #f0f4c3;\n"
+        self.ExerciseCard.setStyleSheet("background-color: #FFFFFF;\n"
                                         "border-radius: 10px;")
         self.ExerciseCard.setObjectName("ExerciseCard")
         self.label = QtWidgets.QLabel(self.ExerciseCard)
@@ -29,7 +29,7 @@ class ExerciseCard:
         self.StartExerciseBtn.setText(_translate("ExercisePrescribe", "Start Exercise"))
         self.StartExerciseBtn.setGeometry(QtCore.QRect(190, 100, 131, 41))
         self.StartExerciseBtn.setStyleSheet("border-radius: 20px;\n"
-                                            "background-color: rgb(249, 168, 37);\n"
+                                            "background-color: #04D486;\n"
                                             "")
         self.StartExerciseBtn.setObjectName("StartExerciseBtn")
         # set values

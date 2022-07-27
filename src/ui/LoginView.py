@@ -19,7 +19,7 @@ class Ui_Login(object):
         font.setWeight(7)
         Login.setFont(font)
         Login.setStyleSheet("*  {\n"
-                            "    background-color: #e2f6ff;\n"
+                            "    background-color: #EAF7FF;\n"
                             "    font: 57 10pt \"Montserrat Medium\";\n"
                             "}\n"
                             "QGroupBox {\n"
@@ -29,11 +29,11 @@ class Ui_Login(object):
                             "    padding: 10px 5px; \n"
                             "}\n"
                             "QLineEdit {\n"
-                            "    border-bottom: 2px solid #c17900;\n"
+                            "    border-bottom: 2px solid #3E84DC;\n"
                             "    border-radius: 0;\n"
                             "}\n"
                             "QPushButton {\n"
-                            "    background-color: rgb(249, 168, 37);\n"
+                            "    background-color: #04D486;\n"
                             "    padding: 12px;\n"
                             "    border-radius: 20px;\n"
                             "}\n"

@@ -13,8 +13,13 @@ class PDashboard(QWidget, Ui_PatientDash):
         # self.HomeButton.clicked.connect(self.parent().go_to_0)
         self.TreatmentButton.clicked.connect(self.parent().go_to_1)
         self.ReportButton.clicked.connect(self.parent().go_to_3)
+        self.is_loaded = False
 
     def initializer(self, hold_data, user_data):
+        if self.is_loaded:
+            print("reload user")
+            self.parent().parent().reload_user_data()
+        self.is_loaded = True
         self.NoOfExPrescribedLabel.setText(str(len(user_data['assigned_ex'])))
         ex_count = 0
         for history in user_data["histories"]:

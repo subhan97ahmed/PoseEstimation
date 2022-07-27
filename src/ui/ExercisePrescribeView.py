@@ -9,7 +9,7 @@ class Ui_ExercisePrescribe(object):
         ExercisePrescribe.setObjectName("ExercisePrescribe")
         ExercisePrescribe.resize(1024, 680)
         ExercisePrescribe.setStyleSheet("*  {\n"
-                                        "    background-color: #e2f6ff;\n"
+                                        "    background-color: #EAF7FF;\n"
                                         "    font: 57 10pt \"Montserrat Medium\";\n"
                                         "}\n"
                                         "QGroupBox {\n"
@@ -19,11 +19,11 @@ class Ui_ExercisePrescribe(object):
                                         "    padding: 10px 5px;\n"
                                         "}\n"
                                         "QLineEdit {\n"
-                                        "    border-bottom: 2px solid #c17900;\n"
+                                        "    border-bottom: 2px solid #3E84DC;\n"
                                         "    border-radius: 0;\n"
                                         "}\n"
                                         "QPushButton {\n"
-                                        "    background-color: rgb(249, 168, 37);\n"
+                                        "    background-color: #04D486;\n"
                                         "    padding: 12px;\n"
                                         "    border-radius: 20px;\n"
                                         "}\n"
@@ -37,7 +37,7 @@ class Ui_ExercisePrescribe(object):
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(-30, 0, 161, 711))
-        self.frame.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame.setStyleSheet("background-color: #3E84DC;\n"
                                  "border-radius: 15px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -130,7 +130,7 @@ class Ui_ExercisePrescribe(object):
         self.frame_3.setObjectName("frame_3")
         self.exerciseCard = QtWidgets.QWidget(self.frame_3)
         self.exerciseCard.setGeometry(QtCore.QRect(0, -10, 331, 151))
-        self.exerciseCard.setStyleSheet("background-color: #f0f4c3;\n"
+        self.exerciseCard.setStyleSheet("background-color: #FFFFFF;\n"
                                         "border-radius: 10px;")
         self.exerciseCard.setObjectName("exerciseCard")
         self.ExerciseName = QtWidgets.QLabel(self.exerciseCard)
@@ -139,7 +139,7 @@ class Ui_ExercisePrescribe(object):
         self.StartExerciseBtn = QtWidgets.QPushButton(self.exerciseCard)
         self.StartExerciseBtn.setGeometry(QtCore.QRect(190, 100, 131, 41))
         self.StartExerciseBtn.setStyleSheet("border-radius: 20px;\n"
-                                            "background-color: rgb(249, 168, 37);\n"
+                                            "background-color: #04D486;\n"
                                             "")
         self.StartExerciseBtn.setObjectName("StartExerciseBtn")
         self.label = QtWidgets.QLabel(self.exerciseCard)

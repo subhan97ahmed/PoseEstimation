@@ -9,7 +9,7 @@ class Ui_PatientDash(object):
         PatientDash.setObjectName("PatientDash")
         PatientDash.resize(1024, 680)
         PatientDash.setStyleSheet("*  {\n"
-                                  "    background-color: #e2f6ff;\n"
+                                  "    background-color: #EAF7FF;\n"
                                   "    font: 57 10pt \"Montserrat Medium\";\n"
                                   "}\n"
                                   "QGroupBox {\n"
@@ -19,11 +19,11 @@ class Ui_PatientDash(object):
                                   "    padding: 10px 5px;\n"
                                   "}\n"
                                   "QLineEdit {\n"
-                                  "    border-bottom: 2px solid #c17900;\n"
+                                  "    border-bottom: 2px solid #3E84DC;\n"
                                   "    border-radius: 0;\n"
                                   "}\n"
                                   "QPushButton {\n"
-                                  "    background-color: rgb(249, 168, 37);\n"
+                                  "    background-color: #04D486;\n"
                                   "    padding: 12px;\n"
                                   "    border-radius: 20px;\n"
                                   "}\n"
@@ -34,7 +34,7 @@ class Ui_PatientDash(object):
                                   "\n"
                                   "#NextAppointmentCard, #NoOfExCompletedCard, #PrescribedExCard {\n"
                                   "    border-radius: 10px;\n"
-                                  "    border: 2px solid #fb8c00;\n"
+                                  "    border: 2px solid #04D486;\n"
                                   "}\n"
                                   "#ct_1, #ct_2, #ct_3 {\n"
                                   "    font-size: 16px;\n"
@@ -45,7 +45,7 @@ class Ui_PatientDash(object):
                                   "    background-color: transparent;\n"
                                   "}\n"
                                   "#NextAppointmentCard {\n"
-                                  "    background-color: #f0f4c3;\n"
+                                  "    background-color: #FFFFFF;\n"
                                   "}\n"
                                   "#NoOfExCompletedCard {\n"
                                   "    background-color: #d1c4e9;\n"
@@ -53,7 +53,7 @@ class Ui_PatientDash(object):
                                   "#prescribedExCard {\n"
                                   "    background-color: #ffcdd2;\n"
                                   "}*  {\n"
-                                  "    background-color: #e2f6ff;\n"
+                                  "    background-color: #EAF7FF;\n"
                                   "    font: 57 10pt \"Montserrat Medium\";\n"
                                   "}\n"
                                   "QGroupBox {\n"
@@ -63,13 +63,13 @@ class Ui_PatientDash(object):
                                   "    padding: 10px 5px;\n"
                                   "}\n"
                                   "QLineEdit, QDateEdit, QComboBox {\n"
-                                  "    border-bottom: 2px solid #c17900;\n"
+                                  "    border-bottom: 2px solid #3E84DC;\n"
                                   "    border-radius: 0;\n"
                                   "    padding: 10px 5px;\n"
                                   "    cursor: pointer;\n"
                                   "}\n"
                                   "QPushButton {\n"
-                                  "    background-color: rgb(249, 168, 37);\n"
+                                  "    background-color: #04D486;\n"
                                   "    padding: 12px;\n"
                                   "    border-radius: 20px;\n"
                                   "}\n"
@@ -80,7 +80,7 @@ class Ui_PatientDash(object):
                                   "\n"
                                   "#numpatientCard, #patientCard, #therapyCard{\n"
                                   "    border-radius: 10px;\n"
-                                  "    border: 2px solid #fb8c00;\n"
+                                  "    border: 2px solid #04D486;\n"
                                   "}\n"
                                   "#ct_1, #ct_2, #ct_3 {\n"
                                   "    font-size: 16px;\n"
@@ -106,7 +106,7 @@ class Ui_PatientDash(object):
         self.DashboarLabel.setObjectName("DashboarLabel")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(-30, 10, 161, 711))
-        self.frame.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame.setStyleSheet("background-color: #3E84DC;\n"
                                  "border-radius: 15px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)

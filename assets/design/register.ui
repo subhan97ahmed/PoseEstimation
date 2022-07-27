@@ -33,7 +33,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: #e2f6ff;
+	background-color: #EAF7FF;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {
@@ -43,13 +43,13 @@ QGroupBox {
 	padding: 10px 5px;
 }
  QLineEdit, QDateEdit, QComboBox {
-     border-bottom: 2px solid #c17900;
+     border-bottom: 2px solid #3E84DC;
      border-radius: 0;
      padding: 10px 5px;
      cursor: pointer;
  }
 QPushButton {
-	background-color: rgb(249, 168, 37);
+	background-color: #04D486;
 	padding: 12px;
 	border-radius: 20px;
 }

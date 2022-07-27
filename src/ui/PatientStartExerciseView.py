@@ -9,7 +9,7 @@ class Ui_StartExercise_Patient(object):
         StartExercise_Patient.setObjectName("StartExercise_Patient")
         StartExercise_Patient.resize(1024, 680)
         StartExercise_Patient.setStyleSheet("*  {\n"
-                                            "    background-color: #e2f6ff;\n"
+                                            "    background-color: #EAF7FF;\n"
                                             "    font: 57 10pt \"Montserrat Medium\";\n"
                                             "}\n"
                                             "QGroupBox {\n"
@@ -19,11 +19,11 @@ class Ui_StartExercise_Patient(object):
                                             "    padding: 10px 5px;\n"
                                             "}\n"
                                             "QLineEdit {\n"
-                                            "    border-bottom: 2px solid #c17900;\n"
+                                            "    border-bottom: 2px solid #3E84DC;\n"
                                             "    border-radius: 0;\n"
                                             "}\n"
                                             "QPushButton {\n"
-                                            "    background-color: rgb(249, 168, 37);\n"
+                                            "    background-color: #04D486;\n"
                                             "    padding: 12px;\n"
                                             "    border-radius: 20px;\n"
                                             "}\n"
@@ -34,7 +34,7 @@ class Ui_StartExercise_Patient(object):
                                             "\n"
                                             "#card_1, #card_2, #card_3 {\n"
                                             "    border-radius: 10px;\n"
-                                            "    border: 2px solid #fb8c00;\n"
+                                            "    border: 2px solid #04D486;\n"
                                             "}\n"
                                             "#ct_1, #ct_2, #ct_3 {\n"
                                             "    font-size: 16px;\n"
@@ -45,7 +45,7 @@ class Ui_StartExercise_Patient(object):
                                             "    background-color: transparent;\n"
                                             "}\n"
                                             "#card_1 {\n"
-                                            "    background-color: #f0f4c3;\n"
+                                            "    background-color: #FFFFFF;\n"
                                             "}\n"
                                             "#card_2 {\n"
                                             "    background-color: #d1c4e9;\n"
@@ -58,7 +58,7 @@ class Ui_StartExercise_Patient(object):
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(-30, 0, 161, 711))
-        self.frame.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame.setStyleSheet("background-color: #3E84DC;\n"
                                  "border-radius: 15px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -105,7 +105,7 @@ class Ui_StartExercise_Patient(object):
         self.ExerciseFeedGrBox.setObjectName("ExerciseFeedGrBox")
         self.StartExerciseCard = QtWidgets.QWidget(self.centralwidget)
         self.StartExerciseCard.setGeometry(QtCore.QRect(170, 10, 381, 191))
-        self.StartExerciseCard.setStyleSheet("background-color: #f0f4c3;\n"
+        self.StartExerciseCard.setStyleSheet("background-color: #FFFFFF;\n"
                                              "border-radius: 10px;")
         self.StartExerciseCard.setObjectName("StartExerciseCard")
         self.exerciseName = QtWidgets.QLabel(self.StartExerciseCard)
@@ -114,7 +114,7 @@ class Ui_StartExercise_Patient(object):
         self.StartExerciseBtn = QtWidgets.QPushButton(self.StartExerciseCard)
         self.StartExerciseBtn.setGeometry(QtCore.QRect(230, 140, 131, 41))
         self.StartExerciseBtn.setStyleSheet("border-radius: 20px;\n"
-                                            "background-color: rgb(249, 168, 37);\n"
+                                            "background-color: #04D486;\n"
                                             "")
         self.StartExerciseBtn.setObjectName("StartExerciseBtn")
         self.runningman = QtWidgets.QLabel(self.StartExerciseCard)

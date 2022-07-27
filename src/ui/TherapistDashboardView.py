@@ -16,7 +16,7 @@ class Ui_Dashboard(object):
         font.setWeight(7)
         Dashboard.setFont(font)
         Dashboard.setStyleSheet("*  {\n"
-                                "    background-color: #e2f6ff;\n"
+                                "    background-color: #EAF7FF;\n"
                                 "    font: 57 10pt \"Montserrat Medium\";\n"
                                 "}\n"
                                 "QGroupBox {\n"
@@ -26,13 +26,13 @@ class Ui_Dashboard(object):
                                 "    padding: 10px 5px;\n"
                                 "}\n"
                                 "QLineEdit, QDateEdit, QComboBox {\n"
-                                "    border-bottom: 2px solid #c17900;\n"
+                                "    border-bottom: 2px solid #3E84DC;\n"
                                 "    border-radius: 0;\n"
                                 "    padding: 10px 5px;\n"
                                 "    cursor: pointer;\n"
                                 "}\n"
                                 "QPushButton {\n"
-                                "    background-color: rgb(249, 168, 37);\n"
+                                "    background-color: #04D486;\n"
                                 "    padding: 12px;\n"
                                 "    border-radius: 20px;\n"
                                 "}\n"
@@ -43,7 +43,7 @@ class Ui_Dashboard(object):
                                 "\n"
                                 "#NumpatientCard, #PatientCard, #TherapyCard{\n"
                                 "    border-radius: 10px;\n"
-                                "    border: 2px solid #fb8c00;\n"
+                                "    border: 2px solid #04D486;\n"
                                 "}\n"
                                 "#ct_1, #ct_2, #ct_3 {\n"
                                 "    font-size: 16px;\n"
@@ -54,7 +54,7 @@ class Ui_Dashboard(object):
                                 "    background-color: transparent;\n"
                                 "}\n"
                                 "#NumpatientCard{\n"
-                                "    background-color: #f0f4c3;\n"
+                                "    background-color: #FFFFFF;\n"
                                 "}\n"
                                 "#PatientCard {\n"
                                 "    background-color: #d1c4e9;\n"
@@ -78,7 +78,7 @@ class Ui_Dashboard(object):
         self.HomeLabel.setObjectName("HomeLabel")
         self.sideFrame = QtWidgets.QFrame(self.centralwidget)
         self.sideFrame.setGeometry(QtCore.QRect(-30, 10, 161, 691))
-        self.sideFrame.setStyleSheet("background-color: #ffbd45;\n"
+        self.sideFrame.setStyleSheet("background-color: #3E84DC;\n"
                                      "border-radius: 15px;")
         self.sideFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.sideFrame.setFrameShadow(QtWidgets.QFrame.Raised)

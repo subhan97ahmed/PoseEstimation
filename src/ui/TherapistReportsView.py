@@ -9,7 +9,7 @@ class Ui_TherapistReports(object):
         TherapistReports.setObjectName("TherapistReports")
         TherapistReports.resize(1024, 680)
         TherapistReports.setStyleSheet("*  {\n"
-                                       "    background-color: #e2f6ff;\n"
+                                       "    background-color: #EAF7FF;\n"
                                        "    font: 57 10pt \"Montserrat Medium\";\n"
                                        "}\n"
                                        "QGroupBox {\n"
@@ -19,13 +19,13 @@ class Ui_TherapistReports(object):
                                        "    padding: 10px 5px;\n"
                                        "}\n"
                                        "QLineEdit, QDateEdit, QComboBox, QSpinBox {\n"
-                                       "    border-bottom: 2px solid #c17900;\n"
+                                       "    border-bottom: 2px solid #3E84DC;\n"
                                        "    border-radius: 0;\n"
                                        "    padding: 10px 5px;\n"
                                        "    cursor: pointer;\n"
                                        "}\n"
                                        "QPushButton {\n"
-                                       "    background-color: rgb(249, 168, 37);\n"
+                                       "    background-color: #04D486;\n"
                                        "    padding: 12px;\n"
                                        "    border-radius: 20px;\n"
                                        "}\n"
@@ -49,7 +49,7 @@ class Ui_TherapistReports(object):
         self.PatientsReportLabel.setObjectName("PatientsReportLabel")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(-20, 10, 161, 691))
-        self.frame_3.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame_3.setStyleSheet("background-color: #3E84DC;\n"
                                    "border-radius: 15px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)

@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*  {
-	background-color: #e2f6ff;
+	background-color: #EAF7FF;
 	font: 57 10pt &quot;Montserrat Medium&quot;;
 }
 QGroupBox {
@@ -25,11 +25,11 @@ QLineEdit, #mail_label, #pass_label {
 	padding: 10px 5px;
 }
 QLineEdit {
-	border-bottom: 2px solid #c17900;
+	border-bottom: 2px solid #3E84DC;
 	border-radius: 0;
 }
 QPushButton {
-	background-color: rgb(249, 168, 37);
+	background-color: #04D486;
 	padding: 12px;
 	border-radius: 20px;
 }
@@ -40,7 +40,7 @@ QCommandLinkButton {
 
 #card_1, #card_2, #card_3 {
 	border-radius: 10px;
-	border: 2px solid #fb8c00;
+	border: 2px solid #04D486;
 }
 #ct_1, #ct_2, #ct_3 {
 	font-size: 16px;
@@ -51,7 +51,7 @@ QCommandLinkButton {
 	background-color: transparent;
 }
 #card_1 {
-	background-color: #f0f4c3;
+	background-color: #FFFFFF;
 }
 #card_2 {
 	background-color: #d1c4e9;
@@ -79,7 +79,7 @@ QCommandLinkButton {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #ffbd45;
+     <string notr="true">background-color: #3E84DC;
 border-radius: 15px;</string>
     </property>
     <property name="frameShape">
@@ -204,7 +204,7 @@ font-size: 22px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #f0f4c3;
+     <string notr="true">background-color: #FFFFFF;
 border-radius: 10px;</string>
     </property>
     <widget class="QLabel" name="exerciseName">
@@ -231,7 +231,7 @@ border-radius: 10px;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border-radius: 20px;
-background-color: rgb(249, 168, 37);
+background-color: #04D486;
 </string>
      </property>
      <property name="text">

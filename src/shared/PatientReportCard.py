@@ -11,7 +11,7 @@ class PatientNameCard:
         self.PatientNameCard = QtWidgets.QWidget(frame)
         self.PatientNameCard.setGeometry(QtCore.QRect(0, 0, 301, 201))
         self.PatientNameCard.setStyleSheet("border-radius: 10px;\n"
-                                           "background-color: #f0f4c3;\n"
+                                           "background-color: #FFFFFF;\n"
                                            "\n"
                                            "")
         self.PatientNameCard.setObjectName("PatientNameCard")
@@ -48,7 +48,7 @@ class PatientNameCard:
         self.patientContactNo.setObjectName("patientContactNo")
         self.addPatientBtn = QtWidgets.QPushButton(self.PatientNameCard)
         self.addPatientBtn.setGeometry(QtCore.QRect(140, 140, 151, 41))
-        self.addPatientBtn.setStyleSheet("background-color: rgb(249, 168, 37);\n"
+        self.addPatientBtn.setStyleSheet("background-color: #04D486;\n"
                                          "border-radius: 20px;")
         self.addPatientBtn.setObjectName("addPatientBtn")
 

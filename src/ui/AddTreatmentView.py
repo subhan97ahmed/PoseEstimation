@@ -9,7 +9,7 @@ class Ui_AddTreatment(object):
         AddTreatment.setObjectName("AddTreatment")
         AddTreatment.resize(1024, 680)
         AddTreatment.setStyleSheet("*  {\n"
-                                   "    background-color: #e2f6ff;\n"
+                                   "    background-color: #EAF7FF;\n"
                                    "    font: 57 10pt \"Montserrat Medium\";\n"
                                    "}\n"
                                    "QGroupBox {\n"
@@ -19,13 +19,13 @@ class Ui_AddTreatment(object):
                                    "    padding: 10px 5px;\n"
                                    "}\n"
                                    "QLineEdit, QDateEdit, QComboBox, QSpinBox {\n"
-                                   "    border-bottom: 2px solid #c17900;\n"
+                                   "    border-bottom: 2px solid #3E84DC;\n"
                                    "    border-radius: 0;\n"
                                    "    padding: 10px 5px;\n"
                                    "    cursor: pointer;\n"
                                    "}\n"
                                    "QPushButton {\n"
-                                   "    background-color: rgb(249, 168, 37);\n"
+                                   "    background-color: #04D486;\n"
                                    "    padding: 12px;\n"
                                    "    border-radius: 20px;\n"
                                    "}\n"
@@ -49,7 +49,7 @@ class Ui_AddTreatment(object):
         self.TreatmentLabel.setObjectName("TreatmentLabel")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(-20, 20, 161, 691))
-        self.frame_3.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame_3.setStyleSheet("background-color: #3E84DC;\n"
                                    "border-radius: 15px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -149,7 +149,7 @@ class Ui_AddTreatment(object):
         self.patientCard = QtWidgets.QWidget(self.centralwidget)
         self.patientCard.setGeometry(QtCore.QRect(170, 240, 391, 291))
         self.patientCard.setStyleSheet("border-radius: 10px;\n"
-                                       "background-color: #f0f4c3;\n"
+                                       "background-color: #FFFFFF;\n"
                                        "\n"
                                        "")
         self.patientCard.setObjectName("patientCard")
@@ -177,21 +177,21 @@ class Ui_AddTreatment(object):
         self.disease_1 = QtWidgets.QLabel(self.patientCard)
         self.disease_1.setGeometry(QtCore.QRect(70, 140, 281, 31))
         self.disease_1.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_1.setObjectName("disease_1")
         self.disease_2 = QtWidgets.QLabel(self.patientCard)
         self.disease_2.setGeometry(QtCore.QRect(70, 190, 281, 31))
         self.disease_2.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_2.setObjectName("disease_2")
         self.disease_3 = QtWidgets.QLabel(self.patientCard)
         self.disease_3.setGeometry(QtCore.QRect(70, 240, 281, 31))
         self.disease_3.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_3.setObjectName("disease_3")

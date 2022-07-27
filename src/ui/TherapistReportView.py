@@ -16,7 +16,7 @@ class Ui_TherapistReport(object):
         TherapistReport.setObjectName("TherapistReport")
         TherapistReport.resize(1024, 680)
         TherapistReport.setStyleSheet("*  {\n"
-                                      "    background-color: #e2f6ff;\n"
+                                      "    background-color: #EAF7FF;\n"
                                       "    font: 57 10pt \"Montserrat Medium\";\n"
                                       "}\n"
                                       "QGroupBox {\n"
@@ -26,13 +26,13 @@ class Ui_TherapistReport(object):
                                       "    padding: 10px 5px;\n"
                                       "}\n"
                                       "QLineEdit, QDateEdit, QComboBox, QSpinBox {\n"
-                                      "    border-bottom: 2px solid #c17900;\n"
+                                      "    border-bottom: 2px solid #3E84DC;\n"
                                       "    border-radius: 0;\n"
                                       "    padding: 10px 5px;\n"
                                       "    cursor: pointer;\n"
                                       "}\n"
                                       "QPushButton {\n"
-                                      "    background-color: rgb(249, 168, 37);\n"
+                                      "    background-color: #04D486;\n"
                                       "    padding: 12px;\n"
                                       "    border-radius: 20px;\n"
                                       "}\n"
@@ -56,7 +56,7 @@ class Ui_TherapistReport(object):
         self.TreatmentLabel.setObjectName("TreatmentLabel")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(-20, 20, 161, 691))
-        self.frame_3.setStyleSheet("background-color: #ffbd45;\n"
+        self.frame_3.setStyleSheet("background-color: #3E84DC;\n"
                                    "border-radius: 15px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -177,7 +177,7 @@ class Ui_TherapistReport(object):
         self.patientCard = QtWidgets.QWidget(self.centralwidget)
         self.patientCard.setGeometry(QtCore.QRect(170, 170, 541, 211))
         self.patientCard.setStyleSheet("border-radius: 10px;\n"
-                                       "background-color: #f0f4c3;\n"
+                                       "background-color: #FFFFFF;\n"
                                        "\n"
                                        "")
         self.patientCard.setObjectName("patientCard")
@@ -205,21 +205,21 @@ class Ui_TherapistReport(object):
         self.disease_4 = QtWidgets.QLabel(self.patientCard)
         self.disease_4.setGeometry(QtCore.QRect(270, 40, 261, 31))
         self.disease_4.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_4.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_4.setObjectName("disease_4")
         self.disease_5 = QtWidgets.QLabel(self.patientCard)
         self.disease_5.setGeometry(QtCore.QRect(270, 100, 261, 31))
         self.disease_5.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_5.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_5.setObjectName("disease_5")
         self.disease_6 = QtWidgets.QLabel(self.patientCard)
         self.disease_6.setGeometry(QtCore.QRect(270, 160, 261, 31))
         self.disease_6.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #fb8c00;\n"
+                                     "background-color: #04D486;\n"
                                      "font-size: 12px;")
         self.disease_6.setAlignment(QtCore.Qt.AlignCenter)
         self.disease_6.setObjectName("disease_6")
