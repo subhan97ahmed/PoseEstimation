@@ -201,7 +201,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "thumb flex":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -349,7 +349,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "squat":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -468,7 +468,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "arm curl":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -709,7 +709,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     elif exerciseName == "high knee":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -797,7 +797,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     elif exerciseName == "shoulder shrug":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -878,7 +878,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "lateral raises":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -972,7 +972,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score * 100
+            return score
     elif exerciseName == "quad stretch":
         # for pose
         mp_drawing = mp.solutions.drawing_utils
@@ -1065,7 +1065,7 @@ def startExercise(exerciseName, target_angle, rep_count):
 
             cap.release()
             cv2.destroyAllWindows()
-            return score*100
+            return score
     # return exerciseName
 
 
@@ -1258,6 +1258,6 @@ def sessionExercise(exerciseName):
 
 exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
 "lateral raises", "quad stretch"]
-name = startExercise(str(exerciseNames[1]),125,10)
+name = startExercise(str(exerciseNames[3]),125,10)
 # print(name)
 # sessionExercise("thumb touch")
