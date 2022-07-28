@@ -37,6 +37,7 @@ class Ui_Dashboard(object):
                                 "    border-radius: 20px;\n"
                                 "}\n"
                                 "QCommandLinkButton {\n"
+"    color: #FFFFFF;\n"
                                 "    background-color: transparent;\n"
                                 "    text-align: center;\n"
                                 "}\n"

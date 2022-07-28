@@ -1256,8 +1256,8 @@ def sessionExercise(exerciseName):
             print(distance_between_r_thumb_r_ring)
             print(distance_between_r_thumb_r_pinky)
 
-#exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
-#"lateral raises", "quad stretch"]
-#name = startExercise(str(exerciseNames[3]),125,10)
+exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
+"lateral raises", "quad stretch"]
+# name = startExercise(str(exerciseNames[3]),125,10)
 # print(name)
 # sessionExercise("thumb touch")

@@ -33,10 +33,11 @@ class PatientCard:
         self.Patient_age.setObjectName("Patient_age")
         self.disease_1 = QtWidgets.QLabel(self.PatientCard)
         self.disease_1.setGeometry(QtCore.QRect(10, 100, 291, 31))
-        self.disease_1.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_1.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_1.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_1.setObjectName("disease_1")
         self.TreatmentBtn = QtWidgets.QPushButton(self.PatientCard)
         self.TreatmentBtn.setGeometry(QtCore.QRect(90, 260, 131, 41))
@@ -55,17 +56,19 @@ class PatientCard:
         self.notificationBtn.setObjectName("notificationBtn")
         self.disease_2 = QtWidgets.QLabel(self.PatientCard)
         self.disease_2.setGeometry(QtCore.QRect(10, 150, 291, 31))
-        self.disease_2.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_2.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_2.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_2.setObjectName("disease_2")
         self.disease_3 = QtWidgets.QLabel(self.PatientCard)
         self.disease_3.setGeometry(QtCore.QRect(10, 200, 291, 31))
-        self.disease_3.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_3.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_3.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_3.setObjectName("disease_3")
 
         # Set values

@@ -28,6 +28,7 @@ class Ui_AddPatient(object):
                                  "    border-radius: 20px;\n"
                                  "}\n"
                                  "QCommandLinkButton {\n"
+"    color: #FFFFFF;\n"
                                  "    background-color: transparent;\n"
                                  "    text-align: center;\n"
                                  "}")
@@ -200,24 +201,27 @@ class Ui_AddPatient(object):
         self.patientAge_2.setObjectName("patientAge_2")
         self.disease_1 = QtWidgets.QLabel(self.patientCard)
         self.disease_1.setGeometry(QtCore.QRect(70, 140, 281, 31))
-        self.disease_1.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_1.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_1.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_1.setObjectName("disease_1")
         self.disease_2 = QtWidgets.QLabel(self.patientCard)
         self.disease_2.setGeometry(QtCore.QRect(70, 190, 281, 31))
-        self.disease_2.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_2.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_2.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_2.setObjectName("disease_2")
         self.disease_3 = QtWidgets.QLabel(self.patientCard)
         self.disease_3.setGeometry(QtCore.QRect(70, 240, 281, 31))
-        self.disease_3.setStyleSheet("border-radius: 15px;\n"
-                                     "background-color: #04D486;\n"
+        self.disease_3.setStyleSheet("border-radius: 5px;\n"
+                                     "padding: 6px 10px;\n"
+                                     "background-color: #EAF7FF;\n"
                                      "font-size: 12px;")
-        self.disease_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.disease_3.setAlignment(QtCore.Qt.AlignLeft)
         self.disease_3.setObjectName("disease_3")
         self.patientEmail_3 = QtWidgets.QLabel(self.patientCard)
         self.patientEmail_3.setGeometry(QtCore.QRect(80, 50, 281, 21))
