@@ -27,6 +27,7 @@ class Ui_Treatment(object):
 "    border-radius: 20px;\n"
 "}\n"
 "QCommandLinkButton {\n"
+"    color: #FFFFFF;\n"
 "    background-color: transparent;\n"
 "    text-align: center;\n"
 "}")
@@ -112,6 +113,7 @@ class Ui_Treatment(object):
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/iconPrefix/add-user.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AddPatientBtn.setIcon(icon4)
+        self.AddPatientBtn.setStyleSheet("color: #000000;")
         self.AddPatientBtn.setObjectName("AddPatientBtn")
         self.scrollHolder = QtWidgets.QWidget(self.centralwidget)
         self.scrollHolder.setGeometry(QtCore.QRect(160, 160, 871, 521))

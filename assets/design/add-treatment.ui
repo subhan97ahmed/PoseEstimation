@@ -36,6 +36,7 @@ QPushButton {
 	border-radius: 20px;
 }
 QCommandLinkButton {
+    color: #FFFFFF;
 	background-color: transparent;
 	text-align: center;
 }</string>
