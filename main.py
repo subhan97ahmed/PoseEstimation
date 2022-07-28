@@ -154,7 +154,10 @@ class App(QMainWindow):
                                                                                 user_data['password'])
             self.user_info = new_user
             db = firestore.client()
-            db.collection(u'users').document(u'' + new_user['localId']).set(user_data)
+            del user_data['password']
+            del user_data['confirm_pass']
+            print("++ check doc: ", user_data)
+            db.collection(u'users').document(u'' + new_user['localId']).set()
             self.go_to_0()
         except:
             show_warning(self, title="Warning", message="failed to register")
