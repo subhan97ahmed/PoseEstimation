@@ -14,6 +14,7 @@ class TAddTreatment(QWidget, Ui_AddTreatment):
         self.db = firestore.client()
         self.patient = None
         self.exercise_name_populate(ex_exercises)
+        self.angleCount.setMaximum(360)
         self.addPatientBtn.clicked.connect(self.add_exercise_form)
         self.UsernameLabel_2.setText(f'Dr. {self.parent().user_info["f_name"]}')
         self.ProfilepushButton_2.clicked.connect(self.parent().logout_user)
