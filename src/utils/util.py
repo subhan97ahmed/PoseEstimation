@@ -25,7 +25,7 @@ def get_age(birthdatestr):
 def is_form_empty(self, form_values, message='Invalid, please fill out the form first!'):
     if type(form_values) is dict:
         if '' in form_values.values():
-            show_warning(self, message)
+            show_warning(self, message=message)
             return True
         else:
             return False
