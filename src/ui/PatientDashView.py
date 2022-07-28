@@ -28,7 +28,7 @@ class Ui_PatientDash(object):
                                   "    border-radius: 20px;\n"
                                   "}\n"
                                   "QCommandLinkButton {\n"
-"    color: #FFFFFF;\n"
+                                  "    color: #FFFFFF;\n"
                                   "    background-color: transparent;\n"
                                   "    text-align: center;\n"
                                   "}\n"
@@ -75,7 +75,7 @@ class Ui_PatientDash(object):
                                   "    border-radius: 20px;\n"
                                   "}\n"
                                   "QCommandLinkButton {\n"
-"    color: #FFFFFF;\n"
+                                  "color: #FFFFFF;\n"
                                   "    background-color: transparent;\n"
                                   "    text-align: center;\n"
                                   "}\n"
@@ -190,6 +190,12 @@ class Ui_PatientDash(object):
         self.NoOfExLabel.setGeometry(QtCore.QRect(80, 110, 171, 21))
         self.NoOfExLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.NoOfExLabel.setObjectName("NoOfExLabel")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(640, 300, 382, 439))
+        self.label_2.setTextFormat(QtCore.Qt.RichText)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_2.raise_()
         self.DashboarLabel.raise_()
         self.frame_2.raise_()
         self.NoOfExCompletedCard.raise_()
@@ -211,6 +217,8 @@ class Ui_PatientDash(object):
         self.NoOfExPrescribedLabel.setText(_translate("PatientDash", "0"))
         self.ct_2.setText(_translate("PatientDash", "No of Exercises Completed"))
         self.NoOfExLabel.setText(_translate("PatientDash", "0"))
+        self.label_2.setText(_translate("PatientDash",
+                                        "<html><head/><body><p><img src=\":/imagePath/patient-dashboard.png\"/></p></body></html>"))
 
 
 import src.resource.fonts_rc

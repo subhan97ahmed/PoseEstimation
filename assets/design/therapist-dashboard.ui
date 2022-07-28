@@ -291,12 +291,12 @@ margin: 0;</string>
       <rect>
        <x>20</x>
        <y>20</y>
-       <width>151</width>
+       <width>191</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>No. Of Patients</string>
+      <string>Assigned Exercises</string>
      </property>
     </widget>
     <widget class="QLabel" name="NoOfPatientsLabel">
@@ -321,7 +321,7 @@ margin: 0;</string>
      <rect>
       <x>430</x>
       <y>270</y>
-      <width>221</width>
+      <width>231</width>
       <height>151</height>
      </rect>
     </property>
@@ -341,7 +341,7 @@ margin: 0;</string>
     <widget class="QLabel" name="NoofActivePatientsLabel">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>40</x>
        <y>110</y>
        <width>171</width>
        <height>21</height>
@@ -355,57 +355,37 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="TherapyCard" native="true">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>270</y>
-      <width>231</width>
-      <height>151</height>
+      <x>640</x>
+      <y>250</y>
+      <width>382</width>
+      <height>439</height>
      </rect>
     </property>
-    <widget class="QLabel" name="ct_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>201</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Therapies Completed</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="TherapiesCompletedLabel">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>181</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>0</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/imagePath/therapist-dashboard.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
+   <zorder>label_2</zorder>
    <zorder>HomeLabel</zorder>
    <zorder>frame_2</zorder>
    <zorder>PatientCard</zorder>
    <zorder>NumpatientCard</zorder>
-   <zorder>TherapyCard</zorder>
    <zorder>sideFrame</zorder>
   </widget>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
-  <include location="../font/fonts.qrc"/>
   <include location="../Images/images.qrc"/>
+  <include location="../font/fonts.qrc"/>
  </resources>
  <connections/>
 </ui>

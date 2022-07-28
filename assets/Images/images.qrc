@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="imagePath">
+    <file>patient-dashboard.png</file>
+    <file>therapist-dashboard.png</file>
     <file>register.png</file>
     <file>splash-poses.png</file>
   </qresource>

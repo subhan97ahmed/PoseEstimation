@@ -388,58 +388,36 @@ margin: 0;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="NextAppointmentCard" native="true">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>270</y>
-      <width>231</width>
-      <height>151</height>
+      <x>640</x>
+      <y>300</y>
+      <width>382</width>
+      <height>439</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #FFFFFF;</string>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/imagePath/patient-dashboard.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
-    <widget class="QLabel" name="ct_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>201</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Next Appointment</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="DateLabel">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>181</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>DD/MM/YYYY</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
+   <zorder>label_2</zorder>
    <zorder>DashboarLabel</zorder>
    <zorder>frame_2</zorder>
    <zorder>NoOfExCompletedCard</zorder>
    <zorder>PrescribedExCard</zorder>
    <zorder>frame</zorder>
-   <zorder>NextAppointmentCard</zorder>
   </widget>
  </widget>
  <resources>
   <include location="../icons/icons.qrc"/>
+  <include location="../Images/images.qrc"/>
  </resources>
  <connections/>
 </ui>
