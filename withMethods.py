@@ -567,25 +567,25 @@ def startExercise(exerciseName, target_angle, rep_count):
                             (10, 60),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
-                cv2.putText(image, 'L REPS', (15, 12),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(image, str(l_counter),
-                            (10, 60),
-                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+                # cv2.putText(image, 'L REPS', (15, 12),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+                # cv2.putText(image, str(l_counter),
+                #             (10, 60),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
                 # Stage data
                 # todo change coordinates so both don't overlay each other
-                cv2.putText(image, 'L STAGE', (65, 12),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(image, str(l_stage),
-                            (60, 60),
-                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
-
-                cv2.putText(image, 'R STAGE', (65, 12),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
-                cv2.putText(image, str(r_stage),
-                            (60, 60),
-                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+                # cv2.putText(image, 'L STAGE', (65, 12),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+                # cv2.putText(image, str(l_stage),
+                #             (60, 60),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
+                #
+                # cv2.putText(image, 'R STAGE', (65, 12),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
+                # cv2.putText(image, str(r_stage),
+                #             (60, 60),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
                 # Render Detections
                 mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
@@ -1066,6 +1066,186 @@ def startExercise(exerciseName, target_angle, rep_count):
             cap.release()
             cv2.destroyAllWindows()
             return score
+    if exerciseName == "thumb touch":
+        # for pose
+        mp_drawing = mp.solutions.drawing_utils
+        mp_pose = mp.solutions.holistic
+        noOfFrames = 0
+        distance_between_r_thumb_r_index = 0
+        distance_between_r_thumb_r_middle = 0
+        distance_between_r_thumb_r_ring = 0
+        distance_between_r_thumb_r_pinky = 0
+        cap = cv2.VideoCapture(0)
+        # Setup mediapipe instance
+        with mp_pose.Holistic(min_tracking_confidence=0.5, min_detection_confidence=0.5, ) as pose:
+            while cap.isOpened():
+                ret, frame = cap.read()
+                h, w, c = frame.shape
+                # Recolor image to RGB
+                image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                image.flags.writeable = False
+
+                # Make detection
+                results = pose.process(image)
+
+                # Recolor back to BGR
+                image.flags.writeable = True
+                image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+                noOfFrames = noOfFrames + 1
+                # Extract landmarks
+                try:
+                    # todo do this for left hand too
+                    landmarks = results.right_hand_landmarks.landmark
+                    # todo move this to if statement if we get low frames per second
+                    # Get coordinates
+                    r_thumb_tip = [landmarks[mp_pose.HandLandmark.THUMB_TIP.value].x,
+                                   landmarks[mp_pose.HandLandmark.THUMB_TIP.value].y]
+
+                    r_index_tip = [landmarks[mp_pose.HandLandmark.INDEX_FINGER_TIP.value].x,
+                                   landmarks[mp_pose.HandLandmark.INDEX_FINGER_TIP.value].y]
+
+                    r_middle_tip = [landmarks[mp_pose.HandLandmark.MIDDLE_FINGER_TIP.value].x,
+                                    landmarks[mp_pose.HandLandmark.MIDDLE_FINGER_TIP.value].y]
+                    r_ring_tip = [landmarks[mp_pose.HandLandmark.RING_FINGER_TIP.value].x,
+                                  landmarks[mp_pose.HandLandmark.RING_FINGER_TIP.value].y]
+                    r_pinky_tip = [landmarks[mp_pose.HandLandmark.PINKY_TIP.value].x,
+                                   landmarks[mp_pose.HandLandmark.PINKY_TIP.value].y]
+
+                    # for first 100 frames user will do index and thumb and then move to other finger
+                    if noOfFrames < 100:
+                        # convert normalized landmarks to pixel coordinates
+                        none_normalized_r_index_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_index_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_index_tip[
+                                                                                                      1])
+                        none_normalized_r_thumb_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_thumb_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_thumb_tip[
+                                                                                                      1])
+                        distance_between_r_thumb_r_index = distanceBetweenTwoLandmarks(
+                            none_normalized_r_index_tip,
+                            none_normalized_r_thumb_tip)
+
+                        image = cv2.line(image, none_normalized_r_index_tip,
+                                         none_normalized_r_thumb_tip,
+                                         thickness=2, color=(0, 255, 0))
+                        cv2.putText(image, str(distance_between_r_thumb_r_index),
+                                    tuple(np.multiply(r_index_tip, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                    elif noOfFrames < 200:
+                        none_normalized_r_middle_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                   image_height=h,
+                                                                                                   normalized_x=
+                                                                                                   r_middle_tip[
+                                                                                                       0],
+                                                                                                   normalized_y=
+                                                                                                   r_middle_tip[
+                                                                                                       1])
+                        none_normalized_r_thumb_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_thumb_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_thumb_tip[
+                                                                                                      1])
+                        distance_between_r_thumb_r_middle = distanceBetweenTwoLandmarks(
+                            none_normalized_r_middle_tip,
+                            none_normalized_r_thumb_tip)
+
+                        image = cv2.line(image, none_normalized_r_middle_tip,
+                                         none_normalized_r_thumb_tip,
+                                         thickness=2, color=(0, 255, 0))
+                        cv2.putText(image, str(distance_between_r_thumb_r_middle),
+                                    tuple(np.multiply(r_middle_tip, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                    elif noOfFrames < 300:
+                        none_normalized_r_ring_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                 image_height=h,
+                                                                                                 normalized_x=
+                                                                                                 r_ring_tip[
+                                                                                                     0],
+                                                                                                 normalized_y=
+                                                                                                 r_ring_tip[
+                                                                                                     1])
+                        none_normalized_r_thumb_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_thumb_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_thumb_tip[
+                                                                                                      1])
+                        distance_between_r_thumb_r_ring = distanceBetweenTwoLandmarks(
+                            none_normalized_r_ring_tip,
+                            none_normalized_r_thumb_tip)
+
+                        image = cv2.line(image, none_normalized_r_ring_tip,
+                                         none_normalized_r_thumb_tip,
+                                         thickness=2, color=(0, 255, 0))
+                        cv2.putText(image, str(distance_between_r_thumb_r_ring),
+                                    tuple(np.multiply(r_ring_tip, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                    elif noOfFrames < 400:
+                        none_normalized_r_pinky_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_pinky_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_pinky_tip[
+                                                                                                      1])
+                        none_normalized_r_thumb_tip = mp_drawing._normalized_to_pixel_coordinates(image_width=w,
+                                                                                                  image_height=h,
+                                                                                                  normalized_x=
+                                                                                                  r_thumb_tip[
+                                                                                                      0],
+                                                                                                  normalized_y=
+                                                                                                  r_thumb_tip[
+                                                                                                      1])
+                        distance_between_r_thumb_r_pinky = distanceBetweenTwoLandmarks(
+                            none_normalized_r_pinky_tip,
+                            none_normalized_r_thumb_tip)
+
+                        image = cv2.line(image, none_normalized_r_pinky_tip,
+                                         none_normalized_r_thumb_tip,
+                                         thickness=2, color=(0, 255, 0))
+                        cv2.putText(image, str(distance_between_r_thumb_r_pinky),
+                                    tuple(np.multiply(r_pinky_tip, [640, 480]).astype(int)),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA
+                                    )
+                except:
+                    pass
+
+                # Render detections
+                mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_pose.HAND_CONNECTIONS,
+                                          mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
+                                          mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
+                                          )
+                cv2.imshow('Exercise Feed', image)
+                if cv2.waitKey(10) & 0xFF == ord('q'):
+                    break
+
+            cap.release()
+            cv2.destroyAllWindows()
+            print(noOfFrames)
+            print("distances")
+            print(distance_between_r_thumb_r_index)
+            print(distance_between_r_thumb_r_middle)
+            print(distance_between_r_thumb_r_ring)
+            print(distance_between_r_thumb_r_pinky)
+
     # return exerciseName
 
 
@@ -1258,6 +1438,6 @@ def sessionExercise(exerciseName):
 
 exerciseNames = ["wrist curl", "thumb flex", "squat", "arm curl", "jumping jacks", "high knee", "shoulder shrug",
 "lateral raises", "quad stretch"]
-# name = startExercise(str(exerciseNames[3]),125,10)
+name = startExercise(str(exerciseNames[3]),125,10)
 # print(name)
 # sessionExercise("thumb touch")
