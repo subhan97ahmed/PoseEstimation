@@ -1,6 +1,6 @@
 # Posefect
 In Pakistan, 70% of the people live in villages, making it physically and financially hard
-for them to receive adequate help [1] [2] [20]. A single physiotherapy session can cost around
+for them to receive adequate help. A single physiotherapy session can cost around
 500-3000 PKR, which can become kind of expensive if the patient needs more than one
 session, and the constant travel to the therapist can cause distress as well. This
 The project aims to create a platform where patients can perform exercises at their homes
